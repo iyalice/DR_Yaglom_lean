@@ -1,0 +1,8 @@
+import DerridaRetaux.Spine.InfinitePath
+import DerridaRetaux.Main.MomentLaplaceRegularity
+
+#check DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
+#print axioms DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
+
+#check DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives
+#print axioms DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives

@@ -8,19 +8,27 @@ independent copies, focusing on exact survival asymptotics, the scaling
 profile of the tilted distribution, and a geometric conditional limit
 under a finite third exponentially tilted moment assumption.
 
-## Current status
+## Lean formalization
 
-This is a preliminary research draft, shared to provide a dated record of
-the work. The mathematical proof draft was generated with AI assistance
-and has been manually checked by the authors. Further revision is planned.
-Lean 4 formal verification has not yet been completed. Section 1.5 of the
-manuscript describes the use of AI and the current verification status.
+The [Lean project](lean/README.md) is now included in `lean/`. The revised project passed a full Lean 4.19.0 build on September 12, 2026: all 283 root-project modules, 419 source-ledger declarations, and 382 additional axiom-audit declarations passed their respective checks.
 
-**We plan to add the accompanying Lean 4 formalization as soon as possible.**
-No Lean development is included in this repository yet, and the current
-release does not claim completed formal verification. When the formalization
-is added, we will document how to build it, which manuscript results it
-covers, and any remaining assumptions or unproved dependencies.
+The formalization accepts exactly four published inputs, isolated in [HumanInputs.lean](lean/DerridaRetaux/HumanInputs.lean). The main profile theorem depends on H1a/H1b/H2; the sharpness theorem depends on H3. See [EXTERNAL_INTERFACES.md](lean/EXTERNAL_INTERFACES.md) for their exact signatures and scope, and [AcceptanceReport.md](lean/AcceptanceReport.md) for the verification report. No Comparator verification is claimed.
+
+With elan installed, build from the repository root:
+
+```sh
+cd lean
+lake exe cache get
+lake build
+```
+
+The three correspondence ledgers and reproducible audit scripts are included in `lean/`. The latest build and audit evidence is in [lean/validation/2026-09-12](lean/validation/2026-09-12).
+
+## Manuscript provenance
+
+The authors' current manuscript records their manual checking of the mathematical arguments. Further revision is planned. The root `DR_Yaglom.tex` is preserved as published; its statement that Lean verification was not yet complete predates the completed build reported above.
+
+`lean/DR_Yaglom.tex` is the exact frozen source used for the formalization, with SHA-256 `652c080e30cfc8cb37ea9636ae74e4c0b30875e1a69db5ae81008137b5a0b82a`. At this upload, it differs from the root manuscript only in the AI/manual-review disclosure paragraph; the mathematical text is unchanged. Keeping this snapshot preserves the source hashes and line references in the audit.
 
 ## Building the manuscript
 

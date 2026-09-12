@@ -1,0 +1,652 @@
+'DerridaRetaux.squareWeightSummationByParts_source' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.inverseLinear_isIntegerRegularlyVaryingNegOne' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.profileScale_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.integrableOn_Iic_deriv_of_nonneg'' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.critical_isDirac_eq_binary' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.ProbabilityMass.ofPMF_toPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.ProbabilityMass.toPMF_ofPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_toPMF_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.continuous_gridBilinearInterp' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.gridBilinearInterp_at_node' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.natSquare_mul_log_gradient_rate_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.probabilityFirstMoment_summable_of_tiltSummable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_probabilityFirstMoment_tendsto_of_atom_limits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_probabilityFirstMoment_tendsto_of_atom_limits_and_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.conditionalFirstMoment_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbitPartition_tendsto_one_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_fixedAtom_geometric_bound_of_H1_and_pointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.boundaryDensity_tendsto_of_compact_profile_error' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.fixedAtom_tendsto_of_compact_profile_error' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbitPartition_tendsto_one_of_scaled_excess' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.survival_tendsto_of_boundary_partition_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.survival_tendsto_of_compact_profile_excess_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.survival_tendsto_of_boundary_partition_log_gradient' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.expThirdRemainder_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.expThirdRemainder_le_smallCutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityCoeff_nonneg_and_le_choose' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityE_orbit_weightedSup_order_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityE_orbit_weightedL1_order_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityR_orbit_weightedSup_order_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.smoothingRemainders_orbit_of_H1_and_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityTotalMass_eq_tiltFactor_mul_positiveTiltMass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.nat_mul_tendsto_zero_of_natSquare_mul_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_scaledExcess_tendsto_of_densityMass_and_survival' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.natCast_mul_one_sub_exp_neg_two_div_tendsto_two' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.exponentialProfile_gridMass_tendsto_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.exponentialProfileGridTail_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_tsum_tendsto_two_of_local_profile_and_weighted_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_densityTotalMass_tendsto_two_of_local_profile_and_weighted_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_positiveTiltMass_tendsto_of_local_profile_and_weighted_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.linearProfileCutoff_ratio_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityProfileL1Error_tendsto_zero_of_fixed_windows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_densityTotalMass_tendsto_two_of_fixed_windows' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.densityProfilePrefixL1Error_linearCutoff_tendsto_zero_of_compact' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_densityTotalMass_tendsto_two_of_compact_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_positiveTiltMass_tendsto_of_compact_profile' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.inversePower_succ_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.survival_sub_boundary_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.rho_sub_tiltFactor_mul_survivalReadout_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.conditionalPositiveL1Error_profile_scale_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.conditionalPositiveL1Error_isBigO_of_profile_scale' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.conditionalPositiveL1Error_eq_two_mul_totalVariation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledSurvivalReadout_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.eventually_inverseSquare_lower_of_scaled_tendsto_pos' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_conditionalPositiveL1Error_isBigO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_orbit_succ_short' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityB_orbit_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityE_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityE_weightedSup_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityE_weightedL1_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityR_weightedSup_bound_of_component_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.sub_shiftLeft_iterate_eq_shiftLeftPartialSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_sub_shiftLeft_iterate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_discreteDerivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportDefect_factor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportDefect_le_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedL1Three_conv_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_shiftByInt_nat' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_shiftLeft_iterate_gain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedL1Three_convPow_le_pow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_convPow_succ_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedConvolutionPowers_orbit_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.convolutionNorms_orbit_of_pointwise' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.shiftByInt_of_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.shiftByInt_support' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbitPositiveTilt_eq_product_shift_arrival' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalCoeff_succ_eq_formulaSource' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalCoeff_duhamel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalFormulaSource_eq_zero_of_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalKappa_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.initialArrivalU24_tendsto_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasRightEnd_noRightBoundaryAmbiguity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.isEntranceType_locallyFiniteBelow' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.Audit.deterministicCriticalClassification_without_arity_is_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.conv_assoc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.drStepSeq_hasSum_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_eq_coefficientOrbit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.lawStep_eq_drStepProb_toPMF' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.criticalProduct_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.criticalProductInclusive_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.volterraSmokeString_isEntranceType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.volterraSmokeString_hasSecondEntranceMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.volterraSmokeSolution_satisfies' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.volterraSmokeSolution_nonconstant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.volterraSmokeIntegral_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_two_diracMass_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.zeroOneCriticalLaw_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.zeroOneCriticalLaw_not_isDirac' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.powerScale_convPow_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.generatingFunction_drStep_cross' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.critical_drStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.convPow_zeroAtom_add_apply' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_orbit_succ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_drStepProb_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.thirdMomentScale_conv' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_tiltSummable_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tiltedPartition_one_le_of_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.criticalProduct_pos_of_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedTilt_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedTilt_mean' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_shiftedMean_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tiltedPartition_orbit_succ_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedTilt_orbit_succ_coeff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedTiltGeneratingFunction_orbit_succ_cross' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.binary_zero_atom_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_zeroTilt_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.one_sub_transportCoeff_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.one_subCoeff_le_quadratic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportProduct_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportProductLimit_pos_of_defect_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportCoeff_inverse_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.survival_eq_one_sub_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.excess_nonneg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.survival_le_excess_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltMass_eq_excess_add_survival_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.survival_eq_partition_mul_readout' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.atom_eq_partition_mul_rho' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.excess_orbit_decrement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.one_add_pow_sub_linear_eq_sq_mul_excessPowerCoeff' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.decrement_tendsto_of_exact_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.excess_orbit_decrement_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.integratedLaplaceSecondGap_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.integratedExpThirdRemainder_le_cutoff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.abs_normalizedIntegratedExpThirdRemainder_le_sqrt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.integratedLaplaceSecondGap_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveHalfLineMoment_A3_lower' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveHalfLineMoment_zero_and_three_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.deriv_momentLaplaceGap_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.gridBilinearInterp_family_uniformlyBoundedOn_rectangle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.gridBilinearInterp_family_equicontinuousOn_of_eventually' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.weightedSupThree_log_modulus_of_early_late' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedSupThree_gradient_of_early_late' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityInitialSegment_weightedSup_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityQuadraticSegment_derivative_weightedSup_log_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.densityLateSegment_derivative_weightedSup_log_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.truncatedSmoothingSplit_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_spatialSmoothing_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_temporalTransport_of_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_temporalModulus_of_H1_and_spatial' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.exists_gridBilinearInterp_diagonal_subsequence' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.gridNodeReadout_tendsto_of_uniformOn_exhaustion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbitScaledGrid_adjacent_le_of_gradient' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.exists_orbitScaledGrid_diagonal_subsequence_and_readout' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.transportBetween_eq_transportProduct_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_eq_transportRatio_add_quadratic_add_higher' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.discreteDerivative_densityQuadraticSegment_telescope' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.densityNonlinearSource_orbit_le_of_weightedL1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_orbit_add_le_shift_add_majorant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_pointwise_of_arrival_far' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.translate_eq_with_common_rightEnd_imp_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.translate_eq_with_common_rightEnd_imp_original_eq' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.cumulative_translate_eq_with_common_rightEnd_imp_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.kotaniCharacteristicFact_imp_cumulative_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringY' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_stringY' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_stringA2Y' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringXi_eq_neg_integral_Ioi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringXi_bijOn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringXiMassCoordinate_comp_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_stringXiMassCoordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringA2Y_two_sided' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringXiMassCoordinate_two_sided' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.stringDensityCoefficient_vs_coordinate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedCubicMoment_drStep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedCubicMoment_orbit_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedCubicMoment_eqJ' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedTilt_lowMoments_orbit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.finiteThirdMoment_implies_cubic_tail_limits' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedL1Three_positiveTiltedDensity_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_firstShifted_tsum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_weightedMass_orbit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbitTransportDefect_summable' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportProduct_tendsto_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportProduct_mul_zeroTilt_le_orbitZeroTilt' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbitZeroTilt_inverse_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.quadraticDensityAt_lipschitz_on_unit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.coefficientVariation_orbit_of_H1a_and_pointwise' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.firstTiltedAtom_eq_theta_sub_theta_succ_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.firstTiltedAtomTail_bound_all' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.firstTiltedAtom_squareWeight_sum_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.firstTiltedAtom_squareWeight_sum_linear_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalInitialIndex_injective' depends on axioms: [propext, Quot.sound]
+'DerridaRetaux.sum_range_sum_range_triangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalInitialBlock_le_coefficientTail_of_cubic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.shiftedCubicMoment_convPow_summable_and_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.coefficientTail_le_shiftedCubicMoment_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalMomentTail_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.SourceMonomialTag.valid_branch_trichotomy' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.SourceMonomialTag.tailThreshold_twice_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalFormulaSource_sub_eq_fullyExpanded' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.actual_sourceDifference_terms_have_valid_tags' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sourceFactorValue_eq_coreNormalForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sourceFunctionExpandedTerm_eq_tagNormalForm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.actual_sourceDifference_terms_have_valid_normalForms' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.sourceShiftChange_eq_zero_of_degree_two' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSizeBiasedLaw' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSpineKernel_two_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSizeBiasedPMF_bind_cubicSpineKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.spineMarginalPMF_bind_spineKernel' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSpineExpectedPositiveIncrement_eq_ratio' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSpineExpectedPositiveIncrement_le_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.spinePathPMF_initial_marginal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.spinePathPMF_terminal_marginal' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.spinePath_positiveVariation_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.spinePathExpectedPositiveVariation_le_four_mul' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.spineSharpTail_le_initial_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.profileThirdTail_quadratic_of_concreteSpine' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.profileThirdTail_uniform_integrability_of_concreteSpine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.FixedArity.cubicWeightedChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.FixedArity.thirdMomentTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.spineMarginal_eq_zero_of_carrier_eq_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicAllocation_hasSum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicAllocationWeight_hasSum_one' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicAllocation_carrier_identity' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.cubicSpineOutputMass_eq_nextSizeBiased' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.normalizedFactorialTwo_sq_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.criticalSpineIncrementRatio_le_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.weightedPathTail_le_initial_add' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.profileThirdTail_quadratic_of_spineTail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.profileThirdTail_uniform_integrability_of_spineTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.sharpnessPowerLaw_critical' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sharpnessPowerLaw_not_tiltSummable_three' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sharpnessCriticalInitialData' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sharpnessPowerLaw_stableProduct_parameters' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sharpnessPowerLaw_product_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.no_eventual_subquadratic_poweredPrefixProduct_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.summable_partition_excess_sq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.partition_log_sum_div_log_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_criticalProduct_sub_two_log_isLittleO' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sharpnessPowerLaw_not_partition_excess_limit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.exists_critical_law_with_finite_real_tilt_and_no_profile_excess_limit' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.FixedArity.sharpness_core' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.FixedArity.sharpness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.chenShi_stable_product]
+'DerridaRetaux.FixedArity.cubicMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.firstTiltedAtomTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper]
+'DerridaRetaux.FixedArity.arrivalRecursion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalFormulaSource_sub_tailControlled_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalFormulaSource_sub_tail_bound_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalCoeff_far_bound_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.arrivalCoeff_scaled_far_constant_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_pointwise_of_H1' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.FixedArity.sourceDifference' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.farArrivalBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.pointwiseBound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.smoothingTwoParameter' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.smoothing' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.profileDensityMomentTail_uniform_integrability_of_spineTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledDiscreteMoment_tendsto_of_heads_and_uniform_tails_along' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.profileDensityMoment_tendsto_of_compact_heads_and_spineTail_along' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.integral_cubicTail_le_of_finiteMeasure_tendsto_eventually' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.integral_cubicTail_scaledLatticeMeasure_eq_all' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.limit_cubicTail_le_of_scaledLatticeMeasuresAlong_tendsto_eventually' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.finiteMeasure_tendsto_of_compact_integrals_and_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledLatticeMeasuresAlong_tendsto_of_compact_sums_and_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledLatticeMeasuresAlong_tendsto_finiteDensityMeasure' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.latticeLeftRiemannSum_tendsto_intervalIntegral' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.compact_lattice_sums_tendsto_of_locallyUniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.continuousOn_gluedExhaustionTimeOneSlice_Ici' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.locallyUniformLatticeDensity_of_orbitScaledGrid_exhaustionLimits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.gluedExhaustionTimeOneSlice_nonneg_of_exhaustionLimits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledLatticeMeasuresAlong_tendsto_finiteDensityMeasure_of_locallyUniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaledLatticeMeasuresAlong_tendsto_of_exhaustionLimits' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaled_conv_eq_lattice_product_sum' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.latticeSelfConvolutionSum_tendsto_moving' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_conv_tendsto_moving_of_locallyUniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_conv_gridIndex_tendsto_of_locallyUniform_of_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.shiftRightPow_apply_eq_ite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_shiftRightPow_conv_gridIndex_tendsto_of_nonneg' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaled_conv_uniform_on_compact_away_zero_of_locallyUniform' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_rho_scaled_conv_uniform_on_compact_away_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_orbit_succ_fullRhoSource' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.seq_recurrence_apply_eq_transport_add_forcing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.positiveTiltedDensity_orbit_apply_eq_discreteMildDuhamel' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.densityHigherSegment_supLE_of_order_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityHigherSegment_scaled_abs_le_const_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityHigherSegment_scaled_tendsto_zero_of_order_four_on_annulus' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.densityHigherSegment_orbit_scaled_tendsto_zero_on_annulus' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasIntegralDerivativeOn_of_tendstoUniformly_of_tendstoInL1On' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasIntegralDerivativeOn_Icc_of_local_uniform_and_L1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.HasIntegralDerivativeOn.hasDerivAt_of_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.HasIntegralDerivativeOn.contDiffOn_Ioo_of_continuousOn_Icc' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.natFloor_window_div_cofinal_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_densityD_natFloor_tendsto_half_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.orbit_densityD_uniform_after_natFloor_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.transportBetween_orbit_tendsto_one_along_of_H1a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.transportBetween_orbit_uniform_on_natFloor_window_of_H1a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.terminalTransportWeight_orbit_natFloor_window_uniform_of_H1a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.gridTimeArraySum_tendsto_of_uniform_approximation_on_Ioi' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasTimeIntegratedWeakEquationOn_of_pointwise_derivative' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasWeakEquationOn_of_pointwise_weak_derivatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasIntegralDerivativeOn_weakObservable_of_integratedWeakEquation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasTimeIntegratedWeakEquationOn_iff_hasIntegralDerivativeOn' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.locallyUniformLatticeDensity_of_eventually' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.locallyUniformLatticeDensity_of_eventually_epsilon' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.locallyUniformLatticeDensity_of_gluedExhaustion_at_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.locallyUniformLatticeDensity_orbit_of_gluedExhaustion_at_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_rho_scaled_conv_tendsto_of_gluedExhaustion_at_time' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.locallyUniformSpacetimeLatticeDensity_orbit_of_gluedExhaustion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.continuousOn_gluedExhaustionLimit_rectangle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendstoUniformlyOn_gluedExhaustionLimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_conv_shifted_floor_window_uniform' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.densityQuadraticWeight_natFloor_window_uniform_of_H1a' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.quadraticDuhamelGridSum_tendsto_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_densityQuadraticSegment_tendsto_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_densityInitialSegment_tendsto_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaled_densityHigherSegment_floor_tendsto_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.scaled_terminalDensity_tendsto' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.continuousOn_shiftedConvolutionTimeIntegral' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.gluedExhaustionLimit_mild_pos_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.gluedExhaustionLimit_mild_zero_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.gluedExhaustionLimit_mild_of_H1a' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructed_stringCumulative_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_constructed_stringCumulative_nhds_top' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEntranceString_isEntranceType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEntranceString_hasSecondEntranceMoment' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.constructedEntranceString_correctRightEnd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEntranceString_hasRightEnd_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedPhi_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_timeOfNegativeCoordinate_atBot_nhdsGT_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.tendsto_constructedEndpointSolution_add_id_atBot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedEndpointSolution_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedEndpointSlope_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_constructedEndpointSlope_atBot' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasSingularCharacteristic_of_endpoint_representation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.constructedEndpointAtTime_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEndpointSolution_pos_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.strictAntiOn_constructedEndpointSolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedPhi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedEndpointAtTime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEndpointAtTime_le_Y_mul_A2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_constructedEndpointAtTime_atTop_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_timeOfNegativeCoordinate_orderIso_nhdsLT_zero_atTop' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.tendsto_constructedEndpointSolution_nhdsLT_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedEndpointSolution_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_constructedEndpointSlope_at' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.constructedEndpointAtTime_add_coordinate_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_constructedEndpoint_add_coordinate_at_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.model_stringCumulative_of_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_model_stringCumulative_nhdsLT_zero_top' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.modelEntranceString_isEntranceType' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelEntranceString_hasSecondEntranceMoment' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelEntranceString_correctRightEnd' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelEntranceString_hasRightEnd_zero' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelStringEntranceSolution_isVolterra' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelEntranceString_hasSingularCharacteristic' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.sourceModelEntranceString_hasSingularCharacteristic' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.modelStringEndpointSolution_pos' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelStringEndpointSolutionDeriv_neg' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.strictAntiOn_modelStringEndpointSolution' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelStringEndpointSolution_ode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.modelStringEndpointSolution_secondODE' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.tendsto_modelStringEndpointSolutionDeriv_atBot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.tendsto_modelStringEndpointSolution_nhdsLT_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.tendsto_modelStringEndpointSolution_add_id_atBot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.physicalTimeCoordinate_eq_neg_div' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.physicalTimeScale_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.physicalTimeZerothMoment_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.physicalTimePhi_eq_of_modelDerivative' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.hasDerivAt_physicalTimePhi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.physicalTimeLaplaceGap_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.physicalTimeLaplaceTransform_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.integrableOn_pow_mul_of_locallyUniform_and_momentBound_Ici' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_scaledDiscreteMoment_eventually_bounded_of_weightedL1' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.softScaledDiscreteMoment_sandwich' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaledDiscreteMoment_tendsto_of_locallyUniform_and_uniformTails' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.orbit_scaledDiscreteMoment_le_envelope' depends on axioms: [propext, Classical.choice, Quot.sound]
+'DerridaRetaux.scaledLatticeMeasuresAlong_tendsto_of_locallyUniform_and_mass' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'DerridaRetaux.FixedArity.subsequentialMildEquation' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.subsequentialMoment_integrable' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.subsequentialMoment_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.subsequentialMoment_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]
+'DerridaRetaux.FixedArity.subsequentialThirdMomentTail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]

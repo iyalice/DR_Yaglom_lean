@@ -1,0 +1,6 @@
+LEDGERS_OK statements=15 equations=82 unnumbered=62
+statement_statuses=15_proved+0_partial+0_unformalized
+equation_statuses=73_proved+9_definition+0_partial+0_open
+unnumbered_statuses=62_proved+0_blocked
+unnumbered_progress=62_complete+0_partial+0_open
+labels=true paths=true all_source_decls=true inputs=true

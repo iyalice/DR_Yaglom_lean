@@ -1,0 +1,25 @@
+{
+  "status": "COMPILED_AND_AXIOMS_CHECKED",
+  "ledger_declarations": 419,
+  "public_theorem_custom_axioms": {
+    "cubicWeightedInfiniteChain": [],
+    "momentLaplaceLocalIntegralDerivatives": [
+      "DerridaRetaux.HumanInputs.cdhls_excess_upper",
+      "DerridaRetaux.HumanInputs.cdhls_product_upper"
+    ],
+    "profile": [
+      "DerridaRetaux.HumanInputs.cdhls_excess_upper",
+      "DerridaRetaux.HumanInputs.cdhls_product_upper",
+      "DerridaRetaux.HumanInputs.kotani_characteristic_eq_implies_translate"
+    ],
+    "sharpness": [
+      "DerridaRetaux.HumanInputs.chenShi_stable_product"
+    ]
+  },
+  "sources_sha256": {
+    "DR_Yaglom.tex": "652c080e30cfc8cb37ea9636ae74e4c0b30875e1a69db5ae81008137b5a0b82a",
+    "DerridaRetaux/HumanInputs.lean": "2f35158a78164c7ffe0e8def2049a5c6c9a747fa3671b38965110677752f465e",
+    "DerridaRetaux/Spine/InfinitePath.lean": "bdd042dcad5f58608eb887281254a40a2d323fa33803d8f1cf115ad44c1d52dd",
+    "DerridaRetaux/Main/MomentLaplaceRegularity.lean": "5f62a040ae4790f1e6d8495014a2b0eaab91932c8cea329cffca3c7f1360c592"
+  }
+}

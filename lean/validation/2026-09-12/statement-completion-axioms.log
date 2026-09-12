@@ -1,0 +1,38 @@
+DerridaRetaux.FixedArity.cubicWeightedInfiniteChain (m : ℕ) (data : DerridaRetaux.ProfileInitialData m) :
+  ∃ μ,
+    MeasureTheory.IsProbabilityMeasure μ ∧
+      (∀ (n : ℕ), MeasureTheory.Measure.map (fun w i => w ↑i) μ = (DerridaRetaux.spinePathPMF m data n).toMeasure) ∧
+        (∀ (n : ℕ), MeasureTheory.Measure.map (fun w => w n) μ = (DerridaRetaux.spineMarginalPMF m data n).toMeasure) ∧
+          ∀ (n : ℕ),
+            MeasureTheory.Measure.map (fun w => (fun i => w ↑i, w (n + 1))) μ =
+              ((DerridaRetaux.spinePathPMF m data n).bind fun u =>
+                  PMF.map (fun k => (u, k))
+                    (DerridaRetaux.spineKernel m data n (DerridaRetaux.finPathTerminal u))).toMeasure
+'DerridaRetaux.FixedArity.cubicWeightedInfiniteChain' depends on axioms: [propext, Classical.choice, Quot.sound]
+DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives (m : ℕ) (data : DerridaRetaux.ProfileInitialData m)
+  (phi : ℕ → ℕ) (g : (k : ℕ) → BoundedContinuousFunction ↑(DerridaRetaux.gridExhaustionRectangle k) ℝ)
+  (hphi : Filter.Tendsto phi Filter.atTop Filter.atTop)
+  (hlim :
+    ∀ (k : ℕ),
+      TendstoUniformly
+        (fun n q =>
+          DerridaRetaux.gridBilinearInterp (phi n) (DerridaRetaux.orbitScaledGrid m data.law (phi n)) (↑q).1 (↑q).2)
+        (fun q => (g k) q) Filter.atTop) :
+  let A := fun r t => DerridaRetaux.continuumMoment (fun x => DerridaRetaux.gluedExhaustionLimit g t x) r;
+  let U := fun t p => DerridaRetaux.continuumLaplace (fun x => DerridaRetaux.gluedExhaustionLimit g t x) p;
+  let beta := fun t => DerridaRetaux.gluedExhaustionLimit g t 0;
+  ∀ (a b : ℝ),
+    0 < a →
+      a ≤ b →
+        DerridaRetaux.HasIntegralDerivativeOn (A 0) (fun t => -beta t + 1 / 2 * A 0 t ^ 2) (Set.Icc a b) ∧
+          DerridaRetaux.HasIntegralDerivativeOn (A 2) (fun t => A 0 t * A 2 t - 1) (Set.Icc a b) ∧
+            DerridaRetaux.HasIntegralDerivativeOn (A 3) (fun t => A 0 t * A 3 t) (Set.Icc a b) ∧
+              ∀ (p : ℝ),
+                0 ≤ p →
+                  DerridaRetaux.HasIntegralDerivativeOn (fun t => U t p)
+                    (fun t => p * U t p + 1 / 2 * U t p ^ 2 - beta t) (Set.Icc a b)
+'DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound,
+ DerridaRetaux.HumanInputs.cdhls_excess_upper,
+ DerridaRetaux.HumanInputs.cdhls_product_upper]

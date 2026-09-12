@@ -1,0 +1,586 @@
+✔ [386/516] Built ProofWidgets.Util
+✔ [1648/1727] Built DerridaRetaux.Basic.Sequence
+✔ [2781/2786] Built ProofWidgets.Component.PenroseDiagram
+✔ [2783/2796] Built ProofWidgets.Presentation.Expr
+✔ [2790/2798] Built ProofWidgets.Component.HtmlDisplay
+✔ [2795/2798] Built DerridaRetaux.Basic.ProbabilityMass
+✔ [2797/2840] Built DerridaRetaux.Basic.PMFBridge
+✔ [2811/2842] Built DerridaRetaux.Analysis.TransportPolynomial
+✔ [2822/2846] Built DerridaRetaux.Basic.Convolution
+✔ [2824/2846] Built DerridaRetaux.Model.Recursion
+✔ [2825/2847] Built DerridaRetaux.Basic.WeightedConvolution
+✔ [2826/2847] Built DerridaRetaux.Basic.RecursionBridge
+✔ [2827/2847] Built DerridaRetaux.Model.Tilted
+✔ [2829/2852] Built DerridaRetaux.Model.GeneratingFunction
+✔ [2830/2855] Built DerridaRetaux.Model.TiltedProperties
+✔ [2833/2855] Built DerridaRetaux.Model.Criticality
+✔ [2834/2855] Built DerridaRetaux.Model.NormalizedTilt
+✔ [2837/2855] Built DerridaRetaux.Model.MomentPropagation
+✔ [2838/2855] Built DerridaRetaux.Model.TiltedRecursion
+✔ [2840/2855] Built DerridaRetaux.Prelim.CubicMoment
+✔ [2841/2855] Built DerridaRetaux.Model.ZeroAtom
+✔ [2843/2855] Built DerridaRetaux.Spine.SizeBiased
+✔ [2844/2857] Built DerridaRetaux.Model.TransportCoefficient
+✔ [2846/2858] Built DerridaRetaux.Spine.Allocation
+✔ [2849/2858] Built DerridaRetaux.Spine.IncrementBound
+✔ [2850/2861] Built DerridaRetaux.Spine.OutputMarginal
+✔ [2853/2865] Built DerridaRetaux.Spine.FactorialCauchy
+✔ [2855/2865] Built DerridaRetaux.Spine.Kernel
+✔ [2856/2865] Built DerridaRetaux.Spine.PathTail
+✔ [2857/2872] Built DerridaRetaux.Spine.CompanionExpectations
+✔ [2861/2921] Built DerridaRetaux.Spine.Coupling
+✔ [2908/2921] Built DerridaRetaux.Rigidity.EntranceStringBase
+✔ [2911/2921] Built DerridaRetaux.Model.Observables
+✔ [2914/2921] Built DerridaRetaux.ExternalSignatures
+✔ [2916/2922] Built DerridaRetaux.Model.CoarseRelations
+✔ [2919/2922] Built DerridaRetaux.HumanInputs
+✔ [2921/2934] Built DerridaRetaux.Spine.InfinitePath
+✔ [2947/2977] Built DerridaRetaux.Prelim.WeightedMass
+✔ [2950/2978] Built DerridaRetaux.Analysis.GridInterpolation
+ℹ [2952/2978] Built DerridaRetaux.Analysis.LogRate
+info: ././././DerridaRetaux/Analysis/LogRate.lean:48:4: Try this: ring_nf
+✔ [2953/2978] Built DerridaRetaux.Arrival.IntegerShift
+✔ [2956/2996] Built DerridaRetaux.Model.DensityRecursion
+✔ [2957/2996] Built DerridaRetaux.Analysis.GridEquicontinuity
+✔ [2959/2997] Built DerridaRetaux.Analysis.WeightedNorm
+✔ [2961/2997] Built DerridaRetaux.Analysis.SmoothingAlgebra
+✔ [2963/2997] Built DerridaRetaux.Analysis.GridCompactness
+✔ [2965/2997] Built DerridaRetaux.Analysis.SpatialTelescoping
+✔ [2967/2997] Built DerridaRetaux.Analysis.ConvolutionNorms
+✔ [2969/2998] Built DerridaRetaux.Analysis.GluedExhaustionLimit
+✔ [2970/2998] Built DerridaRetaux.Prelim.AtomTail
+⚠ [2971/3004] Built DerridaRetaux.Analysis.GluedCompactBox
+warning: ././././DerridaRetaux/Analysis/GluedCompactBox.lean:21:36: unused variable `hetaT`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [2973/3005] Built DerridaRetaux.Prelim.CoarseMomentBounds
+✔ [2976/3005] Built DerridaRetaux.Prelim.WeightedMassOrbit
+✔ [2977/3005] Built DerridaRetaux.Spine.ThirdTail
+✔ [2980/3008] Built DerridaRetaux.Analysis.OrbitConvolutionBounds
+✔ [2981/3034] Built DerridaRetaux.Analysis.MomentPassage
+✔ [2983/3034] Built DerridaRetaux.Analysis.SmoothingBounds
+⚠ [2985/3112] Built DerridaRetaux.Analysis.LimitTail
+warning: ././././DerridaRetaux/Analysis/LimitTail.lean:139:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././DerridaRetaux/Analysis/LimitTail.lean:228:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [2988/3140] Built DerridaRetaux.Analysis.WeightedMomentBound
+✔ [2989/3140] Built DerridaRetaux.Spine.ConcreteTail
+✔ [2990/3140] Built DerridaRetaux.Analysis.TruncatedTelescope
+✔ [2991/3140] Built DerridaRetaux.Model.TransportLimit
+✔ [2992/3140] Built DerridaRetaux.Analysis.LogSmoothingArithmetic
+✔ [2993/3140] Built DerridaRetaux.Analysis.SmoothingOrbitBounds
+✔ [2995/3141] Built DerridaRetaux.Analysis.LatticeMeasure
+✔ [2998/3141] Built DerridaRetaux.Analysis.PositiveHalfStripContinuity
+⚠ [2999/3141] Built DerridaRetaux.Analysis.ShrinkingIntervalDerivative
+warning: ././././DerridaRetaux/Analysis/ShrinkingIntervalDerivative.lean:32:22: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+✔ [3000/3141] Built DerridaRetaux.Arrival.ArrivalRecursion
+✔ [3001/3141] Built DerridaRetaux.Prelim.FarTail
+✔ [3002/3141] Built DerridaRetaux.Arrival.SourceTags
+✔ [3003/3141] Built DerridaRetaux.Prelim.AtomTailAbel
+✔ [3004/3141] Built DerridaRetaux.Analysis.UniformProductHalf
+✔ [3005/3141] Built DerridaRetaux.Analysis.UniformWindowError
+✔ [3006/3141] Built DerridaRetaux.Model.Readout
+✔ [3007/3141] Built DerridaRetaux.Analysis.PositiveTimeContinuity
+✔ [3008/3141] Built DerridaRetaux.Analysis.LocalACClosure
+✔ [3009/3141] Built DerridaRetaux.Analysis.ExpRemainder
+✔ [3010/3141] Built DerridaRetaux.Main.SpineCore
+✔ [3011/3141] Built DerridaRetaux.Prelim.TransportUniform
+✔ [3012/3141] Built DerridaRetaux.Analysis.CoefficientVariation
+✔ [3015/3193] Built DerridaRetaux.Analysis.LatticeWeakConvergence
+✔ [3018/3193] Built DerridaRetaux.Analysis.BoundaryPointwise
+✔ [3019/3193] Built DerridaRetaux.Arrival.InitialTail
+✔ [3020/3193] Built DerridaRetaux.Arrival.VisitOnce
+✔ [3021/3193] Built DerridaRetaux.Analysis.ReadoutBounds
+✔ [3022/3193] Built DerridaRetaux.Analysis.IntegratedRemainder
+✔ [3023/3193] Built DerridaRetaux.Analysis.MildCoefficientLimits
+✔ [3024/3194] Built DerridaRetaux.Analysis.TemporalSmoothing
+✔ [3027/3194] Built DerridaRetaux.Rigidity.CharacteristicReduction
+✔ [3028/3194] Built DerridaRetaux.Rigidity.Translation
+✔ [3029/3194] Built DerridaRetaux.Arrival.MomentTail
+ℹ [3030/3194] Built DerridaRetaux.Analysis.ProfileConsequences
+info: ././././DerridaRetaux/Analysis/ProfileConsequences.lean:134:2: Try this: ring_nf
+info: ././././DerridaRetaux/Analysis/ProfileConsequences.lean:236:6: Try this: ring_nf
+✔ [3031/3194] Built DerridaRetaux.Analysis.LaplaceGap
+✔ [3032/3196] Built DerridaRetaux.Analysis.GridReadout
+✔ [3036/3196] Built DerridaRetaux.Arrival.SourceDifference
+✔ [3037/3196] Built DerridaRetaux.Analysis.LatticeRiemannLimit
+✔ [3039/3198] Built DerridaRetaux.Analysis.HalfLineIntegrability
+✔ [3042/3198] Built DerridaRetaux.Arrival.SourceNormalForm
+✔ [3043/3198] Built DerridaRetaux.Analysis.SpacetimeLatticeDensity
+✔ [3044/3198] Built DerridaRetaux.Analysis.EventuallyLocalUniform
+✔ [3045/3198] Built DerridaRetaux.Analysis.QuadraticConvolutionLimit
+✔ [3046/3198] Built DerridaRetaux.Rigidity.StringCoordinates
+✔ [3047/3198] Built DerridaRetaux.Rigidity.ModelString
+⚠ [3048/3198] Built DerridaRetaux.Analysis.ImproperFTCNonneg
+warning: ././././DerridaRetaux/Analysis/ImproperFTCNonneg.lean:27:77: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3049/3200] Built DerridaRetaux.Analysis.ContinuumMomentIntegrability
+warning: ././././DerridaRetaux/Analysis/ContinuumMomentIntegrability.lean:63:13: unused variable `hr`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3051/3200] Built DerridaRetaux.Arrival.SourceBounds
+✔ [3052/3200] Built DerridaRetaux.Analysis.SpacetimeMovingReadout
+✔ [3053/3200] Built DerridaRetaux.Analysis.UniformLatticeCriterion
+✔ [3054/3200] Built DerridaRetaux.Analysis.ConvolutionTriangle
+✔ [3055/3200] Built DerridaRetaux.Analysis.PositiveConvolutionNonneg
+✔ [3056/3200] Built DerridaRetaux.Analysis.ConvolutionContinuity
+✔ [3057/3200] Built DerridaRetaux.Analysis.PositiveConvolutionMoments
+✔ [3058/3200] Built DerridaRetaux.Analysis.TimeRiemannLimit
+✔ [3059/3200] Built DerridaRetaux.Rigidity.StringAdmissibility
+⚠ [3060/3200] Built DerridaRetaux.Rigidity.ConstructedSolution
+warning: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:198:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:229:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:272:2: Try this: ring_nf
+✔ [3061/3200] Built DerridaRetaux.Rigidity.PhysicalTime
+✔ [3062/3200] Built DerridaRetaux.Rigidity.ModelEndpointProperties
+✔ [3063/3200] Built DerridaRetaux.Rigidity.EndpointReductionIntegral
+✔ [3064/3200] Built DerridaRetaux.Analysis.MomentConvergenceFromLocal
+✔ [3065/3200] Built DerridaRetaux.Analysis.HalfLineMomentTransfer
+✔ [3069/3200] Built DerridaRetaux.Arrival.SourceDifferenceBound
+✔ [3070/3200] Built DerridaRetaux.Analysis.ConvolutionContinuityOn
+✔ [3071/3200] Built DerridaRetaux.Analysis.PositiveConvolutionLaplace
+✔ [3072/3200] Built DerridaRetaux.Analysis.PositiveConvolutionHigherMoments
+✔ [3073/3200] Built DerridaRetaux.Analysis.GluedTimeSlice
+⚠ [3074/3200] Built DerridaRetaux.Analysis.OrbitMomentBound
+warning: ././././DerridaRetaux/Analysis/OrbitMomentBound.lean:17:13: unused variable `hA`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3075/3200] Built DerridaRetaux.Analysis.QuadraticDuhamelScaling
+warning: ././././DerridaRetaux/Analysis/QuadraticDuhamelScaling.lean:17:31: unused variable `ht₀`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Analysis/QuadraticDuhamelScaling.lean:17:46: unused variable `ht`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3076/3200] Built DerridaRetaux.Analysis.FloorTransportGeometry
+✔ [3077/3200] Built DerridaRetaux.Analysis.UniformParameterizedRiemann
+⚠ [3078/3200] Built DerridaRetaux.Analysis.InitialSegmentLimit
+info: ././././DerridaRetaux/Analysis/InitialSegmentLimit.lean:68:31: Try this: ring_nf
+warning: ././././DerridaRetaux/Analysis/InitialSegmentLimit.lean:68:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3079/3200] Built DerridaRetaux.Analysis.TerminalReadoutLimit
+✔ [3080/3200] Built DerridaRetaux.Main.Identification
+✔ [3081/3200] Built DerridaRetaux.Rigidity.CumulativeToPhysicalTime
+⚠ [3082/3200] Built DerridaRetaux.Rigidity.RiccatiPhysicalTime
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:24:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:27:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:85:73: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:64:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:67:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:67:68: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:72:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:85:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3083/3200] Built DerridaRetaux.Rigidity.ConstructedEndpointProperties
+⚠ [3084/3200] Built DerridaRetaux.Rigidity.ModelVolterra
+warning: ././././DerridaRetaux/Rigidity/ModelVolterra.lean:72:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3085/3200] Built DerridaRetaux.Rigidity.EndpointReductionDerivative
+✔ [3086/3200] Built DerridaRetaux.Analysis.ContinuumMomentContinuity
+✔ [3087/3200] Built DerridaRetaux.Analysis.MomentConvergence
+✔ [3088/3200] Built DerridaRetaux.Analysis.PointwiseFromFar
+✔ [3089/3200] Built DerridaRetaux.Analysis.LocalizedTimeRiemann
+✔ [3090/3200] Built DerridaRetaux.Analysis.RightDerivativeClosure
+✔ [3091/3201] Built DerridaRetaux.Analysis.MildIntegralContinuity
+✔ [3092/3201] Built DerridaRetaux.Analysis.LocalShiftIntegralContinuity
+ℹ [3093/3201] Built DerridaRetaux.Analysis.HalfLineDensityMeasure
+info: ././././DerridaRetaux/Analysis/HalfLineDensityMeasure.lean:132:6: Try this: ring_nf
+✔ [3094/3201] Built DerridaRetaux.Analysis.HalfLineLaplaceIntegrability
+⚠ [3095/3201] Built DerridaRetaux.Analysis.HalfLineShiftMoments
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftMoments.lean:23:33: unused variable `hh`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3096/3201] Built DerridaRetaux.Analysis.PositiveConvolutionThirdMoment
+✔ [3097/3201] Built DerridaRetaux.Analysis.GluedTimeSliceOrbit
+✔ [3098/3201] Built DerridaRetaux.Analysis.OrbitMomentEnvelope
+✔ [3099/3201] Built DerridaRetaux.Analysis.FloorTransportBoxGeometry
+✔ [3100/3201] Built DerridaRetaux.Analysis.SpacetimeConvolutionRiemann
+✔ [3101/3201] Built DerridaRetaux.Analysis.GluedLimitProperties
+✔ [3102/3201] Built DerridaRetaux.Rigidity.ConstructedEntranceExpansion
+⚠ [3103/3201] Built DerridaRetaux.Rigidity.ModelVolterraProperties
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:34:64: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:45:70: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:49:6: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:21:15: unused variable `hd`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:21:28: unused variable `hp`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:34:60: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:45:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3104/3201] Built DerridaRetaux.Rigidity.EndpointReductionAsymptotics
+info: ././././DerridaRetaux/Rigidity/EndpointReductionAsymptotics.lean:30:54: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/EndpointReductionAsymptotics.lean:30:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3105/3201] Built DerridaRetaux.Analysis.ContinuumMomentUniformContinuity
+✔ [3106/3205] Built DerridaRetaux.Analysis.LatticeWeakFromLocal
+✔ [3107/3230] Built DerridaRetaux.Analysis.TruncatedSmoothingBounds
+ℹ [2956/2996] Replayed DerridaRetaux.Analysis.LogRate
+info: ././././DerridaRetaux/Analysis/LogRate.lean:48:4: Try this: ring_nf
+⚠ [2966/3200] Replayed DerridaRetaux.Analysis.LimitTail
+warning: ././././DerridaRetaux/Analysis/LimitTail.lean:139:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+warning: ././././DerridaRetaux/Analysis/LimitTail.lean:228:4: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [2989/3200] Replayed DerridaRetaux.Analysis.GluedCompactBox
+warning: ././././DerridaRetaux/Analysis/GluedCompactBox.lean:21:36: unused variable `hetaT`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3014/3200] Replayed DerridaRetaux.Analysis.ContinuumMomentIntegrability
+warning: ././././DerridaRetaux/Analysis/ContinuumMomentIntegrability.lean:63:13: unused variable `hr`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3016/3200] Replayed DerridaRetaux.Analysis.OrbitMomentBound
+warning: ././././DerridaRetaux/Analysis/OrbitMomentBound.lean:17:13: unused variable `hA`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3032/3200] Replayed DerridaRetaux.Analysis.HalfLineShiftMoments
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftMoments.lean:23:33: unused variable `hh`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3037/3200] Replayed DerridaRetaux.Analysis.ShrinkingIntervalDerivative
+warning: ././././DerridaRetaux/Analysis/ShrinkingIntervalDerivative.lean:32:22: try 'simp' instead of 'simpa'
+note: this linter can be disabled with `set_option linter.unnecessarySimpa false`
+⚠ [3039/3200] Replayed DerridaRetaux.Analysis.InitialSegmentLimit
+info: ././././DerridaRetaux/Analysis/InitialSegmentLimit.lean:68:31: Try this: ring_nf
+warning: ././././DerridaRetaux/Analysis/InitialSegmentLimit.lean:68:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3061/3200] Replayed DerridaRetaux.Analysis.QuadraticDuhamelScaling
+warning: ././././DerridaRetaux/Analysis/QuadraticDuhamelScaling.lean:17:31: unused variable `ht₀`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Analysis/QuadraticDuhamelScaling.lean:17:46: unused variable `ht`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+ℹ [3064/3200] Replayed DerridaRetaux.Analysis.ProfileConsequences
+info: ././././DerridaRetaux/Analysis/ProfileConsequences.lean:134:2: Try this: ring_nf
+info: ././././DerridaRetaux/Analysis/ProfileConsequences.lean:236:6: Try this: ring_nf
+ℹ [3073/3200] Replayed DerridaRetaux.Analysis.HalfLineDensityMeasure
+info: ././././DerridaRetaux/Analysis/HalfLineDensityMeasure.lean:132:6: Try this: ring_nf
+⚠ [3078/3200] Replayed DerridaRetaux.Rigidity.ConstructedSolution
+warning: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:198:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:229:24: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/ConstructedSolution.lean:272:2: Try this: ring_nf
+⚠ [3079/3200] Replayed DerridaRetaux.Analysis.ImproperFTCNonneg
+warning: ././././DerridaRetaux/Analysis/ImproperFTCNonneg.lean:27:77: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3090/3200] Replayed DerridaRetaux.Rigidity.ModelVolterra
+warning: ././././DerridaRetaux/Rigidity/ModelVolterra.lean:72:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3093/3200] Replayed DerridaRetaux.Rigidity.RiccatiPhysicalTime
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:24:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:27:44: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:85:73: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:64:16: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:67:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:67:68: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:72:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/RiccatiPhysicalTime.lean:85:69: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3101/3200] Built DerridaRetaux.Analysis.SpacetimeConvolutionLimit
+✔ [3102/3200] Built DerridaRetaux.Analysis.ShiftedConvolutionBound
+✔ [3103/3200] Built DerridaRetaux.Main.ContinuumMoments
+✔ [3104/3200] Built DerridaRetaux.Analysis.ShiftedMomentIntegrability
+✔ [3105/3200] Built DerridaRetaux.Analysis.ShiftedMomentBinomial
+⚠ [3106/3200] Built DerridaRetaux.Analysis.HalfLineShiftDerivatives
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:68:36: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:68:36: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:67:67: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:103:36: this tactic is never executed
+note: this linter can be disabled with `set_option linter.unreachableTactic false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:103:36: 'ring' tactic does nothing
+note: this linter can be disabled with `set_option linter.unusedTactic false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftDerivatives.lean:102:70: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3107/3200] Replayed DerridaRetaux.Rigidity.EndpointReductionAsymptotics
+info: ././././DerridaRetaux/Rigidity/EndpointReductionAsymptotics.lean:30:54: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/EndpointReductionAsymptotics.lean:30:50: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3109/3200] Replayed DerridaRetaux.Rigidity.ModelVolterraProperties
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:34:64: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:45:70: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:49:6: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:21:15: unused variable `hd`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:21:28: unused variable `hp`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:34:60: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraProperties.lean:45:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3112/3200] Built DerridaRetaux.Analysis.PositiveConvolutionMomentIntegrability
+✔ [3114/3200] Built DerridaRetaux.Analysis.ContinuumLaplaceContinuity
+✔ [3115/3200] Built DerridaRetaux.Main.ContinuumMomentPassage
+✔ [3116/3200] Built DerridaRetaux.Analysis.ShiftedSpacetimeConvolution
+✔ [3117/3200] Built DerridaRetaux.Analysis.ShiftedMomentTriangleContinuity
+⚠ [3118/3200] Built DerridaRetaux.Analysis.HalfLineShiftLaplace
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftLaplace.lean:91:65: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftLaplace.lean:93:64: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftLaplace.lean:100:29: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/HalfLineShiftLaplace.lean:100:42: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3119/3200] Built DerridaRetaux.Rigidity.EndpointEntranceNormalization
+warning: ././././DerridaRetaux/Rigidity/EndpointEntranceNormalization.lean:36:72: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3120/3200] Built DerridaRetaux.Rigidity.ModelVolterraIntegral
+info: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:27:58: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:27:54: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:50:66: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:71:6: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:75:86: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/ModelVolterraIntegral.lean:75:82: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3121/3200] Built DerridaRetaux.Rigidity.ConstructedEndpointGlobal
+✔ [3122/3205] Built DerridaRetaux.Analysis.ShiftedMomentContinuity
+✔ [3124/3205] Built DerridaRetaux.Analysis.MomentTailMonotonicity
+⚠ [3125/3205] Built DerridaRetaux.Main.ContinuumMomentBounds
+info: ././././DerridaRetaux/Main/ContinuumMomentBounds.lean:162:85: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumMomentBounds.lean:162:81: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3126/3230] Built DerridaRetaux.Analysis.ShiftedLaplaceTriangleContinuity
+✔ [3127/3230] Built DerridaRetaux.Analysis.ShiftedLaplaceContinuity
+✔ [3128/3230] Built DerridaRetaux.Analysis.MomentMildDerivative
+✔ [3129/3230] Built DerridaRetaux.Rigidity.EndpointEntranceSolution
+✔ [3130/3247] Built DerridaRetaux.Rigidity.ConstructedEndpointAsymptotics
+✔ [3133/3247] Built DerridaRetaux.Rigidity.ModelVolterraEquation
+✔ [3134/3247] Built DerridaRetaux.Analysis.MildQuadraticCoefficient
+✔ [3135/3247] Built DerridaRetaux.Analysis.HigherSourceVanishing
+✔ [3136/3247] Built DerridaRetaux.Main.Smoothing
+✔ [3138/3247] Built DerridaRetaux.Main.ContinuumThirdTail
+✔ [3139/3247] Built DerridaRetaux.Analysis.ExcessConsequences
+✔ [3140/3247] Built DerridaRetaux.Analysis.ExponentialGrid
+✔ [3141/3247] Built DerridaRetaux.Analysis.DecrementLimit
+✔ [3142/3247] Built DerridaRetaux.Analysis.MeanConsequences
+✔ [3143/3247] Built DerridaRetaux.Analysis.WeakIntegratedIdentity
+✔ [3144/3247] Built DerridaRetaux.Analysis.ConditionalTV
+✔ [3145/3247] Built DerridaRetaux.Rigidity.EndpointEntranceMonotonicity
+ℹ [3147/3247] Built DerridaRetaux.Analysis.MildMomentIdentity
+info: ././././DerridaRetaux/Analysis/MildMomentIdentity.lean:89:8: Try this: ring_nf
+✔ [3148/3247] Built DerridaRetaux.Main.ArrivalBounds
+✔ [3149/3247] Built DerridaRetaux.Main.DiscreteMoment
+✔ [3150/3247] Built DerridaRetaux.Main.Spine
+✔ [3151/3247] Built DerridaRetaux.Sharpness.PowerTail
+✔ [3152/3247] Built DerridaRetaux.Analysis.DiscreteMildDuhamel
+✔ [3153/3247] Built DerridaRetaux.Analysis.ConvolutionNearZero
+✔ [3154/3247] Built DerridaRetaux.Main.Arrival
+✔ [3157/3252] Built DerridaRetaux.Basic.CriticalExamples
+✔ [3159/3252] Built DerridaRetaux.Rigidity.EntranceStringSmoke
+✔ [3160/3252] Built DerridaRetaux.Rigidity.ModelCharacteristic
+✔ [3161/3252] Built DerridaRetaux.Analysis.QuadraticDuhamelIntegrand
+✔ [3162/3252] Built DerridaRetaux.Analysis.HigherSegmentFloorLimit
+✔ [3163/3252] Built DerridaRetaux.Main.ContinuumMomentContinuity
+⚠ [3164/3252] Built DerridaRetaux.Analysis.ProfileCompactness
+warning: ././././DerridaRetaux/Analysis/ProfileCompactness.lean:49:5: unused variable `hhL`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3165/3252] Built DerridaRetaux.Analysis.AtomDomination
+✔ [3166/3252] Built DerridaRetaux.Analysis.DensityMassLimit
+✔ [3167/3252] Built DerridaRetaux.Rigidity.EndpointEntranceLowerBound
+ℹ [3168/3252] Built DerridaRetaux.Analysis.ReadoutConsequences
+info: ././././DerridaRetaux/Analysis/ReadoutConsequences.lean:51:4: Try this: ring_nf
+✔ [3170/3252] Built DerridaRetaux.Sharpness.StableProduct
+⚠ [3172/3252] Built DerridaRetaux.Analysis.MomentDuhamelIntegrability
+info: ././././DerridaRetaux/Analysis/MomentDuhamelIntegrability.lean:63:4: Try this: ring_nf
+info: ././././DerridaRetaux/Analysis/MomentDuhamelIntegrability.lean:78:8: Try this: ring_nf
+warning: ././././DerridaRetaux/Analysis/MomentDuhamelIntegrability.lean:21:39: unused variable `hh`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3173/3252] Built DerridaRetaux.Rigidity.ModelCharacteristicFinal
+✔ [3174/3252] Built DerridaRetaux.Analysis.QuadraticDuhamelRiemann
+✔ [3175/3252] Built DerridaRetaux.Main.ContinuumConvolutionMoments
+⚠ [3176/3252] Built DerridaRetaux.Analysis.ProfileCompactnessNodes
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessNodes.lean:17:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessNodes.lean:18:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3177/3252] Built DerridaRetaux.Rigidity.EndpointRepresentation
+warning: ././././DerridaRetaux/Rigidity/EndpointRepresentation.lean:38:5: unused variable `hfcont`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/EndpointRepresentation.lean:40:5: unused variable `hlimit`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/EndpointRepresentation.lean:67:5: unused variable `hx`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/EndpointRepresentation.lean:149:27: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3179/3252] Built DerridaRetaux.Analysis.DensityMassFixedCutoff
+✔ [3181/3252] Built DerridaRetaux.Analysis.LaplaceDuhamelIntegrability
+✔ [3182/3252] Built DerridaRetaux.Sharpness.ProductContradiction
+✔ [3183/3252] Built DerridaRetaux.Analysis.QuadraticSegmentLimit
+⚠ [3184/3252] Built DerridaRetaux.Rigidity.ModelCharacteristicParameter
+warning: ././././DerridaRetaux/Rigidity/ModelCharacteristicParameter.lean:26:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ModelCharacteristicParameter.lean:26:39: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3185/3252] Built DerridaRetaux.Main.ContinuumPositiveHalfStrip
+✔ [3186/3252] Built DerridaRetaux.Main.ContinuumShiftedConvolution
+⚠ [3187/3252] Built DerridaRetaux.Rigidity.ConstructedStringDensity
+info: ././././DerridaRetaux/Rigidity/ConstructedStringDensity.lean:32:42: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringDensity.lean:23:18: unused variable `hc`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringDensity.lean:32:38: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringDensity.lean:47:5: unused variable `hA2`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringDensity.lean:49:5: unused variable `hprodTop`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3188/3252] Built DerridaRetaux.Analysis.ProfileCompactnessClamped
+ℹ [3190/3252] Built DerridaRetaux.Analysis.LaplaceMildIdentity
+info: ././././DerridaRetaux/Analysis/LaplaceMildIdentity.lean:97:6: Try this: ring_nf
+✔ [3191/3252] Built DerridaRetaux.Analysis.DensityMassFromCompact
+✔ [3192/3252] Built DerridaRetaux.Main.SharpnessCore
+✔ [3193/3252] Built DerridaRetaux.Sharpness.LogCesaro
+✔ [3194/3252] Built DerridaRetaux.Main.IdentificationModel
+✔ [3195/3252] Built DerridaRetaux.Analysis.MildEquationLimit
+✔ [3196/3252] Built DerridaRetaux.Main.ContinuumShiftedConvolutionTriangle
+✔ [3197/3252] Built DerridaRetaux.Main.ContinuumLaplaceContinuity
+✔ [3198/3252] Built DerridaRetaux.Rigidity.ConstructedStringMeasureDensity
+⚠ [3200/3252] Built DerridaRetaux.Analysis.ProfileCompactnessInterpolant
+info: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:111:51: Try this: ring_nf
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:102:17: unused variable `heta`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:107:39: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:111:47: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:127:53: Try this: ring_nf
+info: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:140:83: Try this: ring_nf
+info: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:152:59: Try this: ring_nf
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:114:17: unused variable `hC`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:127:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:140:79: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/ProfileCompactnessInterpolant.lean:152:55: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3201/3252] Built DerridaRetaux.Main.Sharpness
+✔ [3202/3252] Built DerridaRetaux.Analysis.LaplaceMildDerivative
+⚠ [3203/3252] Built DerridaRetaux.Main.ContinuumMomentDuhamelIntegrability
+warning: ././././DerridaRetaux/Main/ContinuumMomentDuhamelIntegrability.lean:45:30: unused variable `hh`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3204/3252] Built DerridaRetaux.Analysis.MildEquationBoundary
+✔ [3205/3252] Built DerridaRetaux.Rigidity.ConstructedStringIntegralDensity
+⚠ [3207/3252] Built DerridaRetaux.Rigidity.EndpointEntranceVolterra
+info: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:27:61: Try this: ring_nf
+info: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:33:57: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:27:57: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:33:53: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:93:41: Try this: ring_nf
+warning: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:65:5: unused variable `hphiCont`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/EndpointEntranceVolterra.lean:93:37: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3208/3252] Built DerridaRetaux.Analysis.ProfileCompactnessOrbit
+✔ [3209/3252] Built DerridaRetaux.Main.ContinuumShiftedConvolutionLaplace
+✔ [3210/3252] Built DerridaRetaux.Main.ContinuumLaplaceDuhamelIntegrability
+✔ [3211/3252] Built DerridaRetaux.Main.ContinuumShiftedConvolutionLaplaceTriangle
+✔ [3213/3252] Built DerridaRetaux.Analysis.MildEquation
+⚠ [3214/3252] Built DerridaRetaux.Rigidity.ConstructedStringVolterra
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringVolterra.lean:28:5: unused variable `hfprimeMono`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Rigidity/ConstructedStringVolterra.lean:30:5: unused variable `hfend`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+✔ [3216/3252] Built DerridaRetaux.Analysis.ProfileCompactnessSubsequence
+✔ [3217/3252] Built DerridaRetaux.Rigidity.ConstructedCharacteristic
+✔ [3218/3252] Built DerridaRetaux.Main.ContinuumMild
+✔ [3219/3252] Built DerridaRetaux.Analysis.LaplaceUniqueness
+⚠ [3220/3252] Built DerridaRetaux.Main.ContinuumMomentMildIdentity
+info: ././././DerridaRetaux/Main/ContinuumMomentMildIdentity.lean:42:32: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumMomentMildIdentity.lean:42:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3221/3252] Built DerridaRetaux.Main.ContinuumLaplaceMildIdentity
+info: ././././DerridaRetaux/Main/ContinuumLaplaceMildIdentity.lean:45:32: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumLaplaceMildIdentity.lean:45:28: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3222/3252] Built DerridaRetaux.Main.ContinuumLimit
+⚠ [3223/3252] Built DerridaRetaux.Analysis.YaglomWeakEquation
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:25:74: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:26:15: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:35:80: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:36:15: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:39:68: unused variable `hx`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Analysis/YaglomWeakEquation.lean:123:33: `MeasureTheory.integral_mul_left` has been deprecated: use `MeasureTheory.integral_const_mul` instead
+✔ [3224/3252] Built DerridaRetaux.Main.ContinuumMomentRightDerivatives
+✔ [3225/3252] Built DerridaRetaux.Main.ContinuumLaplaceRightDerivative
+✔ [3226/3252] Built DerridaRetaux.Main.ContinuumMomentRightDerivativeThree
+✔ [3227/3252] Built DerridaRetaux.Main.ContinuumMomentRightDerivativeTwo
+✔ [3228/3252] Built DerridaRetaux.Main.ContinuumLaplaceODE
+✔ [3229/3252] Built DerridaRetaux.Main.ContinuumMomentODERight
+✔ [3230/3252] Built DerridaRetaux.Main.ContinuumMomentODE
+⚠ [3231/3252] Built DerridaRetaux.Main.MomentLaplaceODE
+warning: ././././DerridaRetaux/Main/MomentLaplaceODE.lean:43:20: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3232/3252] Built DerridaRetaux.Main.ContinuumRigidityMoments
+info: ././././DerridaRetaux/Main/ContinuumRigidityMoments.lean:141:26: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumRigidityMoments.lean:113:5: unused variable `hphi`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Main/ContinuumRigidityMoments.lean:114:5: unused variable `hlim`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+warning: ././././DerridaRetaux/Main/ContinuumRigidityMoments.lean:141:22: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3233/3252] Built DerridaRetaux.Main.MomentLaplaceRegularity
+⚠ [3234/3252] Built DerridaRetaux.Main.ContinuumLaplaceGap
+warning: ././././DerridaRetaux/Main/ContinuumLaplaceGap.lean:187:25: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+warning: ././././DerridaRetaux/Main/ContinuumLaplaceGap.lean:187:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3235/3252] Built DerridaRetaux.Main.ContinuumLaplaceGapRegularity
+⚠ [3236/3252] Built DerridaRetaux.Main.ContinuumRemainder
+info: ././././DerridaRetaux/Main/ContinuumRemainder.lean:142:53: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumRemainder.lean:142:49: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3237/3252] Built DerridaRetaux.Main.Remainder
+⚠ [3238/3252] Built DerridaRetaux.Main.ContinuumConstructedPhi
+info: ././././DerridaRetaux/Main/ContinuumConstructedPhi.lean:34:67: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumConstructedPhi.lean:34:63: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Main/ContinuumConstructedPhi.lean:86:50: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumConstructedPhi.lean:86:46: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+⚠ [3239/3252] Built DerridaRetaux.Main.ContinuumConstructedPhiBounds
+warning: ././././DerridaRetaux/Main/ContinuumConstructedPhiBounds.lean:21:17: unused variable `hC`
+note: this linter can be disabled with `set_option linter.unusedVariables false`
+⚠ [3240/3252] Built DerridaRetaux.Main.ContinuumEndpointExpansion
+info: ././././DerridaRetaux/Main/ContinuumEndpointExpansion.lean:57:51: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumEndpointExpansion.lean:57:47: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+info: ././././DerridaRetaux/Main/ContinuumEndpointExpansion.lean:154:65: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumEndpointExpansion.lean:154:61: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3241/3252] Built DerridaRetaux.Main.ContinuumEndpointLimit
+✔ [3242/3252] Built DerridaRetaux.Main.ContinuumCharacteristic
+✔ [3243/3252] Built DerridaRetaux.Main.ContinuumIdentification
+✔ [3244/3252] Built DerridaRetaux.Main.ContinuumPhysicalTime
+⚠ [3245/3252] Built DerridaRetaux.Main.ContinuumProfile
+info: ././././DerridaRetaux/Main/ContinuumProfile.lean:99:56: Try this: ring_nf
+warning: ././././DerridaRetaux/Main/ContinuumProfile.lean:99:52: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3246/3252] Built DerridaRetaux.Main.IdentificationFinal
+✔ [3247/3252] Built DerridaRetaux.Main.ProfileConvergence
+✔ [3248/3252] Built DerridaRetaux.Main.ContinuumWeakEquation
+✔ [3249/3252] Built DerridaRetaux.Main.ProfileFinal
+⚠ [3250/3252] Built DerridaRetaux.Main.ProfileTheorem
+warning: ././././DerridaRetaux/Main/ProfileTheorem.lean:68:32: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+note: this linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+✔ [3251/3252] Built DerridaRetaux
+Build completed successfully.

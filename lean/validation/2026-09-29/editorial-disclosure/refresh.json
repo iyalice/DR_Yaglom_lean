@@ -1,0 +1,12 @@
+{
+  "change": "Shorten AI disclosure only; mathematical text and Lean sources unchanged. Original compiled evidence is retained without modification.",
+  "compiled_manuscript_sha256": "dd0b49f2c248c60c29cc38e8f654da9c0c853647710e7929c89d62e50441fb88",
+  "current_manuscript_sha256": "c4e796e0161cff5420fff55cb2ed00c13bca4bbac9038d7a7fa11f2c969eeff2",
+  "unchanged_lean_sources": 297,
+  "current_metadata_sha256": {
+    "revision-manifest.json": "e2938d06034bb1c9edeac61e17683b62a59ed517e0ffe2d7bd35321f8a5f7e31",
+    "STATEMENT_LEDGER.csv": "5f3ba16c4f5322dac0ebc08f9828dec388238e0c9c85deee85e409d0f0e3d9e9",
+    "EQUATION_LEDGER.csv": "35e57d0dc11b929ff0e9f1583765fc1d9eb368e79bb7b0addfdb170011f3ec43",
+    "UNNUMBERED_LEDGER.csv": "be4c0535560860d7e1e828231607cdc7c052d6749c7ebd051bc7a6f8e96bd827"
+  }
+}

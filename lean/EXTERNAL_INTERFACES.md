@@ -203,11 +203,14 @@ and no tilted-law tail substitution.
   `FixedArity.profile` is the thin final wrapper invoking exactly those inputs.
 - Old DR external records and target-equivalent conclusions remain forbidden imports.
 
-The interface is frozen. All fifteen numbered source wrappers, all 82 equation labels,
-and U01--U62 now compile; this is the complete acceptance state.
+The interface remains frozen in the current manuscript update. Current coverage
+is recorded by the 22-result, 84-equation and 85-item unnumbered ledgers.
+The earlier completion record is archived under `archive/2026-09-12/`.
 
-## 2026-09-12 revision audit and scope minimality
-
-The compiled audit confirms exactly H1a/H1b/H2 for `FixedArity.profile`, exactly H3 for `FixedArity.sharpness`, no custom axioms for `FixedArity.cubicWeightedInfiniteChain`, and H1a/H1b for `FixedArity.momentLaplaceLocalIntegralDerivatives`. Exact per-declaration sets are recorded in the CSV ledgers.
-
-Each interface is restricted to the permitted published fact: H1a supplies only the excess upper estimate, H1b only the inclusive product upper estimate, H2 only equality up to translation after internally verified admissibility, and H3 only the two-sided stable-product comparison for the stated original-law tail. No source conclusion is imported through these declarations. This is minimality of the adopted interface scope, not a proof that these assumptions are logically indispensable.
+`FixedArity.sharpnessSurvival` adds the current survival conclusion by using
+the no-third-moment theorem `excess_tendsto_of_survival_asymptotic` before
+applying the legacy excess counterexample. This introduces no new published
+input. The current compiled audit checks exact dependency sets for the profile,
+survival sharpness and transfer theorems; see
+`validation/2026-09-29/verification-result.json` for its outcome and the CSV
+columns for exact per-declaration sets.

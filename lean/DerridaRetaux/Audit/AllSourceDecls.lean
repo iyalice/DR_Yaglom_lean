@@ -1,14 +1,7 @@
-import DerridaRetaux.Spine.InfinitePath
-import DerridaRetaux.Main.MomentLaplaceRegularity
 import DerridaRetaux
 import DerridaRetaux.Audit.ArchitectureCounterexample
 
-/-!
-# Exhaustive source declaration audit
-
-Generated from all declaration mappings in the 15-result, 82-equation, and U01--U62 ledgers.
-Each unique declaration is printed with its full type and transitive axiom set.
--/
+/-! Generated union of current manuscript correspondence declarations. -/
 
 set_option pp.universes true
 set_option pp.explicit false
@@ -17,28 +10,38 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.Audit.deterministicCriticalClassification_without_arity_is_false
 #check DerridaRetaux.Critical
 #print axioms DerridaRetaux.Critical
+#check DerridaRetaux.FixedArity.arrivalMomentTail
+#print axioms DerridaRetaux.FixedArity.arrivalMomentTail
 #check DerridaRetaux.FixedArity.arrivalRecursion
 #print axioms DerridaRetaux.FixedArity.arrivalRecursion
 #check DerridaRetaux.FixedArity.cubicMoment
 #print axioms DerridaRetaux.FixedArity.cubicMoment
 #check DerridaRetaux.FixedArity.cubicWeightedChain
 #print axioms DerridaRetaux.FixedArity.cubicWeightedChain
-#check DerridaRetaux.FixedArity.farArrivalBound
-#print axioms DerridaRetaux.FixedArity.farArrivalBound
+#check DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
+#print axioms DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
+#check DerridaRetaux.FixedArity.farArrivalBoundUniform
+#print axioms DerridaRetaux.FixedArity.farArrivalBoundUniform
 #check DerridaRetaux.FixedArity.firstTiltedAtomTail
 #print axioms DerridaRetaux.FixedArity.firstTiltedAtomTail
 #check DerridaRetaux.FixedArity.identifySubsequentialLimit
 #print axioms DerridaRetaux.FixedArity.identifySubsequentialLimit
+#check DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives
+#print axioms DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives
 #check DerridaRetaux.FixedArity.momentLaplaceODE
 #print axioms DerridaRetaux.FixedArity.momentLaplaceODE
 #check DerridaRetaux.FixedArity.pointwiseBound
 #print axioms DerridaRetaux.FixedArity.pointwiseBound
+#check DerridaRetaux.FixedArity.productAsymptoticOfSurvival
+#print axioms DerridaRetaux.FixedArity.productAsymptoticOfSurvival
 #check DerridaRetaux.FixedArity.profile
 #print axioms DerridaRetaux.FixedArity.profile
 #check DerridaRetaux.FixedArity.profileDensity
 #print axioms DerridaRetaux.FixedArity.profileDensity
 #check DerridaRetaux.FixedArity.sharpness
 #print axioms DerridaRetaux.FixedArity.sharpness
+#check DerridaRetaux.FixedArity.sharpnessSurvival
+#print axioms DerridaRetaux.FixedArity.sharpnessSurvival
 #check DerridaRetaux.FixedArity.sharpness_core
 #print axioms DerridaRetaux.FixedArity.sharpness_core
 #check DerridaRetaux.FixedArity.smoothing
@@ -71,6 +74,10 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.FixedArity.thirdMomentTail
 #check DerridaRetaux.FixedArity.thirdOrderTaylorRemainder
 #print axioms DerridaRetaux.FixedArity.thirdOrderTaylorRemainder
+#check DerridaRetaux.FixedArity.tiltedLawRecursion
+#print axioms DerridaRetaux.FixedArity.tiltedLawRecursion
+#check DerridaRetaux.FixedArity.weightedMass
+#print axioms DerridaRetaux.FixedArity.weightedMass
 #check DerridaRetaux.HasIntegralDerivativeOn
 #print axioms DerridaRetaux.HasIntegralDerivativeOn
 #check DerridaRetaux.HasIntegralDerivativeOn.contDiffOn_Ioo_of_continuousOn_Icc
@@ -79,6 +86,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.HasIntegralDerivativeOn.hasDerivAt_of_continuousOn_Icc
 #check DerridaRetaux.HasSingularCharacteristic
 #print axioms DerridaRetaux.HasSingularCharacteristic
+#check DerridaRetaux.IsEntranceNormalizedVolterraSolution
+#print axioms DerridaRetaux.IsEntranceNormalizedVolterraSolution
 #check DerridaRetaux.ProfileInitialData
 #print axioms DerridaRetaux.ProfileInitialData
 #check DerridaRetaux.SourceMonomialTag
@@ -109,14 +118,20 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.TendstoInL1On
 #check DerridaRetaux.WeightedSupThreeLE
 #print axioms DerridaRetaux.WeightedSupThreeLE
+#check DerridaRetaux.abs_convex_pair_le
+#print axioms DerridaRetaux.abs_convex_pair_le
 #check DerridaRetaux.abs_gridBilinearInterp_sub_le_of_node_modulus
 #print axioms DerridaRetaux.abs_gridBilinearInterp_sub_le_of_node_modulus
+#check DerridaRetaux.abs_gridBilinearInterp_sub_lowerLeft_le
+#print axioms DerridaRetaux.abs_gridBilinearInterp_sub_lowerLeft_le
 #check DerridaRetaux.abs_normalizedIntegratedExpThirdRemainder_le_sqrt
 #print axioms DerridaRetaux.abs_normalizedIntegratedExpThirdRemainder_le_sqrt
 #check DerridaRetaux.actual_sourceDifference_terms_have_valid_normalForms
 #print axioms DerridaRetaux.actual_sourceDifference_terms_have_valid_normalForms
 #check DerridaRetaux.ae_eq_of_halfLine_laplace_eq
 #print axioms DerridaRetaux.ae_eq_of_halfLine_laplace_eq
+#check DerridaRetaux.antitone_transportProduct
+#print axioms DerridaRetaux.antitone_transportProduct
 #check DerridaRetaux.arity_mul_survival_le_tiltedPositive
 #print axioms DerridaRetaux.arity_mul_survival_le_tiltedPositive
 #check DerridaRetaux.arrivalAlpha
@@ -155,6 +170,12 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.arrivalMomentTail_bounds
 #check DerridaRetaux.arrivalValueAtOne
 #print axioms DerridaRetaux.arrivalValueAtOne
+#check DerridaRetaux.bilinearInterp_space_cell_bound
+#print axioms DerridaRetaux.bilinearInterp_space_cell_bound
+#check DerridaRetaux.bilinearInterp_time_cell_bound
+#print axioms DerridaRetaux.bilinearInterp_time_cell_bound
+#check DerridaRetaux.bilinearInterp_transpose
+#print axioms DerridaRetaux.bilinearInterp_transpose
 #check DerridaRetaux.coefficientTail_le_shiftedCubicMoment_div
 #print axioms DerridaRetaux.coefficientTail_le_shiftedCubicMoment_div
 #check DerridaRetaux.coefficientVariation_orbit_of_H1a_and_pointwise
@@ -207,12 +228,16 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.countable_diagonal_subsequence
 #check DerridaRetaux.criticalProduct_bound_all_of_CDHLSProductFact
 #print axioms DerridaRetaux.criticalProduct_bound_all_of_CDHLSProductFact
+#check DerridaRetaux.criticalProduct_log_limit_of_survival
+#print axioms DerridaRetaux.criticalProduct_log_limit_of_survival
 #check DerridaRetaux.critical_drStep
 #print axioms DerridaRetaux.critical_drStep
 #check DerridaRetaux.critical_isDirac_eq_binary
 #print axioms DerridaRetaux.critical_isDirac_eq_binary
 #check DerridaRetaux.cubicAllocationIncrementMass_hasSum
 #print axioms DerridaRetaux.cubicAllocationIncrementMass_hasSum
+#check DerridaRetaux.cubicAllocationOutputPMF_apply_toReal
+#print axioms DerridaRetaux.cubicAllocationOutputPMF_apply_toReal
 #check DerridaRetaux.cubicAllocationPMF
 #print axioms DerridaRetaux.cubicAllocationPMF
 #check DerridaRetaux.cubicAllocationWeight
@@ -241,10 +266,14 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.cubicSpineExpectedPositiveIncrement_le_four
 #check DerridaRetaux.cubicSpineKernel
 #print axioms DerridaRetaux.cubicSpineKernel
+#check DerridaRetaux.cubicSpineKernel_eq_allocation
+#print axioms DerridaRetaux.cubicSpineKernel_eq_allocation
 #check DerridaRetaux.cubicSpineKernel_eq_pure_zero_of_carrier_eq_zero
 #print axioms DerridaRetaux.cubicSpineKernel_eq_pure_zero_of_carrier_eq_zero
 #check DerridaRetaux.cubicSpineKernel_two_one
 #print axioms DerridaRetaux.cubicSpineKernel_two_one
+#check DerridaRetaux.cubicSpineOutput
+#print axioms DerridaRetaux.cubicSpineOutput
 #check DerridaRetaux.cubicTailIntegrand_lowerSemicontinuous
 #print axioms DerridaRetaux.cubicTailIntegrand_lowerSemicontinuous
 #check DerridaRetaux.cubicWeight
@@ -327,10 +356,20 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.entranceSolutionFromEndpoint_pos
 #check DerridaRetaux.excess
 #print axioms DerridaRetaux.excess
+#check DerridaRetaux.excessRecursionMap
+#print axioms DerridaRetaux.excessRecursionMap
+#check DerridaRetaux.excessRecursionMap_barrier_tendsto
+#print axioms DerridaRetaux.excessRecursionMap_barrier_tendsto
+#check DerridaRetaux.excessRecursionMap_sub_ge
+#print axioms DerridaRetaux.excessRecursionMap_sub_ge
 #check DerridaRetaux.excess_orbit_decrement
 #print axioms DerridaRetaux.excess_orbit_decrement
 #check DerridaRetaux.excess_orbit_decrement_tendsto
 #print axioms DerridaRetaux.excess_orbit_decrement_tendsto
+#check DerridaRetaux.excess_orbit_recursionMap
+#print axioms DerridaRetaux.excess_orbit_recursionMap
+#check DerridaRetaux.excess_tendsto_of_survival_asymptotic
+#print axioms DerridaRetaux.excess_tendsto_of_survival_asymptotic
 #check DerridaRetaux.exhaustionLimits_compatible
 #print axioms DerridaRetaux.exhaustionLimits_compatible
 #check DerridaRetaux.exists_gridBilinearInterp_diagonal_subsequence
@@ -381,6 +420,10 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.gridBilinearInterp_family_eventuallyEquicontinuousOn_rectangle
 #check DerridaRetaux.gridBilinearInterp_family_uniformlyBoundedOn_rectangle
 #print axioms DerridaRetaux.gridBilinearInterp_family_uniformlyBoundedOn_rectangle
+#check DerridaRetaux.gridBilinearInterp_space_cell_bound
+#print axioms DerridaRetaux.gridBilinearInterp_space_cell_bound
+#check DerridaRetaux.gridBilinearInterp_time_cell_bound
+#print axioms DerridaRetaux.gridBilinearInterp_time_cell_bound
 #check DerridaRetaux.gridTimeArraySum_tendsto_of_uniform_approximation_on_Ioi
 #print axioms DerridaRetaux.gridTimeArraySum_tendsto_of_uniform_approximation_on_Ioi
 #check DerridaRetaux.hasDerivAt_constructedEndpointAtTime
@@ -435,6 +478,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.limit_cubicTail_le_of_scaledLatticeMeasuresAlong_tendsto_eventually
 #check DerridaRetaux.locallyUniformLatticeDensity_of_orbitScaledGrid_exhaustionLimits
 #print axioms DerridaRetaux.locallyUniformLatticeDensity_of_orbitScaledGrid_exhaustionLimits
+#check DerridaRetaux.log_modulus_inverse
+#print axioms DerridaRetaux.log_modulus_inverse
 #check DerridaRetaux.modelEntranceString
 #print axioms DerridaRetaux.modelEntranceString
 #check DerridaRetaux.modelEntranceString_correctRightEnd
@@ -471,6 +516,10 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.natFloor_window_div_cofinal_tendsto
 #check DerridaRetaux.nat_mul_inversePower_succ_hasSum
 #print axioms DerridaRetaux.nat_mul_inversePower_succ_hasSum
+#check DerridaRetaux.nat_mul_reciprocal_barrier_tendsto
+#print axioms DerridaRetaux.nat_mul_reciprocal_barrier_tendsto
+#check DerridaRetaux.negative_of_nonnegative_strict_growth
+#print axioms DerridaRetaux.negative_of_nonnegative_strict_growth
 #check DerridaRetaux.no_eventual_subquadratic_poweredPrefixProduct_bound
 #print axioms DerridaRetaux.no_eventual_subquadratic_poweredPrefixProduct_bound
 #check DerridaRetaux.normalizedCubicMoment_drStep_cross
@@ -491,6 +540,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.normalizedTilt_lowMoments_orbit
 #check DerridaRetaux.normalizedTilt_mean_hasSum
 #print axioms DerridaRetaux.normalizedTilt_mean_hasSum
+#check DerridaRetaux.one_add_pow_sub_lower
+#print axioms DerridaRetaux.one_add_pow_sub_lower
 #check DerridaRetaux.one_le_entranceSolutionFromEndpoint
 #print axioms DerridaRetaux.one_le_entranceSolutionFromEndpoint
 #check DerridaRetaux.orbit
@@ -499,12 +550,18 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.orbitExcess_bound_all
 #check DerridaRetaux.orbitPositiveTiltMass_bound_all
 #print axioms DerridaRetaux.orbitPositiveTiltMass_bound_all
+#check DerridaRetaux.orbitPositiveTiltMass_tendsto_zero
+#print axioms DerridaRetaux.orbitPositiveTiltMass_tendsto_zero
 #check DerridaRetaux.orbitPositiveTilt_eq_product_shift_arrival
 #print axioms DerridaRetaux.orbitPositiveTilt_eq_product_shift_arrival
+#check DerridaRetaux.orbitScaledGrid
+#print axioms DerridaRetaux.orbitScaledGrid
 #check DerridaRetaux.orbitScaledGridStepError_tendsto_zero
 #print axioms DerridaRetaux.orbitScaledGridStepError_tendsto_zero
 #check DerridaRetaux.orbitScaledGrid_adjacent_le_of_gradient
 #print axioms DerridaRetaux.orbitScaledGrid_adjacent_le_of_gradient
+#check DerridaRetaux.orbitTransportDefect_le_of_positiveTiltMass_bound
+#print axioms DerridaRetaux.orbitTransportDefect_le_of_positiveTiltMass_bound
 #check DerridaRetaux.orbitTransportDefect_summable
 #print axioms DerridaRetaux.orbitTransportDefect_summable
 #check DerridaRetaux.orbitZeroTilt_inverse_uniform
@@ -539,6 +596,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.orbit_zeroTilt_succ_variation_of_bounds
 #check DerridaRetaux.partition_log_sum_div_log_tendsto
 #print axioms DerridaRetaux.partition_log_sum_div_log_tendsto
+#check DerridaRetaux.partition_tendsto_one_of_survival
+#print axioms DerridaRetaux.partition_tendsto_one_of_survival
 #check DerridaRetaux.physicalTimeCoordinate_eq_neg_div
 #print axioms DerridaRetaux.physicalTimeCoordinate_eq_neg_div
 #check DerridaRetaux.physicalTimeLaplaceTransform_eq
@@ -557,8 +616,12 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.positiveHalfLineMoment_zero_and_three_pos
 #check DerridaRetaux.positiveTiltMass_eq_excess_add_survival_div
 #print axioms DerridaRetaux.positiveTiltMass_eq_excess_add_survival_div
+#check DerridaRetaux.positiveTiltMass_le_survival_cutoff
+#print axioms DerridaRetaux.positiveTiltMass_le_survival_cutoff
 #check DerridaRetaux.positiveTiltMass_orbit_eq
 #print axioms DerridaRetaux.positiveTiltMass_orbit_eq
+#check DerridaRetaux.positiveTiltMass_tendsto_zero_of_survival
+#print axioms DerridaRetaux.positiveTiltMass_tendsto_zero_of_survival
 #check DerridaRetaux.positiveTiltedDensity
 #print axioms DerridaRetaux.positiveTiltedDensity
 #check DerridaRetaux.positiveTiltedDensity_eq_transportRatio_add_quadratic_add_higher
@@ -629,6 +692,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.scaled_conv_uniform_on_compact_away_zero_of_locallyUniform
 #check DerridaRetaux.scaled_shiftRightPow_conv_gridIndex_tendsto_of_nonneg
 #print axioms DerridaRetaux.scaled_shiftRightPow_conv_gridIndex_tendsto_of_nonneg
+#check DerridaRetaux.scaled_smoothing_rate_le_log
+#print axioms DerridaRetaux.scaled_smoothing_rate_le_log
 #check DerridaRetaux.seq_recurrence_apply_eq_transport_add_forcing
 #print axioms DerridaRetaux.seq_recurrence_apply_eq_transport_add_forcing
 #check DerridaRetaux.seq_recurrence_eq_truncatedInitial_add_forcing
@@ -663,8 +728,6 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.shiftLeft
 #check DerridaRetaux.shiftRight
 #print axioms DerridaRetaux.shiftRight
-#check DerridaRetaux.shiftedCubicMoment
-#print axioms DerridaRetaux.shiftedCubicMoment
 #check DerridaRetaux.shiftedCubicMoment_convPow_summable_and_le
 #print axioms DerridaRetaux.shiftedCubicMoment_convPow_summable_and_le
 #check DerridaRetaux.shiftedPowerTailMoment_summable_iff
@@ -687,6 +750,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.sourceFunctionExpandedTerm_eq_tagNormalForm
 #check DerridaRetaux.sourceModelEntranceString_hasSingularCharacteristic
 #print axioms DerridaRetaux.sourceModelEntranceString_hasSingularCharacteristic
+#check DerridaRetaux.spineInfinitePathMeasure_marginal
+#print axioms DerridaRetaux.spineInfinitePathMeasure_marginal
 #check DerridaRetaux.spineMarginalPMF_bind_spineKernel
 #print axioms DerridaRetaux.spineMarginalPMF_bind_spineKernel
 #check DerridaRetaux.spineMarginalPMF_bind_spineKernel_all
@@ -743,6 +808,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.summable_partition_excess_sq
 #check DerridaRetaux.survival
 #print axioms DerridaRetaux.survival
+#check DerridaRetaux.survivalBarrierPolynomial_factor
+#print axioms DerridaRetaux.survivalBarrierPolynomial_factor
 #check DerridaRetaux.survivalReadout
 #print axioms DerridaRetaux.survivalReadout
 #check DerridaRetaux.survival_eq_partition_mul_readout
@@ -811,6 +878,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.transportProduct_inverse_uniform
 #check DerridaRetaux.transportProduct_mul_zeroTilt_le_orbitZeroTilt
 #print axioms DerridaRetaux.transportProduct_mul_zeroTilt_le_orbitZeroTilt
+#check DerridaRetaux.transportProduct_tendsto_pos
+#print axioms DerridaRetaux.transportProduct_tendsto_pos
 #check DerridaRetaux.truncatedSmoothingSplit_of_H1
 #print axioms DerridaRetaux.truncatedSmoothingSplit_of_H1
 #check DerridaRetaux.weakEquationRhs
@@ -829,6 +898,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.weightedL1Three_shiftLeft_le
 #check DerridaRetaux.weightedSupThree_convPow_succ_le
 #print axioms DerridaRetaux.weightedSupThree_convPow_succ_le
+#check DerridaRetaux.weightedSupThree_conv_le
+#print axioms DerridaRetaux.weightedSupThree_conv_le
 #check DerridaRetaux.weightedSupThree_shiftByInt_nat
 #print axioms DerridaRetaux.weightedSupThree_shiftByInt_nat
 #check DerridaRetaux.weightedSupThree_shiftLeft
@@ -837,6 +908,8 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.weightedSupThree_shiftLeft_iterate_gain
 #check DerridaRetaux.weightedSupThree_twoParameter_log_of_split
 #print axioms DerridaRetaux.weightedSupThree_twoParameter_log_of_split
+#check DerridaRetaux.weightedSupThree_twoParameter_of_split
+#print axioms DerridaRetaux.weightedSupThree_twoParameter_of_split
 #check DerridaRetaux.yaglomDensity_eq_of_laplace
 #print axioms DerridaRetaux.yaglomDensity_eq_of_laplace
 #check DerridaRetaux.yaglomDensity_hasWeakEquationOn
@@ -847,10 +920,3 @@ set_option pp.explicit false
 #print axioms DerridaRetaux.zeroExtend
 #check DerridaRetaux.zeroTilt_pos_of_admissible
 #print axioms DerridaRetaux.zeroTilt_pos_of_admissible
-
-
-#check DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
-#print axioms DerridaRetaux.FixedArity.cubicWeightedInfiniteChain
-
-#check DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives
-#print axioms DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives

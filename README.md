@@ -8,27 +8,56 @@ independent copies, focusing on exact survival asymptotics, the scaling
 profile of the tilted distribution, and a geometric conditional limit
 under a finite third exponentially tilted moment assumption.
 
-## Lean formalization
+## Current status
 
-The [Lean project](lean/README.md) is now included in `lean/`. The revised project passed a full Lean 4.19.0 build on September 12, 2026: all 283 root-project modules, 419 source-ledger declarations, and 382 additional axiom-audit declarations passed their respective checks.
+This is a preliminary research draft, shared to provide a dated record of
+the work. The mathematical proof draft was generated with AI assistance
+and has been manually checked by the authors, who take responsibility for
+its content. Section 1.5 of the manuscript describes the use of AI and the
+current verification status.
 
-The formalization accepts exactly four published inputs, isolated in [HumanInputs.lean](lean/DerridaRetaux/HumanInputs.lean). The main profile theorem depends on H1a/H1b/H2; the sharpness theorem depends on H3. See [EXTERNAL_INTERFACES.md](lean/EXTERNAL_INTERFACES.md) for their exact signatures and scope, and [AcceptanceReport.md](lean/AcceptanceReport.md) for the verification report. No Comparator verification is claimed.
+## Lean formalization and scope
 
-With elan installed, build from the repository root:
+The updated formalization is included in [lean/](lean/README.md), alongside
+its current manuscript snapshot, correspondence ledgers and verification
+records. It passed a Lean 4.19.0 project build and compiled axiom audit on
+September 29, 2026. The current ledgers cover 22 numbered results, 84 labeled
+formulas and 85 unnumbered obligations, mapping to 457 unique declarations.
+The compiled audit also covers the supplementary declaration checks and
+the four published-input declarations themselves. See [AcceptanceReport.md](lean/AcceptanceReport.md).
+
+The public results include `FixedArity.profile` and the current Appendix A
+survival counterexample `FixedArity.sharpnessSurvival`. The new
+`productAsymptoticOfSurvival` proves the required product exponent from the
+survival limit without a third-moment assumption. The earlier excess
+sharpness theorem is retained as a proved ingredient.
+
+Four published inputs remain declared as axioms: two CDHLS estimates,
+Kotani inverse uniqueness, and the Chen–Shi stable-product estimate.
+The profile theorem uses the first three; survival sharpness uses the fourth.
+The survival-to-excess/product transfer has no custom axiom. Exact signatures
+and dependencies are documented in
+[EXTERNAL_INTERFACES.md](lean/EXTERNAL_INTERFACES.md) and the compiled audit.
+No new external input was added in this update.
+
+The [correspondence review](lean/CORRESPONDENCE_REVIEW.md) explains compound
+statement mappings, interpolation estimates and proof-order differences.
+Compilation verifies Lean statements relative to the declared inputs;
+the TeX-to-Lean correspondence is not itself machine-checked, and these
+checks are not independent human peer review.
+
+To reproduce the build and audit:
 
 ```sh
 cd lean
 lake exe cache get
-lake build
+python3 scripts/verify_all.py
 ```
 
-The three correspondence ledgers and reproducible audit scripts are included in `lean/`. The latest build and audit evidence is in [lean/validation/2026-09-12](lean/validation/2026-09-12).
-
-## Manuscript provenance
-
-The authors' current manuscript records their manual checking of the mathematical arguments. Further revision is planned. The root `DR_Yaglom.tex` is preserved as published; its statement that Lean verification was not yet complete predates the completed build reported above.
-
-`lean/DR_Yaglom.tex` is the exact frozen source used for the formalization, with SHA-256 `652c080e30cfc8cb37ea9636ae74e4c0b30875e1a69db5ae81008137b5a0b82a`. At this upload, it differs from the root manuscript only in the AI/manual-review disclosure paragraph; the mathematical text is unchanged. Keeping this snapshot preserves the source hashes and line references in the audit.
+The toolchain and dependencies are pinned. See the
+[Lean README](lean/README.md) for the macOS cache alternative. The original
+September 12 source and reports are preserved in
+[lean/archive/2026-09-12](lean/archive/2026-09-12/).
 
 ## Building the manuscript
 

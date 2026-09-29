@@ -1,0 +1,134 @@
+[
+  {
+    "label": "thm:profile",
+    "status": "same",
+    "old_line": 104,
+    "new_line": 149
+  },
+  {
+    "label": "thm:sharpness",
+    "status": "changed",
+    "old_line": 132,
+    "new_line": 2146
+  },
+  {
+    "label": "lem:cubic",
+    "status": "changed",
+    "old_line": 256,
+    "new_line": 339
+  },
+  {
+    "label": "lem:atomtail",
+    "status": "changed",
+    "old_line": 294,
+    "new_line": 449
+  },
+  {
+    "label": "prop:smoothing",
+    "status": "changed",
+    "old_line": 318,
+    "new_line": 522
+  },
+  {
+    "label": "prop:identification",
+    "status": "same",
+    "old_line": 342,
+    "new_line": 557
+  },
+  {
+    "label": "prop:pointwise",
+    "status": "same",
+    "old_line": 415,
+    "new_line": 861
+  },
+  {
+    "label": "lem:arrival",
+    "status": "same",
+    "old_line": 443,
+    "new_line": 1006
+  },
+  {
+    "label": "lem:sourcedifference",
+    "status": "changed",
+    "old_line": 488,
+    "new_line": 1132
+  },
+  {
+    "label": "prop:far",
+    "status": "changed",
+    "old_line": 538,
+    "new_line": 870
+  },
+  {
+    "label": "lem:spine",
+    "status": "changed",
+    "old_line": 713,
+    "new_line": 1791
+  },
+  {
+    "label": "cor:thirdtail",
+    "status": "changed",
+    "old_line": 775,
+    "new_line": 1880
+  },
+  {
+    "label": "prop:limit",
+    "status": "changed",
+    "old_line": 794,
+    "new_line": 1904
+  },
+  {
+    "label": "lem:momentODE",
+    "status": "changed",
+    "old_line": 848,
+    "new_line": 1958
+  },
+  {
+    "label": "lem:remainder",
+    "status": "changed",
+    "old_line": 889,
+    "new_line": 2041
+  },
+  {
+    "label": "prop:pgf",
+    "status": "new",
+    "old_line": null,
+    "new_line": 263
+  },
+  {
+    "label": "prop:coarse",
+    "status": "new",
+    "old_line": null,
+    "new_line": 292
+  },
+  {
+    "label": "lem:tiltedlaw",
+    "status": "new",
+    "old_line": null,
+    "new_line": 387
+  },
+  {
+    "label": "lem:transportcoefficients",
+    "status": "new",
+    "old_line": null,
+    "new_line": 420
+  },
+  {
+    "label": "lem:weightedmass",
+    "status": "new",
+    "old_line": null,
+    "new_line": 484
+  },
+  {
+    "label": "lem:Fmoment",
+    "status": "new",
+    "old_line": null,
+    "new_line": 1068
+  },
+  {
+    "label": "lem:productasymptotic",
+    "status": "new",
+    "old_line": null,
+    "new_line": 2156
+  }
+]

@@ -49,7 +49,7 @@ flowchart TD
 | Taylor remainder | `FixedArity.thirdOrderTaylorRemainder` | H1a, H1b |
 | Identification | `FixedArity.identifySubsequentialLimit` | H1a, H1b, H2 |
 | Profile | `FixedArity.profile` | H1a, H1b, H2 |
-| Sharpness | `FixedArity.sharpness` | H3 |
+| Sharpness | `FixedArity.sharpnessSurvival` | H3 |
 
 The U46 wrapper is proved by transferring the internally verified weak equation for
 the explicitly identified density.  This changes proof order, not the source claim or
@@ -69,3 +69,16 @@ trust boundary.
 `Spine.Coupling` + Ionescu–Tulcea → `Spine.InfinitePath` → `FixedArity.cubicWeightedInfiniteChain` (lem:spine, U38).
 
 `Main.MomentLaplaceODE` + `Analysis.LocalACClosure` + fundamental theorem of calculus → `Main.MomentLaplaceRegularity` → `FixedArity.momentLaplaceLocalIntegralDerivatives` (lem:momentODE, U48).
+
+## Current survival sharpness branch
+
+`Sharpness.PowerTail` and the H3-dependent legacy excess counterexample feed
+`Main.SurvivalSharpness`. The other branch is
+`Sharpness.SurvivalToExcess`: survival -> vanishing tilted mass -> vanishing
+excess -> reciprocal barriers -> excess asymptotic -> logarithmic product.
+This transfer branch has no custom axiom and no third-moment hypothesis.
+
+`Main.RevisionStatements` repackages the existing far, weighted-mass and
+arrival-moment bounds with the current source quantifiers.
+`Analysis.RevisionInterpolation` and `Analysis.RevisionGridRates` provide the
+newly labeled local interpolation and logarithmic scale conversions.

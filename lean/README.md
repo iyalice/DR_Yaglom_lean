@@ -1,63 +1,85 @@
-# Exact critical asymptotics for Derrida–Retaux recursions
+# Derrida–Retaux formalization for the current manuscript
 
-**Ruiqi Ding, Zehua He, Yutao Liang, Dong Wang, and Yushu Zheng**
+This directory contains the Lean 4 formalization corresponding to the active
+[manuscript](../DR_Yaglom.tex). Its local [snapshot](DR_Yaglom.tex) must be
+byte-identical to that source. The toolchain remains Lean 4.19.0 and mathlib is
+locked to `c44e0c8ee63ca166450922a373c7409c5d26b00b`.
 
-This repository contains the [manuscript](DR_Yaglom.tex) and its Lean 4 formalization. The paper studies critical Derrida–Retaux recursions with fixed arity, their scaling profile and consequences, and the sharpness of the moment threshold.
+The current edition passed the full project build, compiled axiom audit and
+source/ledger checks on 29 September 2026. See [AcceptanceReport.md](AcceptanceReport.md).
 
-## Verification status
+The update starts from [DR_Yaglom_lean, commit 2830c58](https://github.com/iyalice/DR_Yaglom_lean/tree/2830c58dee0265b8cc71b0dc16acc944cda316a2/lean).
+The earlier source, ledgers and reports are retained under
+[archive/2026-09-12](archive/2026-09-12/). Earlier build logs certify that edition
+only. The outcome of the current build and audit is recorded in
+[verification-result.json](validation/2026-09-29/verification-result.json).
 
-The revised project passed a full Lean 4.19.0 build on September 12, 2026. Its 419 source-ledger declarations and 382 additional audit declarations were checked for axiom dependencies. There are no proof placeholders in the delivered project source.
+## Public results and changes
 
-The formalization is conditional on four explicitly declared published inputs in [HumanInputs.lean](DerridaRetaux/HumanInputs.lean): H1a and H1b (CDHLS), H2 (Kotani), and H3 (Chen–Shi). The main profile theorem uses H1a/H1b/H2; the sharpness theorem uses H3. These external results are accepted premises, not re-proved here. See [EXTERNAL_INTERFACES.md](EXTERNAL_INTERFACES.md) for their exact scope.
+- `DerridaRetaux.FixedArity.profile`: the profile theorem and all its stated
+  survival, moment, atom and conditional-law consequences.
+- `DerridaRetaux.FixedArity.sharpnessSurvival`: the current Appendix A
+  counterexample to the exact survival asymptotic for every real `0 <= r < 3`.
+- `DerridaRetaux.FixedArity.productAsymptoticOfSurvival`: criticality and the
+  proposed survival limit imply logarithmic product exponent two, without a
+  third-moment assumption.
+- `DerridaRetaux.FixedArity.farArrivalBoundUniform`: the revised uniform far
+  estimate; the tilted-law, weighted-mass and arrival-moment wrappers are in
+  [RevisionStatements.lean](DerridaRetaux/Main/RevisionStatements.lean).
+- Closed-cell interpolation and logarithmic grid-scale bounds are in
+  [RevisionInterpolation.lean](DerridaRetaux/Analysis/RevisionInterpolation.lean)
+  and [RevisionGridRates.lean](DerridaRetaux/Analysis/RevisionGridRates.lean).
 
-The manuscript records the provenance of its AI-assisted draft. Lean compilation and axiom auditing do not by themselves establish that every natural-language statement has been represented correctly, nor constitute independent human peer review. No Comparator verification is claimed.
+The legacy excess sharpness theorem is retained as a proved ingredient.
+The current survival conclusion uses a newly proved transfer theorem; it is
+not obtained merely by renaming the legacy declaration.
 
-## Main declarations
+## Reproduce verification
 
-- `DerridaRetaux.FixedArity.profile` — [ProfileTheorem.lean](DerridaRetaux/Main/ProfileTheorem.lean).
-- `DerridaRetaux.FixedArity.sharpness` — [Sharpness.lean](DerridaRetaux/Main/Sharpness.lean).
-- `DerridaRetaux.FixedArity.cubicWeightedInfiniteChain` — [InfinitePath.lean](DerridaRetaux/Spine/InfinitePath.lean).
-- `DerridaRetaux.FixedArity.momentLaplaceLocalIntegralDerivatives` — [MomentLaplaceRegularity.lean](DerridaRetaux/Main/MomentLaplaceRegularity.lean).
-
-## Build
-
-Install Lean through elan, then run from this directory:
+From this directory, with elan installed:
 
 ```sh
 lake exe cache get
-lake build
+python3 scripts/verify_all.py
 ```
 
-The toolchain is pinned to Lean 4.19.0. Mathlib is pinned to commit `c44e0c8ee63ca166450922a373c7409c5d26b00b`; other dependencies are locked in `lake-manifest.json`. Do not update these versions merely to reproduce the reported build.
+The script runs `lake build`, builds the audit dependency, compiles the union
+of source and extended declaration audits, rejects unapproved axioms, checks
+exact dependency sets of the public results, and refreshes the per-declaration
+CSV dependency fields only from successful compiler output. It records source
+and log hashes and refuses a success result if the source changes during the
+run. For source-only checking after a successful audit:
 
-If the native cache executable fails with a macOS dynamic-loader error, the same cache tool can be run through Lean:
+```sh
+python3 scripts/verify_revision.py
+```
+
+If the macOS native cache executable has a dynamic-loader error, use:
 
 ```sh
 lake env lean --run .lake/packages/mathlib/Cache/Main.lean get
 ```
 
-## Source correspondence and audits
+An interrupted or mixed dependency cache can be restored from downloaded cache
+archives with `lake env lean --run .lake/packages/mathlib/Cache/Main.lean unpack!`.
+Build products and `.lake/` are excluded from version control.
 
-- [STATEMENT_LEDGER.csv](STATEMENT_LEDGER.csv): 15 numbered results.
-- [EQUATION_LEDGER.csv](EQUATION_LEDGER.csv): 82 labeled equations.
-- [UNNUMBERED_LEDGER.csv](UNNUMBERED_LEDGER.csv): U01–U62.
-- [AcceptanceReport.md](AcceptanceReport.md): verification scope and exact public theorem types.
-- [DEPENDENCY_DAG.md](DEPENDENCY_DAG.md): dependency structure.
-- [ReuseAudit.md](ReuseAudit.md): reuse provenance.
+## Correspondence and trust
 
-The CSV ledgers include exact per-declaration custom-axiom dependencies. Detailed historical logs referenced by the report are distributed in the complete verification delivery archive accompanying this source distribution.
+The current ledgers contain [22 numbered results](STATEMENT_LEDGER.csv),
+[84 labeled formulas](EQUATION_LEDGER.csv), and
+[85 unnumbered obligations](UNNUMBERED_LEDGER.csv), mapping to 457 unique Lean
+declarations. See [CORRESPONDENCE_REVIEW.md](CORRESPONDENCE_REVIEW.md) for changed
+statements, compound mappings, the treatment of interpolation, and proof-order
+differences.
 
-To repeat source checks and the declaration audit:
+[HumanInputs.lean](DerridaRetaux/HumanInputs.lean) is unchanged. It declares four
+published external inputs: H1a/H1b (CDHLS), H2 (Kotani), and H3 (Chen–Shi).
+They are accepted premises, not re-proved in this project. The profile branch
+uses H1a/H1b/H2; survival sharpness uses H3. The survival-to-excess/product
+transfer requires no custom axiom. Exact interfaces are documented in
+[EXTERNAL_INTERFACES.md](EXTERNAL_INTERFACES.md).
 
-```sh
-python3 scripts/verify_revision.py
-bash scripts/verify_ledgers.sh
-lake build DerridaRetaux.Audit.ArchitectureCounterexample
-lake env lean DerridaRetaux/Audit/AllSourceDecls.lean
-lake env lean DerridaRetaux/Audit/StatementCompletion.lean
-lake env lean DerridaRetaux/Audit/PrintAxioms.lean
-```
-
-## Manuscript
-
-The verified source is `DR_Yaglom.tex`, SHA-256 `652c080e30cfc8cb37ea9636ae74e4c0b30875e1a69db5ae81008137b5a0b82a`. Compile it with `pdflatex` twice. Generated files and `.lake/` are excluded from version control.
+Compilation verifies Lean statements relative to these premises. The
+TeX-to-Lean correspondence review is not a machine-checked translation or an
+independent human peer review. No Comparator verification is claimed.

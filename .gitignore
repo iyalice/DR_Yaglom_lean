@@ -1,11 +1,27 @@
-.lake/
-.DS_Store
-__pycache__/
-*.pyc
-*.aux
-*.fdb_latexmk
-*.fls
-*.out
-*.synctex.gz
+# LaTeX build outputs for DR_Yaglom
+/DR_Yaglom.aux
+/DR_Yaglom.bbl
+/DR_Yaglom.bcf
+/DR_Yaglom.blg
+/DR_Yaglom.dvi
+/DR_Yaglom.fdb_latexmk
+/DR_Yaglom.fls
+/DR_Yaglom.lof
 /DR_Yaglom.log
+/DR_Yaglom.lot
+/DR_Yaglom.out
 /DR_Yaglom.pdf
+/DR_Yaglom.run.xml
+/DR_Yaglom.synctex.gz
+/DR_Yaglom.toc
+/DR_Yaglom.xdv
+
+# Lean build products and local tooling
+/lean/.lake/
+/lean/*.olean
+/lean/*.ilean
+/lean/*.pdf
+/lean/*.aux
+/lean/*.log
+/lean/*.out
+/lean/*.synctex.gz

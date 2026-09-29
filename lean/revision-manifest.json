@@ -1,0 +1,12 @@
+{
+  "edition": "2026-09-29",
+  "manuscript_commit": "66722ad0fba326205fea503206be3a6636936dd7",
+  "lean_baseline_commit": "2830c58dee0265b8cc71b0dc16acc944cda316a2",
+  "manuscript_sha256": "c4e796e0161cff5420fff55cb2ed00c13bca4bbac9038d7a7fa11f2c969eeff2",
+  "source_lines": 2387,
+  "labels": 117,
+  "statements": 22,
+  "equations": 84,
+  "unnumbered": 85,
+  "declarations": 457
+}

@@ -1,9 +1,18 @@
-# 最终交接
+# Current edition handoff — verified
 
-在接受 H1a、H1b、H2、H3 四项外部输入的条件下，本次修订的全工程编译和公理审计通过。283 个根工程模块、419 个清单声明以及 382 项扩展声明均完成相应检查。
+The authoritative manuscript is `../DR_Yaglom.tex`; `DR_Yaglom.tex` is its
+byte-identical Lean-project snapshot. See `revision-manifest.json` for source
+identity and `UPDATE_PLAN.md` for the active work checkpoint.
 
-已修正 lem:spine 的无限路径共同概率空间及 lem:momentODE 的局部绝对连续性表达。没有已识别的待补证明义务；不需要继续补某个模块。
+Run `python3 scripts/verify_all.py` to build and audit the current edition.
+A successful result must be present in
+`validation/2026-09-29/verification-result.json`. The 12 September records and
+reports are historical and cannot substitute for this gate.
 
-从 AcceptanceReport.md 开始阅读，再查看三份 CSV 清单、EXTERNAL_INTERFACES.md 和根目录三份最终日志。包内不含 .lake 编译缓存；可在锁定的 Lean 4.19.0 环境恢复依赖后运行 lake build。已经编译的本机工程仍保留于本任务 work/DR_Yaglom_corrected。
+The new public sharpness declaration is `FixedArity.sharpnessSurvival`.
+`FixedArity.sharpness` retains its older excess-limit conclusion. Consult
+`CORRESPONDENCE_REVIEW.md` before interpreting compound ledger mappings.
+No new external input is permitted; the frozen `HumanInputs.lean` hash is
+checked automatically.
 
-外部文献输入仍需由使用者接受。本次机器检查不等于把这些文献本身重新形式化。
+The final current-edition gate passed; the result file records the exact source hashes.

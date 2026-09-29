@@ -5,6 +5,7 @@
 \usepackage[margin=30mm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb,mathtools}
+\numberwithin{equation}{section}
 \usepackage[sc]{mathpazo}
 \usepackage{microtype}
 \usepackage{etoolbox}
@@ -24,12 +25,13 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 \newcommand{\E}{\mathbb E}\newcommand{\Pp}{\mathbb P}
 \newcommand{\Zp}{\mathbb Z_{\ge0}}
 \newcommand{\dd}{\,\mathrm d}
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\floor}[1]{\lfloor#1\rfloor}
-\newcommand{\tail}[2]{\mathcal T_{#1}(#2)}
 \DeclareMathOperator{\supp}{supp}
 
 \title[Critical Derrida--Retaux recursions]{Exact critical asymptotics for Derrida--Retaux recursions}
@@ -65,41 +67,84 @@
 \date{}
 \begin{document}
 \begin{abstract}
-We study the critical Derrida--Retaux recursion with a fixed number $m\ge2$ of independent inputs and a nonnegative integer-valued initial law. Under a finite third exponentially tilted moment, excluding the deterministic binary fixed point, we prove that the survival probability is asymptotic to $4/((m-1)^2n^2)$ and identify the locally uniform scaling limit of the positive tilted density, including its boundary value. We also obtain exact asymptotics for the tilted generating function, its one-step decrement and each fixed positive atom, together with convergence of the conditional law to a geometric distribution with total variation error $O(\log n/n)$. The proof combines a cubic moment identity, a truncated convolution estimate and inverse uniqueness for strings of entrance type. A quantitative third-moment tail bound supplies the entrance normalization without a fourth-moment assumption. No fixed smaller polynomial tilted-moment order suffices for these conclusions over all critical initial laws.
+We study the critical Derrida--Retaux recursion with a fixed number $m\ge2$ of independent inputs and a nonnegative integer-valued initial law.
+%
+Assuming $\E[X_0^3m^{X_0}]<\infty$ and excluding the deterministic binary fixed point, we prove that the survival probability is asymptotic to $4/((m-1)^2n^2)$ and identify the locally uniform limit of $n^2\rho_n(\floor{nx})$, including at $x=0$, where $\rho_n(j)=(m-1)m^{j+1}\Pp(X_n=j+1)/\E[m^{X_n}]$.
+%
+We also obtain exact asymptotics for $\E[m^{X_n}]-1$, its one-step decrement and $\Pp(X_n=k)$ for each fixed $k\ge1$, together with convergence of the conditional law to a geometric distribution with total variation error $O(\log n/n)$.
+%
+The proof combines a cubic moment identity, a truncated convolution estimate and Kotani's uniqueness theorem for strings of entrance type.
+%
+A quantitative third-moment tail bound determines the small-time asymptotics needed to apply this theorem without a fourth-moment assumption.
+%
+For each fixed $r\in[0,3)$, the assumption $\E[X_0^rm^{X_0}]<\infty$ does not, in general, guarantee this survival asymptotic.
 \end{abstract}
 \maketitle
 
 \section{Introduction}
-Recursive models on trees provide a setting in which a phase transition can be studied through the evolution of a single probability law. At criticality, identifying the order of decay of this law and determining its exact asymptotics are distinct questions. In max-type recursions, a small mass near the absorbing state may determine the survival probability even when an exponential tilt places most of the relevant mass on a growing spatial scale.
+We consider the Derrida--Retaux model on an $m$-ary tree, where $m\ge2$ is a fixed integer. For each $n\ge0$, we take such a tree with all its leaves at distance $n$ from the root. The leaves carry independent nonnegative integer-valued masses, all with the same law as a given random variable $X_0$.
 
-The Derrida--Retaux model combines independent masses at the children of a vertex, subtracts one unit and replaces negative values by zero. Its binary generating-function iteration was studied by Collet, Eckmann, Glaser and Martin~\cite{CEGM}, and Derrida and Retaux~\cite{DR} later used it as a hierarchical model for the depinning transition. We consider a deterministic number of children and integer-valued masses. The critical condition fixes the first moment of the exponentially tilted law, but does not by itself determine how the positive tilted mass is distributed between the boundary and distances comparable with the generation.
+We assign masses to the remaining vertices by working from the leaves towards the root. Once the masses at the $m$ children of a vertex are known, we add them, subtract one unit, and assign the result to that vertex if it is positive; otherwise, we assign zero. Repeating this operation gives a mass at the root, which we denote by $X_n$. Thus $n$ counts the number of steps from the leaves to the root. In a tree of height $n+1$, the masses at the children of the root are independent copies of $X_n$: each is obtained from a tree of height $n$, and these trees depend on disjoint sets of independent initial masses. This gives the recurrence relation \eqref{eq:model} below.
 
-For this recursion, Chen, Derrida, Hu, Lifshits and Shi~\cite{CDHLS} established critical estimates for the generating function and its accumulated product, and formulated more precise asymptotic questions. Under a finite third tilted moment, their estimates control the generating-function excess at order $n^{-1}$. Chen, Hu and Shi~\cite{CHS} subsequently proved that the survival probability and the mean are $n^{-2+o(1)}$, assuming an exponential moment beyond the critical tilting parameter. These results distinguish the decay exponent from the exact boundary constant. Chen and Shi~\cite{CS} showed that heavier tilted tails give a different product exponent, so the moment assumption is relevant to the critical asymptotics. To obtain exact constants from a scaling limit, one must control the density at the boundary as well as at positive macroscopic distances.
+The binary model was studied by Collet, Eckmann, Glaser and Martin~\cite{CEGM} in connection with a spin glass model, and Derrida and Retaux~\cite{DR} later used it as a simplified hierarchical model for the depinning transition. The behavior of the mass at the root depends on the initial law. Under $\E[X_0m^{X_0}]<\infty$, its mean can grow exponentially with the height of the tree or remain bounded. For integer-valued initial masses, the critical case separating these regimes is characterized by
+\[
+ (m-1)\E[X_0m^{X_0}]=\E[m^{X_0}].
+\]
+This criterion is due to Collet et al.~\cite{CEGM}; see also \cite[Theorem~1]{CDHLS} for general $m$.
 
-We prove a locally uniform limit for the normalized positive tilted density on compact subsets of the closed half-line. Its boundary value yields the survival constant and the asymptotics of every fixed positive atom. The argument applies to every fixed number $m\ge2$ of independent copies in the recursion and uses only a finite third tilted moment. The two estimates that connect the discrete recursion to its limiting profile are a spatial modulus obtained by truncating the convolution evolution and a quantitative third-moment tail bound. They permit the limiting equation to be identified by the inverse uniqueness theorem for strings of entrance type~\cite{Kotani}. We also obtain a quantitative geometric approximation to the conditional law and show that no fixed lower polynomial tilted-moment assumption implies the full collection of asymptotics.
+This paper concerns the critical case. We first study the survival probability $\Pp(X_n>0)$, namely, the probability that some positive mass remains at the root after $n$ steps of the construction. Our aim is to determine how this probability decays as $n\to\infty$, including its leading constant. We also study the conditional probabilities $\Pp(X_n=k\mid X_n>0)$, $k\ge1$. We seek the limiting conditional distribution as the height of the tree tends to infinity. This is often called a \emph{Yaglom-type theorem}, after Yaglom's classical result~\cite{Yaglom} on the distribution of a branching process conditioned on non-extinction. In the classical critical Galton--Watson setting, the limit is exponential after rescaling the population size; in the present model, we obtain a geometric limit for $X_n$ without rescaling.
 
-\subsection{Model and main results}
+For nonconstant critical initial laws with suitable moment assumptions, the predictions formulated in \cite[Conjectures~1 and~2]{CDHLS} are
+\[
+ \Pp(X_n>0)\sim\frac4{(m-1)^2n^2},
+ \qquad
+ \Pp(X_n=k\mid X_n>0)\longrightarrow(m-1)m^{-k}
+ \quad(k\ge1).
+\]
+The first prediction specifies how often positive mass remains at the root of a large tree, including the leading constant. The second says that, conditional on this event, the remaining mass approaches a geometric distribution on the positive integers.
+
+Several rigorous estimates support these predictions. Chen, Derrida, Hu, Lifshits and Shi~\cite{CDHLS} proved that $\E[m^{X_n}]-1$ is of order $n^{-1}$ when $\E[X_0^3m^{X_0}]<\infty$. Under the stronger assumption $\E[s^{X_0}]<\infty$ for some $s>m$, Chen, Hu and Shi~\cite[Theorem~1.2]{CHS} proved that both $\Pp(X_n>0)$ and $\E[X_n]$ are $n^{-2+o(1)}$. Their proof studies pivotal vertices and open paths in the tree and uses a coupling argument. In particular, it establishes the predicted exponent two for the survival probability. An estimate of the form $n^{-2+o(1)}$, however, does not determine a leading constant, so further estimates are needed for the precise asymptotic above.
+
+There are also related models that are exactly solvable for certain families of initial distributions~\cite{HMP,LZ,AHM}. The continuous coalescence equation studied by Derrida and Retaux~\cite[Section~3.2]{DR} and Chen, Dagard, Derrida and Shi~\cite[Section~2]{CDDS} has explicit exponential solutions at criticality, which suggest a possible scaling limit for the discrete model. Derrida and Shi~\cite{DS} review these predictions and explain the role of moment assumptions on the initial law. To use the suggested limiting function to compute probabilities for the discrete model, one must prove convergence with enough control near the small positive values of $X_n$.
+
+In this paper, we prove the survival asymptotic and the conditional geometric limit above for every fixed $m\ge2$ and every critical initial law satisfying $\E[X_0^3m^{X_0}]<\infty$, except for the deterministic law $X_0=1$ when $m=2$. In the exceptional case the mass remains identically $1$ at every generation. We also obtain exact asymptotics for $\Pp(X_n=k)$ for each fixed $k\ge1$, for $\E[X_n]$, and for $\E[m^{X_n}]-1$, together with a total variation error of order $O(\log n/n)$ for the conditional geometric approximation. We also show that, for any fixed $r\in[0,3)$, the assumption $\E[X_0^rm^{X_0}]<\infty$ does not guarantee the survival asymptotic.
+
+The main step is to prove that $n^2\rho_n(\floor{nx})$ converges to $4e^{-2x}$ uniformly on every bounded interval $[0,R]$, where $\rho_n$ is defined below from the positive part of the exponentially tilted law of $X_n$. Since $\Pp(X_n=k)$ is expressed in terms of $\rho_n(k-1)$, each fixed $k\ge1$ corresponds to $x=(k-1)/n\to0$. The boundary limit $n^2\rho_n(0)\to4$, together with bounds on $|\rho_n(j+1)-\rho_n(j)|$ and $\E[m^{X_n}]\to1$, then gives the exact asymptotics of $\Pp(X_n=k)$ and $\Pp(X_n>0)$. We give the precise definitions and statements next, followed by an outline of the proof.
+
+\subsection{Model and main result}
 Fix an integer $m\ge2$. Starting from a nonnegative integer-valued random variable $X_0$, define the laws of $X_n$ recursively by
 \begin{equation}\label{eq:model}
  X_{n+1}\overset{\mathrm d}=\bigl(X_n^{(1)}+\cdots+X_n^{(m)}-1\bigr)_+,
 \end{equation}
-where $x_+=\max\{x,0\}$ and, at each step, the variables $X_n^{(1)},\ldots,X_n^{(m)}$ are independent copies of $X_n$. The criticality and moment assumptions are
+where $x_+=\max\{x,0\}$ and, at each step, the variables $X_n^{(1)},\ldots,X_n^{(m)}$ are independent copies of $X_n$. We assume
 \begin{equation}\label{eq:assumptions}
  (m-1)\E[X_0m^{X_0}]=\E[m^{X_0}]<\infty,
  \qquad \E[X_0^3m^{X_0}]<\infty.
 \end{equation}
-When $m=2$, we exclude $\Pp(X_0=1)=1$. This is a deterministic fixed point of the recursion. No other critical deterministic law exists. For $m\ge3$, nonconstant critical laws supported on $\{0,1\}$ are included.
+The first equality is the criticality condition of Collet et al.~\cite{CEGM}; see also \cite[Theorem~1]{CDHLS} for general $m$. The second is the moment condition used throughout the proof.
+When $m=2$, we exclude $\Pp(X_0=1)=1$. This is a deterministic fixed point of \eqref{eq:model}. No other critical deterministic law exists.
 
 Write
 \begin{equation}\label{eq:notation}
- G_n=\E[m^{X_n}],\quad \varepsilon_n=G_n-1,\quad p_n=\Pp(X_n>0),\quad
- q_{n,k}=\frac{m^k\Pp(X_n=k)}{G_n},
+ p_n:=\Pp(X_n>0),\quad G_n:=\E[m^{X_n}],\quad \varepsilon_n:=G_n-1,\quad 
+ q_{n,k}:=\frac{m^k\Pp(X_n=k)}{G_n},
 \end{equation}
 and define
 \begin{equation}\label{eq:rho}
- \rho_n(j)=(m-1)q_{n,j+1},\qquad j\in\Zp.
+ \rho_n(j):=(m-1)q_{n,j+1},\qquad j\in\Zp.
 \end{equation}
-Thus $q_n$ is a probability law, while $\rho_n$ records its positive atoms after a shift by one. The factor $m-1$ makes the limiting profile independent of $m$.
+The law $q_n=(q_{n,k})_{k\ge0}$ is obtained by tilting the law of $X_n$: we multiply $\Pp(X_n=k)$ by $m^k$ and divide by $G_n$. For each $j\ge0$, $\rho_n(j)$ is $m-1$ times the probability assigned to $j+1$ by the tilted law $q_n$. In particular,
+\[
+ \rho_n(0)=\frac{m(m-1)}{G_n}\Pp(X_n=1).
+\]
+Thus, $j=0$ corresponds to $X_n = 1$ in the original probability.
+
+Criticality is preserved by \eqref{eq:model}, as shown in \eqref{eq:qmean}, and the factor $m-1$ gives the normalization
+\[
+ \sum_{k\ge0}q_{n,k}=1,\qquad
+ \sum_{j\ge0}(j+1)\rho_n(j)=1.
+\]
+The sequence $\rho_n$ itself need not have total mass one. We use it to study $q_{n,k}$ at positive indices proportional to $n$. Its values near $j=0$ will then determine the leading terms of the original probabilities at fixed positive integers.
 
 \begin{theorem}\label{thm:profile}
 Assume \eqref{eq:assumptions} and exclude the deterministic binary law specified above. For every $R\in[0,\infty)$,
@@ -125,219 +170,389 @@ Moreover,
 \end{equation}
 \end{theorem}
 
-The sum in \eqref{eq:tv} is twice the total variation distance. Its rate concerns the conditional distribution; it does not assert a rate for the convergence of $n^2p_n$. All constants below may depend on $m$ and the fixed initial law, and all limits are taken as $n\to\infty$ unless stated otherwise.
+The inclusion of $x=0$ in \eqref{eq:mainprofile} gives
+\[
+ n^2\rho_n(0)\longrightarrow4.
+\]
+We explain how the boundary limit $n^2\rho_n(0)\to4$ leads to the survival asymptotic $n^2p_n\to4/(m-1)^2$. By \eqref{eq:notation}--\eqref{eq:rho},
+\[
+ p_n=\frac{G_n}{m-1}\sum_{j\ge0}m^{-j-1}\rho_n(j).
+\]
+The estimate on $|\rho_n(j+1)-\rho_n(j)|$ used in Section~\ref{sec:mainproof} shows that replacing $\rho_n(j)$ by $\rho_n(0)$ in this expression introduces an error $o(n^{-2})$. Since $\sum_{j\ge0}m^{-j-1}=1/(m-1)$, we obtain
+\[
+ p_n=\frac{G_n\rho_n(0)}{(m-1)^2}+o(n^{-2}).
+\]
+Together with $G_n\to1$ and $n^2\rho_n(0)\to4$, this gives
+\[
+ n^2p_n\longrightarrow\frac4{(m-1)^2},
+\]
+which is the second limit in \eqref{eq:main1}.
 
-The third-moment assumption cannot be replaced by any fixed smaller polynomial tilted-moment order if the conclusions are required for all critical initial laws.
+Under the assumptions of Theorem~\ref{thm:profile}, these conclusions establish Conjectures~1 and~2, the first-moment assertion of Conjecture~3, and Conjecture~4(b) in \cite{CDHLS}. They concern, respectively, the survival probability, the conditional geometric law, the mean, and the generating function at $m$.
 
-\begin{theorem}\label{thm:sharpness}
-For every fixed $m\ge2$ and every $r\in[0,3)$, there exists a nondegenerate critical initial law with $\E[X_0^rm^{X_0}]<\infty$ but $\E[X_0^3m^{X_0}]=\infty$ for which $n(G_n-1)$ does not converge to $2/(m-1)$. Thus no fixed lower polynomial tilted-moment order suffices for the conclusions of Theorem~\ref{thm:profile} over all critical initial laws.
-\end{theorem}
+The bound \eqref{eq:tv} also gives a rate for convergence of the conditional law. Its left-hand side is twice the total variation distance; this rate does not assert a rate for the convergence of $n^2p_n$. All constants below may depend on $m$ and the fixed initial law, and all limits are taken as $n\to\infty$ unless stated otherwise. The symbol $C$ without a subscript denotes a finite positive constant whose value may change from one occurrence to the next.
 
-Theorem~\ref{thm:sharpness} concerns a class of moment assumptions. It does not claim that a finite third tilted moment is necessary for each individual law, and it does not classify the borderline power-law tail of exponent four. Its proof is given in Section~\ref{sec:sharpness}.
+\begin{remark}[Sharpness of the moment assumption]
+For every $r\in[0,3)$, there exists a nondegenerate critical initial law satisfying $\E[X_0^rm^{X_0}]<\infty$ but $\E[X_0^3m^{X_0}]=\infty$ for which $n^2p_n$ does not converge to $4/(m-1)^2$. Appendix~\ref{sec:sharpness} proves this using a critical law from the family studied in \cite{CDDHLS,CS} and the product estimate of Chen and Shi~\cite[Theorem~1.1]{CS}; see Theorem~\ref{thm:sharpness}. Thus replacing $X_0^3$ by $X_0^r$ for any fixed $0\le r<3$ in the moment assumption does not, in general, guarantee this survival asymptotic.
+\end{remark}
 
 \subsection{Proof outline}
-The proof begins with two coarse critical bounds: $G_n-1=O(n^{-1})$ and an upper bound of order $n^2$ for the product of $G_j^{m-1}$. A cubic polynomial adapted to the tilted recursion converts the product estimate into third-moment control. The coefficient of the linear transport term in the density recursion has a summable defect. The recursion for the zero atom then gives a tail bound of order $n^{-1}$ for the sum of the first positive tilted atoms.
-
-To control individual atoms, we follow coefficients along the linear transport. The nonlinear source becomes a finite sum of convolution powers in these coordinates. Its change between successive generations has a cubic tail estimate. Summing at the moving coefficient visits each source coefficient at most once, which yields
+We work with the continuous functions $u_N$ defined in \eqref{eq:uN}, which satisfy $u_N(n/N,j/N)=N^2\rho_n(j)$. We first show that every subsequence of $(u_N)_{N\ge1}$ has a further subsequence converging locally uniformly. To bound their values, we combine the generating-function and product estimates in \cite[Theorem~3 and Proposition~1]{CDHLS} with the cubic identity in \cite[eqs.~(18)--(19)]{CDHLS}, and iterate the recurrence relation for $\rho_n$. This gives
 \[
- \rho_n(j)\le C\frac{n+1}{(n+j+1)^3}.
+ \rho_n(j)\le C\frac{n+1}{(n+j+1)^3},
 \]
-The boundary follows by applying a fixed number of recursion steps. This estimate is obtained before any exact survival asymptotic is used.
+which controls the size of the rescaled functions $u_N(t,x)$ and their decay as $x\to\infty$.
 
-The quadratic convolution has a different transport speed from the density itself. Comparing their evolutions produces a telescoping identity for spatial differences. At the third-moment threshold, the remainder has a logarithmic sum. We therefore split the evolution at a time $a$: the part transported from that time has amplitude at most $C(a+1)n^{-3}$, while the later part has gradient at most $Cn^{-3}(1+\log(n/(a+1)))$. For a spatial increment $h$, choosing $a=h$ gives a macroscopic modulus of order $r(1+\log(1/r))$. This yields compactness up to the spatial boundary. Summing a one-step logarithmic gradient bound would not give this modulus.
+We next bound the differences of $\rho_n(j)$ as $j$ or $n$ varies. To avoid the factor $\log n$ that would result from adding bounds on $|\rho_n(j+1)-\rho_n(j)|$, we split the convolution sum at a generation chosen according to the increment in $j$. We estimate the earlier and later terms separately. Together with the bounds for differences in $n$, this gives a common modulus of continuity for $u_N$ of order $r(1+\log(1/r))$ on compact rectangles. We can therefore extract locally uniform limits $u$ on $(0,\infty)\times[0,\infty)$, including at $x=0$.
 
-The remaining issue is to identify a subsequential limit. Weighting the tilted law by the same cubic polynomial gives a Markov chain whose expected positive increment is uniformly bounded. Its tail estimate passes to the limiting density $u$ as
+To determine $u$, we need an additional bound on its third moment far from zero. We construct a Markov chain whose law at step $n$ is obtained by multiplying $q_{n,k}$ by the nonnegative polynomial in the cubic identity and normalizing. A bound on its expected positive increments gives
 \[
- \int_\delta^\infty x^3u(t,x)\dd x\le C\frac{t^3}{\delta}.
+ \int_\delta^\infty x^3u(t,x)\dd x\le C\frac{t^3}{\delta},
+ \qquad t,\delta>0.
 \]
-Together with the limiting transport--convolution equation, this estimate controls the small-time remainder in the Laplace transform using only three moments. The moment equations define a string of entrance type, and the remainder determines its singular characteristic on the whole negative axis. Kotani's inverse uniqueness theorem identifies the string; fixing its endpoint and the time normalization then gives $u(t,x)=4t^{-2}e^{-2x/t}$. The boundary value yields the survival and atom limits. The spatial gradient bound gives the error in the conditional geometric approximation, and an exact generating-function identity gives the one-step decrement.
+This estimate controls the remainder in the Laplace transform as $t\downarrow0$ under our third-moment assumption.
 
-For Theorem~\ref{thm:sharpness}, we choose a critical law with a polynomial tilted tail of exponent $\alpha<4$. The product theorem of Chen and Shi gives exponent $\alpha-2$, whereas the asserted generating-function limit would force exponent two. Choosing $\alpha$ above $r+1$ makes the $r$th tilted moment finite and gives the required contradiction.
+To show that all limits coincide, we express the Laplace transform and moment equations in terms of a \emph{string of entrance type}~\cite{Kotani}. The tail estimate determines its spectral measure. Kotani's uniqueness theorem~\cite[Theorem~1]{Kotani} determines the string up to translation. Fixing its right endpoint and using the behavior as $t\downarrow0$ to determine the integration constant gives
+\[
+ u(t,x)=\frac4{t^2}e^{-2x/t}.
+\]
+Thus the whole sequence $u_N$ converges locally uniformly to this function. Setting $t=1$ gives
+\[
+ \sup_{0\le x\le R}\left|n^2\rho_n(\floor{nx})-4e^{-2x}\right|
+ \longrightarrow0,
+\]
+which is \eqref{eq:mainprofile}. The boundary limit and the bounds on $|\rho_n(j+1)-\rho_n(j)|$ give the survival asymptotic, the fixed-$k$ probabilities and the conditional geometric approximation. Summation and the recurrence relation for $G_n$ give the moment and generating-function limits.
+
+For sharpness, Appendix~\ref{sec:sharpness} uses a critical law from the family studied in \cite{CDDHLS,CS}, with $\Pp(X_0=k)\sim c m^{-k}k^{-\alpha}$, $c>0$ and $3<\alpha<4$. The product estimate in \cite[Theorem~1.1]{CS} gives $\prod_{j=0}^{n-1}G_j^{m-1}\asymp n^{\alpha-2}$, whereas criticality and the survival asymptotic $n^2p_n\to4/(m-1)^2$ would imply growth $n^{2+o(1)}$ by Lemma~\ref{lem:productasymptotic}. This contradiction proves Theorem~\ref{thm:sharpness}.
 
 \subsection{Further related work}
-Related work includes the near-critical free-energy asymptotics
-of \cite{CDDHLS}, the continuous-time model of \cite{HMP}, and the
-geometric-offspring models of \cite{LZ,AHM}. The latter yield exact
-asymptotics within special invariant families. Here the number of
-children is fixed, and the initial law need not belong to such a family.
+A related question is how the free energy and survival probability behave as the initial law approaches criticality. Hu and Shi~\cite{HS} studied free-energy exponents for a generalized Derrida--Retaux model. Chen, Dagard, Derrida, Hu, Lifshits and Shi~\cite{CDDHLS} obtained asymptotics for the free energy in the nearly supercritical case, while Chen, Hu and Shi~\cite{CHSdual} studied the decay of the survival probability and mean in the nearly subcritical case. Chen~\cite{ChenSmooth} also studied infinite differentiability of the free energy.
 
-The limiting coalescence equation and its exponential critical profile
-already appear in \cite{CDDS}; our contribution concerns convergence
-from the discrete recursion, including at the boundary, under the third
-tilted-moment assumption. Profile identification uses Kotani's inverse
-uniqueness theorem~\cite{Kotani}. We follow his terminology
-\emph{string of entrance type} and verify its defining condition
-\cite[Section~2, condition~(2.1)]{Kotani} before applying the theorem.
+Some related models can be solved explicitly for particular initial laws. Hu, Mallein and Pain~\cite{HMP} introduced a continuous-time Derrida--Retaux model and studied an exactly solvable family, including its critical scaling. For a model with a geometrically distributed number of children, Li and Zhang~\cite{LZ} obtained asymptotic expansions for geometric-type distributions. Alsmeyer, Hu and Mallein~\cite{AHM} studied the critical curve and free energy for the model on a geometric Galton--Watson tree, including the cases of geometric and exponential initial laws. In our setting, each vertex has exactly $m$ children, and the initial law satisfies the criticality and moment conditions in \eqref{eq:assumptions}.
+
+Scaling limits also connect discrete-time and continuous-time versions of the model. Li and Zhang~\cite{LZscale} proved such limits for generalized Derrida--Retaux models, with the renewal rate varying with the scale parameter. In the limit considered here, the model parameters and initial law remain fixed, and the number of generations tends to infinity.
+
+Derrida, Duquesne and Shi~\cite{DDS} described the continuous critical tree as a growth-fragmentation process. Duquesne and Shi~\cite{DuS} gave a representation in terms of the Brownian continuum random tree.
 
 \subsection{Organization}
-Section~\ref{sec:prelim} records the tilted recursion, coarse estimates and auxiliary moment identities. Section~\ref{sec:mainproof} proves Theorem~\ref{thm:profile} from the smoothing and profile-identification propositions. Sections~\ref{sec:pointwise} and~\ref{sec:smoothing} establish the discrete pointwise and smoothing estimates. Section~\ref{sec:limits} proves the tail bounds and equations for subsequential limits, and Section~\ref{sec:rigidity} identifies those limits. Section~\ref{sec:sharpness} proves Theorem~\ref{thm:sharpness}.
+Section~\ref{sec:prelim} collects and proves preliminary results on recursion relations. Section~\ref{sec:mainproof} proves Theorem~\ref{thm:profile} using two propositions: one gives bounds on the function $\rho_n(j)$, and one determines every subsequential limit of $\rho_{n}(j)$ after scaling. The two propositions are proved in Sections~\ref{sec:pointwise}--\ref{sec:rigidity}. Appendix~\ref{sec:sharpness} proves Theorem~\ref{thm:sharpness} for the sharpness of the moment condition \eqref{eq:assumptions}.
 
 \subsection{AI-assisted proof development and verification status}
 \label{subsec:ai-declaration}
 
-Generative AI was used to produce the mathematical proof draft presented
-in this manuscript. OpenAI ChatGPT and Codex also assisted with manuscript
-preparation and organization. At this stage, the draft has received only
-preliminary editing. The authors have not completed a systematic,
-step-by-step verification of all arguments and cited inputs; substantial
-mathematical review and revision remain necessary.
+OpenAI ChatGPT and Codex were used to produce the mathematical proof draft
+and assisted with manuscript preparation and the accompanying Lean
+formalization. The authors have manually checked the mathematical arguments
+and take responsibility for the content.
 
-This version is intended to provide a dated record of the current draft
-through an initial GitHub release. It should be read as work in progress,
-with the statements and proofs subject to correction. Lean~4 formalization
-is planned as part of the subsequent checking process. No completed Lean
-verification is claimed for this version. Any future claim of formal
-verification will specify the results covered, the correspondence with
-the manuscript, and any remaining assumptions or unproved dependencies.
+Theorems~\ref{thm:profile} and~\ref{thm:sharpness} have also been formalized
+in Lean~4, conditional on four explicitly declared published results.
+The source, statement correspondence, and verification records are available
+in the accompanying \href{https://github.com/yszheng666/DR_Yaglom/tree/main/lean}{repository}.
 
 \section{Preliminaries}\label{sec:prelim}
-Until Section~\ref{sec:sharpness}, we work under the assumptions of Theorem~\ref{thm:profile}. We collect the exact tilted recursion and the moment estimates used in both the pointwise bound and the smoothing argument. The only estimates used without proof in this section are the two coarse critical bounds in \eqref{eq:coarse}.
-
-For a sequence $f$ on $\Zp$, let $Sf(j)=f(j+1)$, let $Tf(0)=0$ and $Tf(j)=f(j-1)$ for $j\ge1$, and let $\Delta=I-S$. Convolutions are on $\Zp$. Put $L_n=n+1$. For $L\ge1$, write
-\[
- \norm f_{\infty,3,L}=\sup_{j\ge0}(1+j/L)^3|f(j)|,
- \qquad \norm f_{1,3,L}=\sum_{j\ge0}(1+j/L)^3|f(j)|.
-\]
+Throughout Sections~\ref{sec:prelim}--\ref{sec:rigidity}, we assume the hypotheses of Theorem~\ref{thm:profile}. We collect the tilted recursion and moment estimates used in the proof of Theorem~\ref{thm:profile}.
 
 \subsection{Exact tilted recursion and coarse bounds}
-Let $\mathcal G_n(s)=\E[s^{X_n}]$, so that $G_n=\mathcal G_n(m)$. Directly from \eqref{eq:model},
-\begin{equation}\label{eq:pgf}
- \mathcal G_{n+1}(s)=\frac{\mathcal G_n(s)^m-\mathcal G_n(0)^m}{s}+\mathcal G_n(0)^m.
-\end{equation}
-Differentiation at $s=m$ shows that
-\[
- m(m-1)\mathcal G'_{n+1}(m)-\mathcal G_{n+1}(m)
- =G_n^{m-1}\{m(m-1)\mathcal G'_n(m)-\mathcal G_n(m)\}.
-\]
-Thus criticality is preserved and
-\begin{equation}\label{eq:qmean}
- \sum_{k\ge0}q_{n,k}=1,\qquad \sum_{k\ge0}kq_{n,k}=\frac1{m-1}.
-\end{equation}
-The third tilted moment remains finite: if $V$ is the sum of the $m$ inputs, then $X_{n+1}^3m^{X_{n+1}}\le V^3m^V$, and expansion of $V^3$, independence, and the initial third moment give finiteness at every finite generation. This justifies every derivative through order three below.
-
-Put
+Let $\Gamma_n(s)=\E[s^{X_n}]$, and recall that $G_n=\Gamma_n(m)$ and $\varepsilon_n=G_n-1$. For the tilted law in \eqref{eq:notation}, put
 \[
  H_n(z)=\sum_{k\ge0}q_{n,k}z^k,\quad x_n=q_{n,0},\quad
  \theta_n=1-x_n,\quad D_n=1+(m-1)x_n^m.
 \]
-Then
+
+\begin{proposition}\label{prop:pgf}
+For every $n\ge0$, $\E[X_n^3m^{X_n}]<\infty$, and, for $0<s\le m$,
+\begin{equation}\label{eq:pgf}
+ \Gamma_{n+1}(s)=\frac{\Gamma_n(s)^m-\Gamma_n(0)^m}{s}+\Gamma_n(0)^m.
+\end{equation}
+Criticality is preserved:
+\[
+ m(m-1)\Gamma'_n(m)=\Gamma_n(m).
+\]
+Equivalently, the tilted law satisfies
+\begin{equation}\label{eq:qmean}
+ \sum_{k\ge0}q_{n,k}=1,\qquad \sum_{k\ge0}kq_{n,k}=\frac1{m-1}.
+\end{equation}
+Consequently, the generating function $H_n$ of $q_n$ and the values $G_n=\Gamma_n(m)$ satisfy, for $0<z\le1$,
 \begin{equation}\label{eq:tilt}
  H_{n+1}(z)=\frac{H_n(z)^m+(mz-1)x_n^m}{zD_n},\qquad
  G_{n+1}=\frac{G_n^mD_n}{m}.
 \end{equation}
-Every apparent division by $z$ is removable coefficientwise.
+\end{proposition}
+\begin{proof}
+Finiteness of $\E[X_n^3m^{X_n}]$, the recursion \eqref{eq:pgf}, and preservation of criticality follow from \cite[Section~2.1, eqs.~(7)--(13)]{CDHLS}. Dividing the criticality identity by $G_n$ gives the mean in \eqref{eq:qmean}; the normalization follows from the definition of $q_n$.
 
-The zero atom is positive. For $m\ge3$, \eqref{eq:qmean} gives $x_0\ge1-1/(m-1)>0$. For $m=2$, criticality gives
+To obtain \eqref{eq:tilt}, use $\Gamma_n(0)=G_nx_n$ in \eqref{eq:pgf} at $s=m$, which gives
 \[
- \Pp(X_0=0)=\sum_{k\ge2}(k-1)2^k\Pp(X_0=k).
+ G_{n+1}=\frac{G_n^m}{m}\bigl(1+(m-1)x_n^m\bigr)=\frac{G_n^mD_n}{m}.
 \]
-If this vanished, the law would be $\delta_1$, which is excluded. The zero-atom recursion preserves positivity. The only deterministic critical law is the excluded binary one, so the nonconstant-law hypothesis of \cite{CDHLS} is satisfied.
+Substituting $s=mz$ and dividing by $G_{n+1}$ then yields the recursion for $H_n(z)=\Gamma_n(mz)/G_n$.
+\end{proof}
 
-The upper bounds in \cite[Theorem~3 and Proposition~1]{CDHLS} therefore apply and give
+\begin{proposition}\label{prop:coarse}
+There is a constant $C<\infty$, depending on $m$ and the initial law, such that, for all $n\ge0$,
 \begin{equation}\label{eq:coarse}
  0\le\varepsilon_n\le\frac C{n+1},\qquad
  \prod_{j=0}^{n-1}G_j^{m-1}\le C(n+1)^2.
 \end{equation}
-Changing the endpoint of the product in \cite{CDHLS} changes only a bounded factor. Since $m^k-1\ge m-1$ for $k\ge1$,
+Moreover,
 \begin{equation}\label{eq:theta}
  p_n\le\frac{\varepsilon_n}{m-1},\qquad
  \theta_n=\frac{\varepsilon_n+p_n}{G_n}=O((n+1)^{-1}).
 \end{equation}
-In particular $x_n\to1$ and $\inf_n x_n>0$.
+In particular, $x_n\to1$ and $\inf_{n\ge0}x_n>0$.
+\end{proposition}
+\begin{proof}
+By \cite[Theorem~3 and Proposition~1]{CDHLS}, for $n\ge1$,
+\[
+ G_n-1\le c_2\frac{\E[X_0^3m^{X_0}]^{1/2}}{\Pp(X_0=0)^{1/2}}\frac1n,
+ \qquad
+ \prod_{j=0}^{n}G_j^{m-1}\le\frac{c_3}{\Pp(X_0=0)}n^2,
+\]
+where $c_2,c_3>0$ depend only on $m$. Since criticality and the exclusion of the binary fixed point imply $\Pp(X_0=0)>0$, these estimates yield \eqref{eq:coarse}.
 
-\subsection{Moment bounds and transport coefficients}
-The next identity is the normalized form of the cubic generating-function identity in \cite[eqs.~(18)--(19)]{CDHLS}. We include a short derivation, since its nonnegative polynomial will also be used to construct the weighted chain in Section~\ref{sec:limits}. Set $\chi_m=1-1/(m-1)$ and
+Since $m^k-1\ge m-1$ for $k\ge1$,
+\[
+ \varepsilon_n=\sum_{k\ge1}(m^k-1)\Pp(X_n=k)
+ \ge(m-1)\sum_{k\ge1}\Pp(X_n=k)=(m-1)p_n.
+\]
+This proves the first inequality in \eqref{eq:theta}. Also,
+\[
+ \theta_n=\sum_{k\ge1}q_{n,k}
+ =\frac{G_n-\Pp(X_n=0)}{G_n}
+ =\frac{\varepsilon_n+p_n}{G_n}.
+\]
+Since $G_n\ge1$, the preceding inequality and \eqref{eq:coarse} give
+$\theta_n\le m\varepsilon_n/(m-1)=O((n+1)^{-1})$, hence $x_n\to1$.
+Finally, \eqref{eq:model} implies
+$\Pp(X_{n+1}=0)\ge\Pp(X_n=0)^m>0$ by induction, so $x_n>0$ for every $n$. Together with $x_n\to1$, this yields $\inf_{n\ge0}x_n>0$.
+\end{proof}
+
+\subsection{Moment bounds}
+The next identity is the normalized form of the cubic generating-function identity in \cite[eqs.~(18)--(19)]{CDHLS}. Set $\chi_m=1-1/(m-1)$ and
 \begin{equation}\label{eq:cubic}
  h_m(k)=k(k+1)\left(k-\frac1{m-1}\right)
  =(k)_3+(3+\chi_m)(k)_2+2\chi_m k,
 \end{equation}
-where $(k)_r=k(k-1)\cdots(k-r+1)$. All coefficients on the right are nonnegative. The binary polynomial is $k^3-k$, and for $m\ge3$ it is positive at every $k\ge1$.
+where $(k)_r=k(k-1)\cdots(k-r+1)$.
 
 \begin{lemma}\label{lem:cubic}
-Let $J_n=\E_{q_n}h_m(K)$. Then $J_n>0$,
+Let $K$ be a random variable with law $q_n$, and let $J_n=\E h_m(K) = \sum^{\infty}_{k = 0} h_m(k) q_{n, k}$. Then $J_n>0$ and
 \begin{equation}\label{eq:J}
  D_nJ_{n+1}=mJ_n,\qquad
  J_n=J_0\frac{G_0}{G_n}\prod_{j=0}^{n-1}G_j^{m-1}\le C(n+1)^2.
 \end{equation}
 Consequently,
 \begin{equation}\label{eq:lowmoments}
- \E_{q_n}K^3\le C(n+1)^2,\qquad
- \E_{q_n}K^2\le C(n+1).
+ \E K^3\le C(n+1)^2,\qquad
+ \E K^2\le C(n+1).
 \end{equation}
 \end{lemma}
 \begin{proof}
-For an integer $V\ge0$,
+We write $\Xi_n$ for the quantity $\mathcal D_n(m)$ defined in \cite[eq.~(18)]{CDHLS}; explicitly,
 \[
- h_m((V-1)_+)=(V)_3+\chi_m(V)_2.
+ \Xi_n:=m(m-1)\Gamma_n'''(m)
+ +(4m-5)\Gamma_n''(m)
+ +\frac{2(m-2)}{m^2(m-1)}G_n.
 \]
-If $V=K_1+\cdots+K_m$ and the inputs have law $q_n$, expansion of the falling factorials, followed by \eqref{eq:qmean}, gives
+Using \eqref{eq:cubic}, $\E[(K)_r]=m^r\Gamma_n^{(r)}(m)/G_n$, and $\E K=1/(m-1)$, we obtain
 \[
- \E h_m((V-1)_+)=m\E_{q_n}h_m(K).
+\begin{aligned}
+ J_n
+ &=\frac{m^3}{G_n}\Gamma_n'''(m)
+   +\frac{(4m-5)m^2}{(m-1)G_n}\Gamma_n''(m)
+   +\frac{2(m-2)}{(m-1)^2}\\
+ &=\frac{m^2}{(m-1)G_n}
+   \left[
+   m(m-1)\Gamma_n'''(m)
+   +(4m-5)\Gamma_n''(m)
+   +\frac{2(m-2)}{m^2(m-1)}G_n
+   \right]\\
+ &=\frac{m^2}{(m-1)G_n}\Xi_n.
+\end{aligned}
 \]
-The extra zero mass in the tilted recursion contributes nothing. This proves the first identity in \eqref{eq:J}; the second follows from $m/D_n=G_n^m/G_{n+1}$. Positivity is immediate for $m\ge3$. In the binary case the zero-atom argument above forces positive mass above one, and the identity propagates positivity.
+The identity $\Xi_{n+1}=\Xi_nG_n^{m-1}$ from \cite[eq.~(19)]{CDHLS} therefore gives
+\[
+ J_{n+1}=\frac{G_n^m}{G_{n+1}}J_n=\frac{m}{D_n}J_n.
+\]
+Iteration yields the product formula in \eqref{eq:J}, and \eqref{eq:coarse} gives its upper bound. For $m\ge3$, $J_0>0$ follows from $h_m(k)>0$ for $k\ge1$ and \eqref{eq:qmean}. In the binary case, criticality and nondegeneracy force positive mass above one, so $J_0>0$ as well. The recursion then gives $J_n>0$ for every $n$.
 
-For $m\ge3$, $h_m(k)\ge k^3$ for integers $k\ge1$. For $m=2$, $k^3\le(4/3)h_2(k)$ when $k\ge2$, and the contribution at one is bounded. Thus the cubic bound follows from \eqref{eq:coarse}. Cauchy--Schwarz gives $\E K^2\le(\E K\,\E K^3)^{1/2}$, proving the second bound.
+For $m\ge3$, $h_m(k)\ge k^3$ for integers $k\ge1$. For $m=2$, $k^3\le(4/3)h_2(k)$ when $k\ge2$, and the contribution at one is bounded. Thus the cubic bound in \eqref{eq:lowmoments} follows from \eqref{eq:coarse}. Cauchy--Schwarz gives $\E K^2\le(\E K\,\E K^3)^{1/2}$, proving the second bound.
 \end{proof}
 
-The linear part of the positive-density recursion will have the following coefficients:
+\subsection{Tilted recursion and auxiliary estimates}\label{subsec:transport}
+In this subsection, we first express the tilted recursion in terms of probability laws, then identify
+its linear coefficient and derive the estimates used below.
+
+\begin{lemma}[Distributional recursion for the tilted laws]\label{lem:tiltedlaw}
+For each $n\ge0$, let $K_{n,1},\ldots,K_{n,m}$
+be independent with law $q_n$, and put $S_n=\sum_{i=1}^mK_{n,i}$. Then
+\[
+ q_{n+1}
+ =\frac1{D_n}\operatorname{Law}\bigl((S_n-1)_+\bigr)
+  +\frac{(m-1)x_n^m}{D_n}\delta_0,
+\]
+where $\delta_0$ is the point mass at zero.
+\end{lemma}
+\begin{proof}
+For inputs summing to $s$, the product of their exponential weights is $m^s$,
+whereas the output $(s-1)_+$ has weight $m^{(s-1)_+}$. The ratio of the latter
+to the former is $1/m$ for $s\ge1$ and $1$ for $s=0$. After removing the
+common factor $1/m$, all inputs retain weight one except the all-zero input,
+which has weight $m$. This adds mass $(m-1)x_n^m$ at zero to the law of
+$(S_n-1)_+$. Dividing by the total mass $D_n=1+(m-1)x_n^m$ gives the result.
+\end{proof}
+
+By Lemma~\ref{lem:tiltedlaw}, $q_{n+1,k}=\Pp(S_n=k+1)/D_n$ for $k\ge1$.
+Splitting this probability according to the number of positive inputs gives
+\[
+ q_{n+1,k}
+ =\frac{mx_n^{m-1}}{D_n}q_{n,k+1}
+ +\frac1{D_n}\sum_{r=2}^m\binom mr x_n^{m-r}
+ \sum_{\substack{k_1,\ldots,k_r\ge1\\k_1+\cdots+k_r=k+1}}
+ \prod_{i=1}^r q_{n,k_i}.
+\]
+The first term is linear in the positive masses and corresponds to exactly one positive input; the remaining terms involve at least two.
+We denote the linear coefficient by $c_n$ and the product of these coefficients by $C_n$:
 \begin{equation}\label{eq:c}
  c_n=\frac{mx_n^{m-1}}{D_n},\qquad C_0=1,\qquad C_n=\prod_{j=0}^{n-1}c_j.
 \end{equation}
-The polynomial $1+(m-1)x^m-mx^{m-1}$ is nonnegative on $[0,1]$, has a double zero at one, and is $O((1-x)^2)$ there. Hence
+\begin{lemma}\label{lem:transportcoefficients}
+The coefficients defined in \eqref{eq:c} satisfy
 \begin{equation}\label{eq:C}
  0<c_n\le1,\qquad 1-c_n=O((n+1)^{-2}),\qquad
  C_n\downarrow C_\infty>0.
 \end{equation}
-All inverses of $x_n$, $c_n$, and $C_n$ used below are therefore uniformly bounded along the fixed orbit.
+\end{lemma}
+\begin{proof}
+Proposition~\ref{prop:coarse} gives $x_n>0$ and
+$\theta_n=1-x_n=O((n+1)^{-1})$. By \eqref{eq:c}, $c_n>0$ and
+\[
+ 1-c_n=\frac{1+(m-1)x_n^m-mx_n^{m-1}}{D_n}.
+\]
+The numerator is nonnegative on $[0,1]$ and vanishes to second order at $1$.
+Since $D_n\ge1$, it follows that
+\[
+ 0\le1-c_n\le C\theta_n^2=O((n+1)^{-2}).
+\]
+Thus $0<c_n\le1$. Finally, $\sum_{n\ge0}(1-c_n)<\infty$ ensures that
+the product of the positive factors $c_n$ has a positive limit,
+so $C_n\downarrow C_\infty>0$.
+\end{proof}
 
-We will use the zero-atom recursion to sum the boundary terms in the arrival estimate.
+For the mass at zero, Lemma~\ref{lem:tiltedlaw} gives
+\[
+ x_{n+1}=\frac{mx_n^m+mx_n^{m-1}q_{n,1}}{D_n}
+ =c_n(x_n+q_{n,1}).
+\]
+We will use this recursion for $x_n=q_{n,0}$ to estimate the sum in the next lemma, which will be needed in the proof of Proposition~\ref{prop:far}.
 \begin{lemma}\label{lem:atomtail}
-The first tilted atom has a summable tail satisfying
+The sequence $(q_{n,1})_{n\ge0}$ is summable, and its tails satisfy
 \begin{equation}\label{eq:atomtail}
  T_n:=\sum_{s\ge n}q_{s,1}\le\frac C{n+1}.
 \end{equation}
 \end{lemma}
 \begin{proof}
-The zero coefficient in \eqref{eq:tilt} is $x_{n+1}=c_n(x_n+q_{n,1})$. Rearranging gives the exact identity
+Rearranging the recursion for $x_n$ gives
 \begin{equation}\label{eq:atomidentity}
  q_{n,1}=\theta_n-\theta_{n+1}+(c_n^{-1}-1)x_{n+1}.
 \end{equation}
-Sum over $n\le s\le r$. The last summand is nonnegative and at most $C(s+1)^{-2}$. Letting $r\to\infty$, using $\theta_r\to0$, proves \eqref{eq:atomtail}.
+By Lemma~\ref{lem:transportcoefficients}, $\inf_s c_s>0$ and
+$1-c_s=O((s+1)^{-2})$, so
+$0\le(c_s^{-1}-1)x_{s+1}\le C(s+1)^{-2}$.
+Summing \eqref{eq:atomidentity} over $n\le s\le r$ therefore gives
+\[
+ \sum_{s=n}^r q_{s,1}
+ =\theta_n-\theta_{r+1}+\sum_{s=n}^r(c_s^{-1}-1)x_{s+1}
+ \le\theta_n+C\sum_{s=n}^r(s+1)^{-2}.
+\]
+Letting $r\to\infty$ and using $\theta_n=O((n+1)^{-1})$
+from Proposition~\ref{prop:coarse}, we obtain
+\[
+ T_n\le\theta_n+C\sum_{s=n}^{\infty}(s+1)^{-2}
+ \le\frac C{n+1},
+\]
+as claimed.
 \end{proof}
 
-For the density \eqref{eq:rho}, \eqref{eq:qmean}, \eqref{eq:theta}, and \eqref{eq:lowmoments} give
+We conclude this section by collecting the moment estimates for $\rho_n$ in a weighted norm.
+Put $L_n=n+1$. For a sequence $f$ on $\Zp$ and $L\ge1$, define
+\[
+ \norm f_{1,3,L}=\sum_{j\ge0}(1+j/L)^3|f(j)|.
+\]
+Recall that $\rho_n(j)=(m-1)q_{n,j+1}$ for $j\in\Zp$.
+\begin{lemma}\label{lem:weightedmass}
+There exists a constant $C>0$, depending only on $m$ and the law of $X_0$, such that for every $n\ge0$,
 \begin{equation}\label{eq:weightedmass}
  \norm{\rho_n}_{1,3,L_n}\le\frac C{L_n},\qquad
  \sum_{j\ge0}(j+1)\rho_n(j)=1.
 \end{equation}
-The first inequality follows by expanding the cubic weight; no moment beyond the third is used.
+\end{lemma}
+\begin{proof}
+By \eqref{eq:qmean}, \eqref{eq:theta}, and \eqref{eq:lowmoments},
+\[
+ \sum_{j\ge0}\rho_n(j)=(m-1)\theta_n\le\frac C{L_n},\qquad
+ \sum_{j\ge0}j^r\rho_n(j)\le CL_n^{r-1},\quad r=1,2,3.
+\]
+Expanding $(1+j/L_n)^3$ gives the first bound. The identity follows from
+\[
+ \sum_{j\ge0}(j+1)\rho_n(j)
+ =(m-1)\sum_{k\ge1}kq_{n,k}=1.\qedhere
+\]
+\end{proof}
 
 \section{Proof of Theorem~\ref{thm:profile}}\label{sec:mainproof}
-We first state the two inputs that connect the discrete density to its asymptotic profile. The first gives compactness including the boundary; the second identifies every possible limit. Their proofs occupy Sections~\ref{sec:pointwise}--\ref{sec:rigidity} and use only the assumptions of Theorem~\ref{thm:profile} and the estimates in Section~\ref{sec:prelim}.
+In this section, we prove Theorem~\ref{thm:profile}.
+We first state the two propositions used in the proof. The first proposition bounds $\rho_n$ and its differences in space and time; these bounds will allow us to extract locally uniformly convergent subsequences of the rescaled functions $u_N$ defined below. The second proposition determines all such limits of $u_N$. The proofs of these propositions are given in Sections~\ref{sec:pointwise}--\ref{sec:rigidity} and use the assumptions of Theorem~\ref{thm:profile} and the estimates in Section~\ref{sec:prelim}.
+
+For a sequence $f$ on $\Zp$ and $L\ge1$, define
+\[
+ \norm{f}_{\infty,3,L}
+ :=\sup_{j\ge0}(1+j/L)^3|f(j)|.
+\]
+Define the operators $S$ and $\Delta$ by
+\[
+ (Sf)(j)=f(j+1),\qquad
+ (\Delta f)(j)=f(j)-f(j+1),\qquad j\ge0.
+\]
+For each integer $h\ge 1$, $S^h$ denotes the $h$-fold
+composition of $S$; thus
+$(S^h f)(j)=f(j+h)$.
 
 \begin{proposition}\label{prop:smoothing}
-Under the assumptions of Theorem~\ref{thm:profile},
+Under the assumptions of Theorem~\ref{thm:profile}, there exists a constant $C>0$, depending only on $m$ and the law of $X_0$, such that the following bounds hold for every integer $n\ge0$:
 \begin{align}
- \norm{\rho_n}_{\infty,3,L_n}&\le C L_n^{-2},\label{eq:sup}\\
- \norm{\Delta\rho_n}_{\infty,3,L_n}&\le C\frac{\log(n+2)}{L_n^3}.\label{eq:gradient}
+ \norm{\rho_n}_{\infty,3,n+1}&\le C(n+1)^{-2},\label{eq:sup}\\
+ \norm{\Delta\rho_n}_{\infty,3,n+1}&\le C\frac{\log(n+2)}{(n+1)^3}.\label{eq:gradient}
 \end{align}
-For every integer $1\le h\le L_n$,
+For every integer $1\le h\le n+1$,
 \begin{equation}\label{eq:spmod}
- \norm{\rho_n-S^h\rho_n}_{\infty,3,L_n}
- \le \frac{Ch}{L_n^3}\left(1+\log\frac{L_n}{h}\right).
+ \norm{\rho_n-S^h\rho_n}_{\infty,3,n+1}
+ \le \frac{Ch}{(n+1)^3}\left(1+\log\frac{n+1}{h}\right).
 \end{equation}
-The unweighted temporal modulus satisfies the same bound:
+The differences in time satisfy the same bound in the ordinary supremum norm:
 \begin{equation}\label{eq:timemod}
  \norm{\rho_{n+h}-\rho_n}_{\infty}
- \le \frac{Ch}{L_n^3}\left(1+\log\frac{L_n}{h}\right).
+ \le \frac{Ch}{(n+1)^3}\left(1+\log\frac{n+1}{h}\right).
 \end{equation}
 \end{proposition}
 
-For each integer $N\ge1$, define the rescaled density on the grid by
+To state the second proposition, we first define the rescaled function $u_N: (0,\infty)\times
+[0,\infty) \to \mathbb{R}$. For each integer $N\ge1$, set
 \begin{equation}\label{eq:rescaled}
- u_N(n/N,j/N)=N^2\rho_n(j),\qquad n,j\ge0,
+ u_N(n/N,j/N) := N^2\rho_n(j),\qquad n,j\ge0.
 \end{equation}
-and interpolate bilinearly between grid points. The following proposition is proved in Section~\ref{sec:rigidity}, using the moment and equation estimates of Section~\ref{sec:limits}.
+On each small rectangle $[n/N,(n+1)/N]\times[j/N,(j+1)/N]$, define $u_N$ by bilinear interpolation: for $\alpha,\beta\in[0,1]$, set
+\begin{equation}\label{eq:uN}
+ \begin{split}
+ u_N\left(\frac{n+\alpha}{N},\frac{j+\beta}{N}\right)
+ &:=N^2(1-\alpha)\bigl[(1-\beta)\rho_n(j)+\beta\rho_n(j+1)\bigr]\\
+ &\quad+N^2\alpha\bigl[(1-\beta)\rho_{n+1}(j)+\beta\rho_{n+1}(j+1)\bigr].
+ \end{split}
+\end{equation}
+Then $u_N$ is continuous on $(0,\infty)\times
+[0,\infty)$. 
+The next proposition determines every locally uniform subsequential limit of $u_N$ as $N\to\infty$. Once we have proved compactness for $(u_N)_{N\ge 1}$, this will give convergence of the whole sequence. We prove it in Section~\ref{sec:rigidity}, using the moment bounds and limit equations from Section~\ref{sec:limits}.
 
 \begin{proposition}\label{prop:identification}
 Under the assumptions of Theorem~\ref{thm:profile}, every locally uniform subsequential limit of $u_N$ on $(0,\infty)\times[0,\infty)$ is
@@ -346,71 +561,302 @@ Under the assumptions of Theorem~\ref{thm:profile}, every locally uniform subseq
 \end{equation}
 \end{proposition}
 
+We are now ready to prove Theorem~\ref{thm:profile}.
 \begin{proof}[Proof of Theorem~\ref{thm:profile}]
-On each rectangle $[\eta,T]\times[0,R]$, with $0<\eta<T<\infty$ and $R<\infty$, Proposition~\ref{prop:smoothing} gives uniform boundedness. Equations~\eqref{eq:spmod} and~\eqref{eq:timemod}, first at grid points and then by interpolation, give a modulus controlled by a constant times $r(1+\log(1/r))$ as $r\downarrow0$. Increments comparable with the time index are controlled by boundedness. The interpolation error at the grid scale is $O(N^{-1}\log(N+2))$ and tends to zero. Arzel\`a--Ascoli and a diagonal extraction therefore give local uniform subsequential compactness on the whole of $(0,\infty)\times[0,\infty)$.
+We first prove the convergence stated in \eqref{eq:mainprofile}.
 
-Every subsequence of the interpolated densities has a further locally uniform limit, and Proposition~\ref{prop:identification} identifies every such limit as \eqref{eq:identifiedprofile}. Thus the whole family converges. At $t=1$, the floor-index error is at most
-$n^2\norm{\Delta\rho_n}_\infty=O(\log(n+2)/(n+1))$, which tends to zero. This proves \eqref{eq:mainprofile}, including the boundary value
+We begin by proving that $(u_N)_{N\ge1}$ is uniformly bounded and equicontinuous on each compact rectangle in $(0,\infty)\times[0,\infty)$. Arzel\`a--Ascoli will then give subsequences that converge uniformly on each such rectangle. Fix a compact rectangle $K=[\eta,T]\times[0,R]$, where $0<\eta<T<\infty$ and $R<\infty$. For all sufficiently large $N$, every vertex $(n/N,j/N)$ of a small rectangle intersecting $K$ satisfies $n/N\in[\eta/2,T+1]$. At these points, \eqref{eq:sup} gives
+\[
+ |u_N(n/N,j/N)|=N^2\rho_n(j)
+ \le C\frac{N^2}{(n+1)^2}\le \frac{4C}{\eta^2}=: C_\eta.
+\]
+By \eqref{eq:uN}, each value of $u_N$ in a small rectangle is a convex combination of the four vertex values. Thus $|u_N(t,x)|\le C_\eta$ for every $(t,x)\in K$ and all sufficiently large $N$.
+
+To prove equicontinuity of $(u_N)_{N\ge 1}$ on $K$, we first bound the differences of $u_N(t,x)$ between grid points that differ only in $x$ or only in $t$. We will then use \eqref{eq:uN} to extend these bounds to all points of $K$. Put $\omega(0):=0$ and $\omega(r):=r(1+\log(1/r))$ for $0<r\le1$. For grid times $n/N \in [\eta/2,T+1]$ and $1\le h\le\min\{n+1,N\}$, equations \eqref{eq:spmod} and \eqref{eq:timemod} imply
+\begin{equation}\label{eqn:diff grid points}
+  \begin{split}
+ N^2\bigl(\norm{\rho_n-S^h\rho_n}_\infty
+       +\norm{\rho_{n+h}-\rho_n}_\infty\bigr)
+  &\le \frac{2CN^2h}{(n+1)^3}
+       \left(1+\log\frac{n+1}{h}\right)\\
+ &\le C_{\eta,T}\,\omega(h/N).
+ \end{split}
+\end{equation}
+The last bound uses $\eta/2\le(n+1)/N\le T+2$. Here $C_{\eta,T}$ is independent of $N,n,h$.
+For grid points $z=(t,x)$ and $z'=(t',x')$ with $t,t'\in[\eta/2,T+1]$, let $r:=\max\{|t-t'|,|x-x'|\}\le\min\{1,\eta/2\}$. Applying \eqref{eqn:diff grid points} in each coordinate direction and using the monotonicity of $\omega$ gives
+\[
+ \begin{split}
+ |u_N(z)-u_N(z')|
+ &\le |u_N(t,x)-u_N(t,x')|
+       +|u_N(t,x')-u_N(t',x')|\\
+ &\le 2C_{\eta,T}\omega(r).
+ \end{split}
+\]
+
+To extend the estimate to arbitrary points, for $z=(t,x)\in K$, set $z_N:=(\floor{Nt}/N,\floor{Nx}/N)$. By \eqref{eq:uN}, $u_N(z)$ is a convex combination of the values at the four vertices of the small rectangle containing $z$. Each vertex can be reached from $z_N$ along at most two sides of this rectangle, so \eqref{eqn:diff grid points} with $h=1$ gives
+\begin{equation}\label{eqn:diff_grid_vs_nongird}
+   |u_N(z)-u_N(z_N)|
+ \le 2C_{\eta,T}\omega(1/N)
+ =2C_{\eta,T}\frac{1+\log N}{N}.
+\end{equation}
+Now let $z=(t,x),z'=(t',x')\in K$, with corresponding grid points $z_N,z_N'$, and let $r := \max\{|t-t'|,|x-x'|\}$. If $N^{-1}\le r\le\min\{1/3,\eta/6\}$, then $z_N$ and $z_N'$ differ by at most $r+2/N\le3r$ in each coordinate. Combining these estimates with \eqref{eqn:diff_grid_vs_nongird} gives
+\[
+ \begin{split}
+ |u_N(z)-u_N(z')|
+ &\le |u_N(z)-u_N(z_N)|+|u_N(z_N)-u_N(z_N')|\\
+ &\quad+|u_N(z_N')-u_N(z')|\\
+ &\le 2C_{\eta,T}\omega(3r)+4C_{\eta,T}\omega(1/N)\\
+ &\le 10C_{\eta,T}\omega(r).
+ \end{split}
+\]
+The last step uses $\omega(3r)\le3\omega(r)$ and
+$\omega(1/N)\le\omega(r)$.
+
+For $0<r<1/N$, first compare points in the same small rectangle that differ in one coordinate. Write $t=(n+\alpha)/N$, with $0\le\alpha\le1$, and take $x,x'\in[j/N,(j+1)/N]$. Subtracting the two expressions in \eqref{eq:uN} gives
+\[
+ \begin{split}
+ u_N(t,x)-u_N(t,x')
+ ={}&N^3(x-x')\bigl[(1-\alpha)(\rho_n(j+1)-\rho_n(j))\\
+ &\qquad\qquad+\alpha(\rho_{n+1}(j+1)-\rho_{n+1}(j))\bigr].
+ \end{split}
+\]
+Applying \eqref{eqn:diff grid points} with $h=1$, we have 
+\begin{equation}\label{eq:space diff}
+  |u_N(t,x)-u_N(t,x')|\le C_{\eta,T}(1+\log N)|x-x'|.
+\end{equation}
+The same calculation in the time coordinate gives, for $t,t'\in[n/N,(n+1)/N]$ in the same small rectangle,
+\begin{equation}\label{eq:time diff}
+ |u_N(t,x)-u_N(t',x)|\le C_{\eta,T}(1+\log N)|t-t'|.
+\end{equation}
+For arbitrary $z,z'\in K$ with $0<r<1/N$, compare values along $(t,x)\to(t,x')\to(t',x')$. Since each segment has length less than $1/N$, it can be divided into at most two parts, each contained in one small rectangle. Apply \eqref{eq:space diff} to each horizontal part and \eqref{eq:time diff} to each vertical part. The lengths add to $|x-x'|$ and $|t-t'|$, respectively, so the triangle inequality gives \eqref{eq:space diff} and \eqref{eq:time diff} for $x, x'$ and $t,t'$ not in the same small rectangle. Hence,
+\[
+ \begin{split}
+ |u_N(z)-u_N(z')|
+ &\le |u_N(t,x)-u_N(t,x')|+|u_N(t,x')-u_N(t',x')|\\
+ &\le C_{\eta,T}(1+\log N)\bigl(|x-x'|+|t-t'|\bigr)\\
+ &\le 2C_{\eta,T}r(1+\log N)\\
+ &\le 2C_{\eta,T}r\left(1+\log\frac1r\right)
+ =2C_{\eta,T}\omega(r).
+ \end{split}
+\]
+
+Thus $(u_N)_{N\ge1}$ is equicontinuous on $K$.
+
+Let $(u_{N_j})_{j\ge1}$ be any subsequence of $(u_N)_{N\ge1}$. We will extract a further subsequence that converges locally uniformly on $(0,\infty)\times[0,\infty)$. Apply Arzel\`a--Ascoli to $(u_{N_j})_{j\ge1}$ on the nested compact sets
+\[
+ K_\ell=[1/\ell,\ell]\times[0,\ell],\qquad \ell\ge2.
+\]
+At each step choose a subsequence of the previous one. More precisely, let
+$I_\ell$ be the infinite set of indices retained at step $\ell$, so that
+$I_{\ell+1}\subset I_\ell$ and $(u_{N_j})_{j\in I_\ell}$ converges uniformly
+on $K_\ell$. Choose $j_2\in I_2$, and then choose $j_k\in I_k$ recursively
+with $j_k>j_{k-1}$ for $k\ge3$. For every fixed $\ell$, we have $j_k\in I_\ell$ whenever
+$k\ge\ell$. Thus the single diagonal subsequence $(u_{N_{j_k}})_{k\ge2}$
+converges uniformly on every $K_\ell$. Its limits agree on overlaps and
+define a function $v$ on $(0,\infty)\times[0,\infty)$. Every compact subset
+of this domain lies in some $K_\ell$, so the convergence is locally uniform,
+including at $x=0$.
+
+Proposition~\ref{prop:identification} shows that $v$ equals the function $u$ in \eqref{eq:identifiedprofile}. Since the original subsequence $(u_{N_j})_{j\ge1}$ was arbitrary, every subsequence has a further subsequence converging locally uniformly to $u$. If the whole sequence did not converge locally uniformly to $u$, there would be a compact set $K$, a number $\epsilon>0$, and a subsequence such that
+\[
+ \sup_{z\in K}|u_{N_j}(z)-u(z)|\ge\epsilon\qquad\text{for every }j.
+\]
+A further subsequence converging uniformly to $u$ on $K$ contradicts this inequality. Hence the whole sequence $(u_N)_{N\ge1}$ converges locally uniformly to
+\[ u(t,x)=\frac4{t^2}e^{-2x/t}.\]
+
+We now show that $n^2\rho_n(\floor{nx})$ converges to $4e^{-2x}$ uniformly on $[0,R]$. Set $N=n$ and $t=1$. Equations \eqref{eq:uN} and \eqref{eq:gradient} give
+\[
+ \sup_{0\le x\le R}
+ \left|u_n(1,x)-n^2\rho_n(\floor{nx})\right|
+ \le n^2\norm{\Delta\rho_n}_\infty
+ =O\left(\frac{\log(n+2)}{n+1}\right)\longrightarrow0.
+\]
+Combining this estimate with the uniform convergence of $u_n(1,x)$ on $[0,R]$, we obtain
+\[
+ \begin{split}
+ &\sup_{0\le x\le R}\left|n^2\rho_n(\floor{nx})-4e^{-2x}\right|\\
+ &\quad\le \sup_{0\le x\le R}\left|n^2\rho_n(\floor{nx})-u_n(1,x)\right|
+       +\sup_{0\le x\le R}\left|u_n(1,x)-4e^{-2x}\right|
+ \longrightarrow0.
+ \end{split}
+\]
+This is the convergence stated in \eqref{eq:mainprofile}. In particular, taking $x=0$ gives
 \begin{equation}\label{eq:boundary4}
  n^2\rho_n(0)\longrightarrow4.
 \end{equation}
 
-The original survival probability is
-\begin{equation}\label{eq:survivalread}
+We next derive $n^2p_n\to4/(m-1)^2$ from \eqref{eq:boundary4}. The definitions of $q_n$ and $\rho_n$ give
+\[
+ \Pp(X_n=k)=\frac{G_n}{m-1}m^{-k}\rho_n(k-1),
+ \qquad k\ge1.
+\]
+Summing over $k$ gives the survival probability
+\begin{equation*}
  p_n=\frac{G_n}{m-1}\sum_{j\ge0}m^{-j-1}\rho_n(j).
-\end{equation}
-Telescoping the spatial differences gives
+\end{equation*}
+To replace $\rho_n(j)$ by $\rho_n(0)$ in this sum, use
 \[
+ |\rho_n(j)-\rho_n(0)|
+ \le\sum_{\ell=0}^{j-1}|\rho_n(\ell+1)-\rho_n(\ell)|
+ \le j\norm{\Delta\rho_n}_\infty,
+\]
+where the sum is empty when $j=0$. Since
+\[
+ \sum_{j\ge0}m^{-j-1}=\frac1{m-1},
+ \qquad
+ \sum_{j\ge0}jm^{-j-1}=\frac1{(m-1)^2},
+\]
+we obtain
+\[
+ \begin{split}
  \left|p_n-\frac{G_n\rho_n(0)}{(m-1)^2}\right|
- \le\frac{G_n\norm{\Delta\rho_n}_\infty}{(m-1)^3}
+ &\le\frac{G_n}{m-1}
+       \sum_{j\ge0}m^{-j-1}|\rho_n(j)-\rho_n(0)|\\
+ &\le\frac{G_n\norm{\Delta\rho_n}_\infty}{(m-1)^3}
  =O\left(\frac{\log(n+2)}{(n+1)^3}\right).
+ \end{split}
 \]
-Since $G_n\to1$, \eqref{eq:boundary4} proves the second limit in \eqref{eq:main1}. 
-The local profile convergence and \eqref{eq:sup} also imply convergence of the total tilted mass. Indeed, for $A\ge1$,
+Multiplying by $n^2$ and using $G_n\to1$ and $n^2\rho_n(0)\to4$, we obtain
 \[
- n\sum_{j>An}\rho_n(j)\le \frac{C}{(1+A)^2}.
+ n^2p_n=\frac{G_n}{(m-1)^2}\,n^2\rho_n(0)+o(1)
+ \longrightarrow\frac4{(m-1)^2}.
 \]
-Riemann sums on $[0,A]$, followed by $A\to\infty$, therefore give
-$n\sum_j\rho_n(j)\to\int_0^\infty4e^{-2x}\dd x=2$. Hence $n\theta_n\to2/(m-1)$. Since $p_n=O(n^{-2})$ and $\varepsilon_n=G_n\theta_n-p_n$, we obtain $n\varepsilon_n\to2/(m-1)$.
+This is the second limit in \eqref{eq:main1}.
 
-For each fixed $k$,
+To compute the limit of $n(G_n-1)$, we first sum $\rho_n$ over $j$. For fixed $A\ge1$, \eqref{eq:mainprofile} and Riemann sums give
 \[
- \Pp(X_n=k)=\frac{G_n}{m-1}m^{-k}\rho_n(k-1).
+ n\sum_{0\le j\le An}\rho_n(j)
+ =\frac1n\sum_{0\le j\le An}n^2\rho_n(j)
+ \longrightarrow\int_0^A4e^{-2x}\dd x.
 \]
-Equations \eqref{eq:boundary4} and \eqref{eq:gradient} give the fixed-atom limit. In addition $n^2\Pp(X_n=k)\le Cm^{-k}$ by \eqref{eq:sup}. Dominated convergence therefore yields
+To control the tail, use $\rho_n(j)\le C(n+1)/(n+j+1)^3$ from \eqref{eq:sup} and compare the sum with an integral:
+\[
+ n\sum_{j>An}\rho_n(j)
+ \le Cn(n+1)\sum_{j>An}\frac1{(n+j+1)^3}
+ \le\frac{C}{(1+A)^2}.
+\]
+Letting first $n\to\infty$ and then $A\to\infty$ gives
+\[
+ n\sum_{j\ge0}\rho_n(j)
+ \longrightarrow\int_0^\infty4e^{-2x}\dd x=2.
+\]
+Since $\sum_j\rho_n(j)=(m-1)\theta_n$, we have $n\theta_n\to2/(m-1)$. Using $\varepsilon_n=G_n\theta_n-p_n$ from \eqref{eq:theta}, together with $G_n\to1$ and $p_n=O(n^{-2})$, we obtain
+\[
+ n(G_n-1)=n\varepsilon_n=G_n(n\theta_n)-np_n
+ \longrightarrow\frac2{m-1}.
+\]
+This is the first limit in \eqref{eq:main1}.
+
+For the limit of $n^2\Pp(X_n=k)$ with fixed $k\ge1$, compare $\rho_n(k-1)$ with $\rho_n(0)$:
+\[
+ n^2|\rho_n(k-1)-\rho_n(0)|
+ \le(k-1)n^2\norm{\Delta\rho_n}_\infty\longrightarrow0.
+\]
+Equation~\eqref{eq:boundary4} therefore gives
+\[
+ n^2\Pp(X_n=k)
+ =\frac{G_n}{m-1}m^{-k}\,n^2\rho_n(k-1)
+ \longrightarrow\frac4{(m-1)m^k}.
+\]
+This is the first limit in \eqref{eq:atoms}.
+For the mean, \eqref{eq:sup} and boundedness of $G_n$ give $n^2k\Pp(X_n=k)\le Ckm^{-k}$, a summable bound independent of $n$. Dominated convergence gives
 \[
  n^2\E[X_n]\longrightarrow\frac4{m-1}\sum_{k\ge1}km^{-k}
  =\frac{4m}{(m-1)^3}.
 \]
-This proves the mean limit in \eqref{eq:main2}. Dividing by the survival asymptotic gives the conditional mean in \eqref{eq:atoms}.
-
-For the quantitative conditional law, let
-$a_n=\sum_{k\ge1}m^{-k}\rho_n(k-1)$. Then
+This is the second limit in \eqref{eq:main2}.
+Dividing by the survival probability and using $n^2p_n\to4/(m-1)^2$, we obtain
 \[
- \left|a_n-\frac{\rho_n(0)}{m-1}\right|\le\frac{\norm{\Delta\rho_n}_\infty}{(m-1)^2},
+ \E[X_n\mid X_n>0]
+ =\frac{n^2\E[X_n]}{n^2p_n}
+ \longrightarrow
+ \frac{4m/(m-1)^3}{4/(m-1)^2}
+ =\frac m{m-1}.
 \]
-and
-\[
- \left|\rho_n(k-1)-(m-1)a_n\right|
- \le \norm{\Delta\rho_n}_\infty\left(k-1+\frac1{m-1}\right).
-\]
-Divide by $a_n\asymp n^{-2}$, multiply by $m^{-k}$, and sum over $k$. This proves \eqref{eq:tv} from \eqref{eq:gradient}.
+This is the second limit in \eqref{eq:atoms}.
 
-Finally, evaluation of \eqref{eq:pgf} at $m$ gives the exact scalar identity
+We next bound the sum of the absolute differences between the conditional probabilities $\Pp(X_n=k\mid X_n>0)$ and $(m-1)m^{-k}$. Put
+\[
+ a_n=\sum_{k\ge1}m^{-k}\rho_n(k-1)
+     =\frac{m-1}{G_n}p_n
+     \sim\frac4{(m-1)n^2}.
+\]
+Then
+\[
+ \Pp(X_n=k\mid X_n>0)
+ =\frac{m^{-k}\rho_n(k-1)}{a_n}.
+\]
+To compare these probabilities with $(m-1)m^{-k}$, use $|\rho_n(j)-\rho_n(0)|\le j\norm{\Delta\rho_n}_\infty$ to obtain
+\[
+ \left|a_n-\frac{\rho_n(0)}{m-1}\right|
+ \le \norm{\Delta\rho_n}_\infty\sum_{k\ge1}(k-1)m^{-k}
+ =\frac{\norm{\Delta\rho_n}_\infty}{(m-1)^2}.
+\]
+The triangle inequality then gives
+\[
+ \begin{split}
+ |\rho_n(k-1)-(m-1)a_n|
+ &\le|\rho_n(k-1)-\rho_n(0)|
+       +|\rho_n(0)-(m-1)a_n|\\
+ &\le \norm{\Delta\rho_n}_\infty\left(k-1+\frac1{m-1}\right).
+ \end{split}
+\]
+Multiplying by $m^{-k}/a_n$, summing over $k\ge1$, and using \eqref{eq:gradient} gives
+\[
+ \begin{split}
+ &\sum_{k\ge1}
+   \left|\Pp(X_n=k\mid X_n>0)-(m-1)m^{-k}\right|\\
+ &\qquad\le\frac{\norm{\Delta\rho_n}_\infty}{a_n}
+       \sum_{k\ge1}m^{-k}\left(k-1+\frac1{m-1}\right)
+  =\frac{2\norm{\Delta\rho_n}_\infty}{(m-1)^2a_n}
+  =O\left(\frac{\log(n+2)}{n+1}\right).
+  \end{split}
+\]
+This is the bound stated in \eqref{eq:tv}.
+
+Finally, we compute the limit of $n^2(\varepsilon_n-\varepsilon_{n+1})$ from the generating function recursion. Evaluating \eqref{eq:pgf} at $m$ gives
+\[
+ G_{n+1}=\frac{G_n^m}{m}+\frac{m-1}{m}(1-p_n)^m.
+\]
+Writing $G_n=1+\varepsilon_n$ gives
 \[
  m(\varepsilon_n-\varepsilon_{n+1})
  =(m-1)\{1-(1-p_n)^m\}-\{(1+\varepsilon_n)^m-1-m\varepsilon_n\}.
 \]
-Substitution of the already proved limits yields
+The binomial formula gives
+\[
+ \begin{split}
+ 1-(1-p_n)^m&=mp_n+O(p_n^2),\\
+ (1+\varepsilon_n)^m-1-m\varepsilon_n
+ &=\frac{m(m-1)}2\varepsilon_n^2+O(\varepsilon_n^3).
+ \end{split}
+\]
+Substitution and division by $m$ give
+\[
+ \varepsilon_n-\varepsilon_{n+1}
+ =(m-1)p_n-\frac{m-1}{2}\varepsilon_n^2
+   +O(p_n^2+\varepsilon_n^3).
+\]
+The error is $o(n^{-2})$ because $p_n=O(n^{-2})$ and $\varepsilon_n=O(n^{-1})$. The limits of $n^2p_n$ and $n\varepsilon_n$ now give
 \[
  n^2(\varepsilon_n-\varepsilon_{n+1})\longrightarrow
  (m-1)\frac4{(m-1)^2}-\frac{m-1}{2}\frac4{(m-1)^2}
  =\frac2{m-1}.
 \]
+This is the first limit in \eqref{eq:main2}.
 \end{proof}
 
-\section{Proof of Proposition~\ref{prop:pointwise}}\label{sec:pointwise}
-The first step towards Proposition~\ref{prop:smoothing} is a cubic-weighted bound on each atom. We prove it by following the coefficients along the linear transport and estimating the accumulated nonlinear source.
+\section{A pointwise bound}\label{sec:pointwise}
+The first step towards Proposition~\ref{prop:smoothing} is a pointwise bound on $\rho_n$.
+%
+We state this bound and an estimate for $\phi_{s,N}$ used in its proof, then prove them in that order.
+%
+Throughout this section, set
+\[
+ K_m=2m(m-1)+1,\qquad
+ \phi_{s,N}=\frac{q_{s,N-s+1}}{C_s}\quad(N\ge s),
+\]
+where $C_s$ is the product defined in \eqref{eq:c}.
 
 \begin{proposition}\label{prop:pointwise}
 For every $n,j\ge0$,
@@ -420,15 +866,132 @@ For every $n,j\ge0$,
 This is equivalent to \eqref{eq:sup}.
 \end{proposition}
 
+To prove Proposition~\ref{prop:pointwise}, we use the following estimate, whose proof is deferred to the end of this section.
+\begin{proposition}\label{prop:far}
+For integers $s\ge0$ and $N>s+K_m$,
+\begin{equation}\label{eq:far}
+ \phi_{s,N}\le\frac{C(s+1)}{N^3}.
+\end{equation}
+\end{proposition}
 
-\subsection{Recursion in arrival coordinates}
-Let
+\begin{proof}[Proof of Proposition~\ref{prop:pointwise}]
+
+For $j>K_m$, we have $n+j>n+K_m$. Thus \eqref{eq:far} and $C_n\le1$ give
 \[
- Q_s(z)=H_s(z)-x_s,\qquad
- \phi_{s,N}=\frac{q_{s,N-s+1}}{C_s}\quad(N\ge s),\qquad
+ \rho_n(j)=(m-1)C_n\phi_{n,n+j}
+ \le C\frac{n+1}{(n+j)^3}
+ \le C\frac{n+1}{(n+j+1)^3}.
+\]
+
+It remains to treat $0\le j\le K_m$. Set $r_0=K_m+2$ and first assume $n\ge2r_0$.
+For sequences on $\Zp$, define
+\[
+ (Tf)(j)=
+ \begin{cases}0,&j=0,\\ f(j-1),&j\ge1,\end{cases}
+ \qquad
+ (f*g)(j)=\sum_{\ell=0}^j f(\ell)g(j-\ell),
+\]
+and write $f^{*r}$ for the $r$-fold convolution power. Write $Q_s(z)=H_s(z)-x_s$. Recall from \eqref{eq:tilt} that
+\[
+\begin{aligned}
+ zD_sH_{s+1}(z)
+ &=H_s(z)^m+(mz-1)x_s^m\\
+ &=mz x_s^m+mx_s^{m-1}Q_s(z)
+   +\sum_{r=2}^m\binom mr x_s^{m-r}Q_s(z)^r.
+\end{aligned}
+\]
+Since
+\[
+ Q_s(z)=\frac{z}{m-1}\sum_{j\ge0}\rho_s(j)z^j,\qquad
+ [z^{j+2}]Q_s(z)^r
+ =\frac{(T^{r-2}\rho_s^{*r})(j)}{(m-1)^r}\quad(r\ge2),
+\]
+extracting the coefficient of $z^{j+2}$ in the recalled identity and using $c_s=mx_s^{m-1}/D_s$ yields
+\begin{equation}\label{eq:rhor}
+ \rho_{s+1}=c_sS\rho_s+\sum_{r=2}^m d_{r,s}T^{r-2}\rho_s^{*r},\qquad
+ d_{r,s}=\frac{\binom mr x_s^{m-r}}{D_s(m-1)^{r-1}}.
+\end{equation}
+Using $C_{s+1}=c_sC_s$, iteration from $n-r_0$ to $n$ gives
+\[
+\begin{aligned}
+ \rho_n(j)
+ &=\frac{C_n}{C_{n-r_0}}\rho_{n-r_0}(j+r_0)\\
+ &\quad+\sum_{s=n-r_0}^{n-1}\frac{C_n}{C_{s+1}}
+       \sum_{r=2}^m d_{r,s}
+       \bigl(S^{n-1-s}T^{r-2}\rho_s^{*r}\bigr)(j).
+\end{aligned}
+\]
+Recall from \eqref{eq:c}--\eqref{eq:C} that $0<c_i\le1$ and $C_n=\prod_{i=0}^{n-1}c_i$. Also, $x_s=q_{s,0}\in[0,1]$ and $D_s=1+(m-1)x_s^m\ge1$. Thus
+\[
+\begin{aligned}
+ 0<\frac{C_n}{C_s}
+ &=\prod_{i=s}^{n-1}c_i\le1,
+ &&n-r_0\le s\le n,\\
+ 0\le d_{r,s}
+ &\le\frac{\binom mr}{(m-1)^{r-1}}\le2^m,
+ &&2\le r\le m.
+\end{aligned}
+\]
+The last inequality uses $(m-1)^{r-1}\ge1$ and $\binom mr\le\sum_{k=0}^m\binom mk=2^m$, giving a bound uniform in $r$ and $s$.
+ Since $n+j>(n-r_0)+K_m$, applying \eqref{eq:far} with $s=n-r_0$ and $N=n+j$ gives
+\[
+\begin{aligned}
+ \frac{C_n}{C_{n-r_0}}\rho_{n-r_0}(j+r_0)
+ &=(m-1)C_n\phi_{n-r_0,n+j}\\
+ &\le C\frac{n-r_0+1}{(n+j)^3}
+ \le\frac{C}{(n+1)^2}.
+\end{aligned}
+\]
+To bound the terms in the double sum, recall from \eqref{eq:weightedmass} that, with $L_s=s+1$,
+\[
+ \norm{\rho_s}_{1,3,L_s}
+ =\sum_{k\ge0}\left(1+\frac{k}{s+1}\right)^3\rho_s(k)
+ \le\frac{C}{s+1}.
+\]
+The operators $S$ and $T$ are contractions in the supremum norm. Since $s\ge n-r_0\ge n/2$, nonnegativity and this bound give
+\[
+\begin{aligned}
+ \bigl\|S^{n-1-s}T^{r-2}\rho_s^{*r}\bigr\|_\infty
+ &\le\norm{\rho_s^{*r}}_\infty
+ \le\norm{\rho_s^{*r}}_1
+ =\norm{\rho_s}_1^r\\
+ &\le\norm{\rho_s}_{1,3,L_s}^r
+ \le\frac{C}{(s+1)^r}
+ \le\frac{C}{(n+1)^2},
+ \qquad 2\le r\le m.
+\end{aligned}
+\]
+The double sum has $r_0(m-1)$ terms. Hence, for $0\le j\le K_m$,
+\[
+\begin{aligned}
+ \rho_n(j)
+ &\le\frac{C\{1+r_0(m-1)\}}{(n+1)^2}
+ \le\frac{C}{(n+1)^2}\\
+ &=C\left(\frac{n+j+1}{n+1}\right)^3
+       \frac{n+1}{(n+j+1)^3}
+ \le C\frac{n+1}{(n+j+1)^3},
+\end{aligned}
+\]
+where $(n+j+1)/(n+1)\le1+K_m$.
+
+Finally, for $0\le n<2r_0$ and every $j\ge0$, \eqref{eq:weightedmass} directly gives
+\[
+ \left(1+\frac{j}{n+1}\right)^3\rho_n(j)
+ \le\norm{\rho_n}_{1,3,L_n}
+ \le\frac{C}{n+1}
+ \le\frac{2Cr_0}{(n+1)^2}.
+\]
+Rearranging proves \eqref{eq:pointwise} also for these generations.
+\end{proof}
+
+\subsection{A change of variables in the recursion}
+We derive a recursion for $F_s$ and bounds on the moments and tails of its coefficients, which will be used to estimate $A_s$.
+
+Recall $Q_s(z)=H_s(z)-x_s$ and define
+\[
  F_s(z)=\sum_{N\ge s}\phi_{s,N}z^N.
 \]
-The index $N=s+k-1$ is preserved when the linear transport moves an atom from $k$ to $k-1$. Dividing by $C_s$ also removes its multiplicative coefficient. Put
+For $k\ge1$, the linear term in the recursion for $q_{s+1,k}$ is $c_sq_{s,k+1}$, and both probabilities correspond to $N=s+k$. Since $C_{s+1}=c_sC_s$, division by $C_{s+1}$ cancels the coefficient $c_s$. Put
 \[
  b_s=\phi_{s,s}=\frac{q_{s,1}}{C_s},\qquad
  \kappa_s=\frac{C_s}{x_s},\qquad
@@ -438,7 +1001,7 @@ and define
 \begin{equation}\label{eq:arrivalA}
  A_s(z)=\sum_{r=2}^m\alpha_{r,s}z^{(r-2)(1-s)}F_s(z)^r.
 \end{equation}
-Despite its Laurent notation, each summand has minimum degree $2s+r-2$, hence is an ordinary power series with nonnegative coefficients.
+Although the factor $z^{(r-2)(1-s)}$ may involve a negative power of $z$, each summand has minimum degree $2s+r-2$, hence is an ordinary power series with nonnegative coefficients.
 
 \begin{lemma}\label{lem:arrival}
 The exact recursions are
@@ -452,230 +1015,739 @@ In particular, for $N\ge s$,
 \end{equation}
 \end{lemma}
 \begin{proof}
-For $k\ge1$, coefficient extraction from \eqref{eq:tilt} gives
+Multiplying \eqref{eq:tilt} by $zD_s$ and expanding $H_s(z)=x_s+Q_s(z)$ gives
+\[
+\begin{aligned}
+ zD_sH_{s+1}(z)
+ &= (x_s+Q_s(z))^m+(mz-1)x_s^m\\
+ &= mz x_s^m+mx_s^{m-1}Q_s(z)
+ +\sum_{r=2}^m\binom mr x_s^{m-r}Q_s(z)^r.
+\end{aligned}
+\]
+For $k\ge1$, the coefficient of $z^{k+1}$ on the left is $D_sq_{s+1,k}$. On the right, $mz x_s^m$ contributes nothing because $k+1\ge2$, while $[z^{k+1}]Q_s(z)=q_{s,k+1}$. Dividing by $D_s$ and using $c_s=mx_s^{m-1}/D_s$, we obtain
 \[
  q_{s+1,k}=c_sq_{s,k+1}+
  \frac1{D_s}[z^{k+1}]\sum_{r=2}^m\binom mr x_s^{m-r}Q_s(z)^r.
 \]
-Since $Q_s(z)=C_sz^{1-s}F_s(z)$ and $D_sC_{s+1}=mx_s^{m-1}C_s$, the normalized order-$r$ source is exactly the corresponding term in \eqref{eq:arrivalrenewal}. Removing the coefficient at degree $s$ gives the boundary subtraction. Finally
+By definition, $F_{s+1}(z)=C_{s+1}^{-1}\sum_{k\ge1}q_{s+1,k}z^{s+k}$. We therefore multiply the preceding recursion by $z^{s+k}/C_{s+1}$ and sum over $k\ge1$. Since $C_{s+1}=c_sC_s$, the linear term becomes
 \[
- \frac{C_{s+1}}{x_{s+1}}=\frac{C_s}{x_s+q_{s,1}}
+ \frac{c_s}{C_{s+1}}\sum_{k\ge1}q_{s,k+1}z^{s+k}
+ =\frac1{C_s}\sum_{\ell\ge2}q_{s,\ell}z^{s+\ell-1}
+ =F_s(z)-b_sz^s.
+\]
+The subtracted term is precisely the $\ell=1$ term of $F_s$, which has degree $s$.
+
+For each $r\ge2$, the series $Q_s(z)^r$ has no terms of degree zero or one. Hence the sum over $k\ge1$ includes all its coefficients. Substituting $Q_s(z)=C_sz^{1-s}F_s(z)$, the order-$r$ contribution is
+\[
+\begin{aligned}
+ \frac{\binom mr x_s^{m-r}}{D_sC_{s+1}}
+   \sum_{k\ge1}z^{s+k}[z^{k+1}]Q_s(z)^r
+ &=\frac{\binom mr x_s^{m-r}C_s^r}{D_sC_{s+1}}
+   z^{s-1+r(1-s)}F_s(z)^r\\
+ &=\frac1m\binom mr\left(\frac{C_s}{x_s}\right)^{r-1}
+   z^{(r-1)(1-s)}F_s(z)^r\\
+ &=z^{1-s}\alpha_{r,s}z^{(r-2)(1-s)}F_s(z)^r,
+\end{aligned}
+\]
+where we used $D_sC_{s+1}=mx_s^{m-1}C_s$. Summing over $r=2,\ldots,m$ gives $z^{1-s}A_s(z)$ and proves \eqref{eq:arrivalrenewal}.
+
+For \eqref{eq:kappa}, use $x_{s+1}=c_s(x_s+q_{s,1})$ together with $C_{s+1}=c_sC_s$. Since $q_{s,1}/x_s=\kappa_sb_s$, this gives
+\[
+ \kappa_{s+1}=\frac{C_{s+1}}{x_{s+1}}=\frac{C_s}{x_s+q_{s,1}}
  =\frac{\kappa_s}{1+\kappa_sb_s}.
 \]
-Iteration at coefficient $N$ proves \eqref{eq:arrivalDuhamel}.
+Finally, fix $N\ge s$. For every $0\le j<s$, the boundary term $b_jz^j$ in \eqref{eq:arrivalrenewal} has degree $j<N$, so taking the coefficient of $z^N$ yields
+\[
+ \phi_{j+1,N}-\phi_{j,N}
+ =[z^N]\bigl(z^{1-j}A_j(z)\bigr)
+ =[z^{N+j-1}]A_j(z).
+\]
+Summing over $j=0,\ldots,s-1$ telescopes the left-hand side to $\phi_{s,N}-\phi_{0,N}$, proving \eqref{eq:arrivalDuhamel}.
 \end{proof}
 
-For $1\le r\le m^2$ the moment bounds imply
+\begin{lemma}[Moment and tail bounds]\label{lem:Fmoment}
+For integers $s\ge0$ and $1\le r\le m^2$,
 \begin{equation}\label{eq:Fmoment}
  F_s(1)\le\frac C{s+1},\qquad
  \sum_{k\ge0}(k+r)^3[z^k]F_s(z)^r\le C_r(s+1)^{3-r}.
 \end{equation}
-Indeed,
-\[
- \sum_{N\ge s}(N+1)^3\phi_{s,N}
- =C_s^{-1}\sum_{k\ge1}(s+k)^3q_{s,k}\le C(s+1)^2,
-\]
-and $(N_1+\cdots+N_r+r)^3\le r^2\sum_i(N_i+1)^3$. Thus, for $K\ge1$,
+Consequently, for $K\ge1$,
 \begin{equation}\label{eq:Ftail}
  \sum_{k\ge K}[z^k]F_s(z)^r\le C_r(s+1)^{3-r}K^{-3}.
 \end{equation}
-
-\subsection{The source difference estimate}
-For a Laurent series $B$, write $\tail K B=\sum_{k\ge K}|[z^k]B|$ whenever the sum is finite. Let
+The constants are independent of $s$ and $K$.
+\end{lemma}
+\begin{proof}
+By the definition of $\phi_{s,N}$, the bound on $\theta_s$ in \eqref{eq:theta}, and $C_s\ge C_\infty>0$ from \eqref{eq:C},
 \[
- K_m=2m(m-1)+1.
+ F_s(1)=\sum_{N\ge s}\phi_{s,N}
+ =\frac1{C_s}\sum_{k\ge1}q_{s,k}
+ =\frac{\theta_s}{C_s}\le\frac C{s+1}.
 \]
+The same change of variables $N=s+k-1$, together with $(s+k)^3\le4(s^3+k^3)$, gives
+\[
+\begin{aligned}
+ \sum_{N\ge s}(N+1)^3\phi_{s,N}
+ &=\frac1{C_s}\sum_{k\ge1}(s+k)^3q_{s,k}\\
+ &\le\frac4{C_s}\left(s^3\theta_s+\sum_{k\ge1}k^3q_{s,k}\right)
+ \le C(s+1)^2,
+\end{aligned}
+\]
+where the last inequality uses \eqref{eq:theta} and the third-moment bound in \eqref{eq:lowmoments}.
+
+To estimate $F_s(z)^r$, expand its coefficients as products of the $\phi_{s,N_i}$. After summing over all $k\ge0$, each index $N_1,\ldots,N_r$ ranges independently over $s,s+1,\ldots$. All terms are nonnegative, so the sums can be rearranged. Using
+\[
+ (N_1+\cdots+N_r+r)^3
+ =\left(\sum_{i=1}^r(N_i+1)\right)^3
+ \le r^2\sum_{i=1}^r(N_i+1)^3,
+\]
+we obtain
+\[
+\begin{aligned}
+ \sum_{k\ge0}(k+r)^3[z^k]F_s(z)^r
+  &=\sum_{N_1,N_2,\cdots,N_r\ge s}
+   (N_1+\cdots+N_r+r)^3\prod_{i=1}^r\phi_{s,N_i}\\
+  &\le r^2\sum_{i=1}^r\sum_{N_1,N_2,\cdots,N_r\ge s}
+   (N_i+1)^3\prod_{\ell=1}^r\phi_{s,N_\ell}\\
+ &=r^3\left(\sum_{N\ge s}(N+1)^3\phi_{s,N}\right)F_s(1)^{r-1}\\
+ &\le C_r(s+1)^2(s+1)^{-(r-1)}
+ =C_r(s+1)^{3-r}.
+\end{aligned}
+\]
+Indeed, for each fixed $i$, summing over the other $r-1$ indices gives $F_s(1)^{r-1}$, and the $r$ choices of $i$ give identical contributions. This proves \eqref{eq:Fmoment}.
+
+Finally, $k\ge K$ implies $(k+r)^3\ge K^3$. Nonnegativity of the coefficients and \eqref{eq:Fmoment} therefore give
+\[
+ \sum_{k\ge K}[z^k]F_s(z)^r
+ \le K^{-3}\sum_{k\ge K}(k+r)^3[z^k]F_s(z)^r
+ \le C_r(s+1)^{3-r}K^{-3},
+\]
+which is \eqref{eq:Ftail}.
+\end{proof}
+
+\subsection{Differences between successive generations}
+We bound the coefficients of $A_{s+1}-A_s$ and sum the resulting estimates with $N$ fixed to prove Proposition~\ref{prop:far}.
+
+Recall that $K_m=2m(m-1)+1$.
 \begin{lemma}\label{lem:sourcedifference}
 For integers $N>s+K_m$,
 \begin{equation}\label{eq:sourcedifference}
- \tail{N+s}{A_{s+1}-A_s}
+ \sum_{k\ge N+s}\bigl|[z^k](A_{s+1}-A_s)\bigr|
  \le \frac C{N^3}\{1+b_s(s+1)^2\}.
 \end{equation}
 \end{lemma}
 \begin{proof}
-Write $F=F_s$, $b=b_s$,
+We first control the coefficients $\alpha_{r,s}$. The bounds in \eqref{eq:C} and $\inf_s x_s>0$ imply that $\kappa_s=C_s/x_s$ and all $\alpha_{r,s}$ are bounded. By \eqref{eq:kappa},
 \[
- B=bz^s,\qquad P_r=\alpha_{r,s}z^{(r-1)(1-s)}F^r,
- \qquad G=-B+\sum_{r=2}^mP_r,
+ \alpha_{r,s+1}=\alpha_{r,s}(1+\kappa_sb_s)^{-(r-1)}.
 \]
-so that $F_{s+1}=F+G$. At each outer degree $2\le R\le m$, split the difference into coefficient, shift, and function changes:
+Since $0\le1-(1+t)^{-(r-1)}\le(r-1)t$ for $t\ge0$, it follows that
+\[
+ 0\le\alpha_{r,s}-\alpha_{r,s+1}\le Cb_s
+ \qquad(2\le r\le m).
+\]
+
+In the definition of $A_{s+1}-A_s$, change the coefficient, the power of $z$, and the power of $F_s$ one at a time. Adding and subtracting the corresponding intermediate terms gives
 \begin{align}\label{eq:threechanges}
- A_{s+1}-A_s=\sum_{R=2}^m\bigl[&
- (\alpha_{R,s+1}-\alpha_{R,s})z^{(R-2)(1-s)}F^R\notag\\
- &+\alpha_{R,s+1}\{z^{-(R-2)s}-z^{(R-2)(1-s)}\}F^R\notag\\
- &+\alpha_{R,s+1}z^{-(R-2)s}\{(F+G)^R-F^R\}\bigr].
+ A_{s+1}-A_s=\sum_{r=2}^m\bigl[&
+  (\alpha_{r,s+1}-\alpha_{r,s})z^{(r-2)(1-s)}F_s^r\notag\\
+ &+\alpha_{r,s+1}\{z^{-(r-2)s}-z^{(r-2)(1-s)}\}F_s^r\notag\\
+ &+\alpha_{r,s+1}z^{-(r-2)s}(F_{s+1}^r-F_s^r)\bigr].
 \end{align}
-All coefficients $\alpha_{R,s}$ are bounded, and \eqref{eq:kappa} implies
-$|\alpha_{R,s+1}-\alpha_{R,s}|\le Cb$.
+We estimate the coefficient tail of each line by the triangle inequality.
 
-Consider one monomial in the function change. If it selects $n_B$ factors $-B$, $n_F$ factors $F$, and $n_r$ factors $P_r$, put
+\emph{Coefficient and shift changes.}
+Multiplication by $z^a$ changes a tail starting at $N+s$ into one starting at $N+s-a$. For the two powers of $z$ in the first two lines of \eqref{eq:threechanges}, these starting indices are
 \[
- e=\sum_{r=2}^m(r-1)n_r,\qquad
- q=n_F+\sum_{r=2}^m rn_r=R-n_B+e.
+\begin{aligned}
+ N+s-(r-2)(1-s)&=N+(r-1)s-(r-2)>N/2,\\
+ N+s+(r-2)s&=N+(r-1)s\ge N.
+\end{aligned}
 \]
-Its coefficient is bounded by a constant times $b^{n_B}$, its convolution factor is $F^q$, and its Laurent exponent is
-\begin{equation}\label{eq:tag}
- \sigma=e+(2-q)s,\qquad 0\le e\le m(m-1),\qquad 0\le q\le m^2.
-\end{equation}
-Coefficient changes have the same form with $q=R$, $e=R-2$, and one extra factor $b$. The two shift terms have $q=R$ and $e=0$ or $R-2$. The shift change vanishes for $R=2$.
+Here we used $r\le m$ and $N>s+K_m$. Thus \eqref{eq:Ftail} and the coefficient bound above show that, for each $r$, the first line contributes at most
+\[
+ \frac{Cb_s(s+1)^{3-r}}{N^3}
+ \le\frac{Cb_s(s+1)^2}{N^3}.
+\]
+In the second line, the two powers of $z$ agree when $r=2$, so that term vanishes. For $r\ge3$, bound their tails separately using \eqref{eq:Ftail}; the resulting bound is $C(s+1)^{3-r}N^{-3}\le CN^{-3}$.
 
-If $q\ge1$, the tail threshold for $F^q$ is
+\emph{The boundary term in the power difference.}
+Since $b_sz^s$ is exactly the degree-$s$ term of $F_s$, the series $F_s-b_sz^s$ has nonnegative coefficients, each at most the corresponding coefficient of $F_s$. The recursion \eqref{eq:arrivalrenewal} and the binomial formula give
 \[
- N+s-\sigma=N+(q-1)s-e\ge N-m(m-1)>N/2.
+\begin{aligned}
+ F_{s+1}^r-F_s^r
+ ={}&(F_s-b_sz^s)^r-F_s^r\\
+ &+\sum_{j=1}^r\binom rj(F_s-b_sz^s)^{r-j}
+       (z^{1-s}A_s)^j.
+\end{aligned}
 \]
-By \eqref{eq:Ftail}, a monomial with $w$ factors $b$ contributes at most
-\begin{equation}\label{eq:tagbound}
- Cb^w(s+1)^{3-q}N^{-3}.
-\end{equation}
-If $w=0$, a function change contains at least one source factor, since the all-$F$ term was deleted. Thus $q\ge3$. A nonzero shift change also has $q\ge3$, so \eqref{eq:tagbound} is at most $CN^{-3}$. If $w\ge1$, then $b\le C/(s+1)$ and $q+w\ge2$, whence
+The first difference has nonpositive coefficients. To bound their absolute values, use
 \[
- b^w(s+1)^{3-q}\le Cb(s+1)^{4-q-w}\le Cb(s+1)^2.
+ F_s^r-(F_s-b_sz^s)^r
+ =b_sz^s\sum_{j=0}^{r-1}F_s^{r-1-j}(F_s-b_sz^s)^j.
 \]
-Finally $q=0$ is possible only for the all-$(-B)$ term. Its degree is exactly $2s$, below $N+s$, so it contributes nothing. These cases exhaust the finite expansion \eqref{eq:threechanges}. Their number depends only on $m$, proving the lemma. 
+Each of the $r$ products on the right has coefficients bounded by those of $F_s^{r-1}$. After including the factor $\alpha_{r,s+1}z^{-(r-2)s}$ from \eqref{eq:threechanges}, the boundary contribution to the required tail is therefore at most
+\[
+\begin{aligned}
+ Cb_s\sum_{k\ge N+(r-2)s}[z^k]F_s^{r-1}
+ &\le\frac{Cb_s(s+1)^{4-r}}{N^3}\\
+ &\le\frac{Cb_s(s+1)^2}{N^3},
+\end{aligned}
+\]
+by \eqref{eq:Ftail} and $r\ge2$.
+
+\emph{The terms containing $A_s$.}
+All terms in the sum over $j\ge1$ have nonnegative coefficients. Replacing $(F_s-b_sz^s)^{r-j}$ by $F_s^{r-j}$ can only increase them. Fix $j\in\{1,\ldots,r\}$ and choose orders $\ell_1,\ldots,\ell_j\in\{2,\ldots,m\}$ from the $j$ copies of
+\[
+ z^{1-s}A_s=\sum_{\ell=2}^m\alpha_{\ell,s}
+                  z^{(\ell-1)(1-s)}F_s^\ell.
+\]
+The total number of factors $F_s$ in this product is
+\[
+ d=r-j+\sum_{i=1}^j\ell_i
+   =r+\sum_{i=1}^j(\ell_i-1).
+\]
+In particular, $3\le r+j\le d\le r+j(m-1)\le m^2$ and $0\le d-r\le m(m-1)$. The scalar coefficient is bounded by a constant depending only on $m$ and the initial law. Including the outer power $z^{-(r-2)s}$, the remaining series is
+\begin{equation*}
+ z^{-(r-2)s+\sum_{i=1}^j(\ell_i-1)(1-s)}F_s^d
+ =z^{d-r+(2-d)s}F_s^d.
+\end{equation*}
+Consequently its tail starting at $N+s$ corresponds to the tail of $F_s^d$ starting at
+\[
+ N+s-\{d-r+(2-d)s\}
+ =N+(d-1)s-(d-r)
+ \ge N-m(m-1)>N/2.
+\]
+Since $3\le d\le m^2$, \eqref{eq:Ftail} now gives
+\begin{equation*}
+\begin{aligned}
+ \sum_{k\ge N+s}[z^k]\bigl(z^{d-r+(2-d)s}F_s^d\bigr)
+ &=\sum_{k\ge N+(d-1)s-(d-r)}[z^k]F_s^d\\
+ &\le\frac{C(s+1)^{3-d}}{N^3}\le\frac C{N^3}.
+\end{aligned}
+\end{equation*}
+There are only finitely many choices of $r$, $j$, and $\ell_1,\ldots,\ell_j$, with their number depending only on $m$. Combining this estimate with the bounds for the other terms in \eqref{eq:threechanges} proves \eqref{eq:sourcedifference}.
 \end{proof}
 
-The source-difference estimate can now be summed along a fixed arrival index.
-\begin{proposition}\label{prop:far}
-There is a bounded function $\omega(N)\to0$ such that, for $N>s+K_m$,
-\begin{equation}\label{eq:far}
- \phi_{s,N}\le\frac{\omega(N)+C(s+1)}{N^3}.
-\end{equation}
-\end{proposition}
-\begin{proof}
-Define
+We now sum the estimate for $A_{v+1}-A_v$ with $N$ fixed to establish \eqref{eq:far}.
+\begin{proof}[Proof of Proposition~\ref{prop:far}]
+Since $C_0=1$, the initial term is controlled directly by the third moment:
 \[
- \omega(N)=N^3\left\{\phi_{0,N}+\sum_{k\ge N-1}[z^k]A_0(z)\right\}.
+ \phi_{0,N}=q_{0,N+1}
+ \le\frac1{(N+1)^3}\sum_{k\ge1}k^3q_{0,k}
+ \le\frac C{N^3}.
 \]
-The initial third moment and finite convolution expansion of $A_0$ imply $\omega(N)\to0$ and boundedness. Insert $A_j=A_0+\sum_{v<j}(A_{v+1}-A_v)$ into \eqref{eq:arrivalDuhamel}. The $A_0$ block visits the distinct degrees $N-1,\ldots,N+s-2$ only once. For each fixed $v$, the remaining inner sum is bounded by the absolute tail starting at degree $N+v$. Consequently,
+Also, \eqref{eq:arrivalA} at $s=0$ and \eqref{eq:Ftail} give
 \[
- \phi_{s,N}\le\frac{\omega(N)}{N^3}
- +\frac C{N^3}\left\{s+\sum_{v<s}b_v(v+1)^2\right\}.
+\begin{aligned}
+ \sum_{k\ge N-1}[z^k]A_0(z)
+ &=\sum_{r=2}^m\alpha_{r,0}
+       \sum_{k\ge N-r+1}[z^k]F_0(z)^r\\
+ &\le C\sum_{r=2}^m(N-r+1)^{-3}
+ \le\frac C{N^3},
+\end{aligned}
 \]
-Since $b_v\le C_\infty^{-1}q_{v,1}$, exact summation by parts and \eqref{eq:atomtail} give, for $s\ge1$,
-\[
- \sum_{v=0}^{s-1}(v+1)^2q_{v,1}
- =T_0+\sum_{v=1}^{s-1}(2v+1)T_v-s^2T_s\le C(s+1).
-\]
-This proves \eqref{eq:far} for $s\ge1$. For $s=0$, the bound follows directly from the definition of $\omega(N)$.
-\end{proof}
+where $N-r+1>N/2$ follows from $N>K_m$ and $r\le m$.
 
-\subsection{Proof of Proposition~\ref{prop:pointwise}}
-\begin{proof}
-If $j>K_m$, apply \eqref{eq:far} with $s=n$, $N=n+j$. Boundedness of $\omega$ and $C_n$ gives \eqref{eq:pointwise}.
-
-There remain only $0\le j\le K_m$. Set $r_0=K_m+2$ and take $n\ge2r_0$. Extracting the positive coefficients in \eqref{eq:tilt} and using \eqref{eq:rho} gives the exact density recursion
-\begin{equation}\label{eq:rhor}
- \rho_{s+1}=c_sS\rho_s+\sum_{r=2}^m d_{r,s}T^{r-2}\rho_s^{*r},\qquad
- d_{r,s}=\frac{\binom mr x_s^{m-r}}{D_s(m-1)^{r-1}}.
-\end{equation}
-Iterate this identity from $s=n-r_0$ to $n$. The homogeneous term at $j$ is at most $\rho_{n-r_0}(j+r_0)=O(n^{-2})$ by \eqref{eq:far}, since $n+j>(n-r_0)+K_m$. Each of the at most $r_0(m-1)$ source terms is at most
+Now let $s\ge1$. Substitute $A_j=A_0+\sum_{v=0}^{j-1}(A_{v+1}-A_v)$ into \eqref{eq:arrivalDuhamel} and interchange the finite sums:
 \[
- C\norm{\rho_s^{*r}}_\infty\le C\norm{\rho_s}_1^r\le C(n+1)^{-2},
+\begin{aligned}
+ \phi_{s,N}
+ &=\phi_{0,N}+\sum_{j=0}^{s-1}[z^{N+j-1}]A_0
+ +\sum_{j=0}^{s-1}\sum_{v=0}^{j-1}
+          [z^{N+j-1}](A_{v+1}-A_v)\\
+ &=\phi_{0,N}+\sum_{k=N-1}^{N+s-2}[z^k]A_0
++\sum_{v=0}^{s-2}\sum_{k=N+v}^{N+s-2}
+          [z^k](A_{v+1}-A_v).
+\end{aligned}
 \]
-using only \eqref{eq:weightedmass}, $r\ge2$, bounded coefficients, and $c_s\le1$. Thus $\rho_n(j)=O(n^{-2})$ for these finitely many $j$, which is equivalent to \eqref{eq:pointwise} there. For the finitely many generations $n<2r_0$, the finite third moment bounds the cubic-weighted supremum directly. This proves the proposition.
+The last equality uses $v+1\le j\le s-1$ and $k=N+j-1$. Empty sums are zero. For $0\le v\le s-2$, we have $N>v+K_m$, so \eqref{eq:sourcedifference} yields
+\[
+\begin{aligned}
+ \left|\sum_{k=N+v}^{N+s-2}[z^k](A_{v+1}-A_v)\right|
+ &\le\sum_{k\ge N+v}\bigl|[z^k](A_{v+1}-A_v)\bigr|\\
+ &\le\frac C{N^3}\{1+b_v(v+1)^2\}.
+\end{aligned}
+\]
+Combining these estimates gives
+\[
+\begin{aligned}
+ \phi_{s,N}
+ &\le\frac C{N^3}
+       +\frac C{N^3}\sum_{v=0}^{s-2}\{1+b_v(v+1)^2\}\\
+ &\le\frac C{N^3}\left\{s+\sum_{v=0}^{s-1}b_v(v+1)^2\right\}.
+\end{aligned}
+\]
+Finally, $b_v=q_{v,1}/C_v\le C_\infty^{-1}q_{v,1}$ and $q_{v,1}=T_v-T_{v+1}$. Summation by parts and \eqref{eq:atomtail} therefore give
+\[
+\begin{aligned}
+ \sum_{v=0}^{s-1}(v+1)^2b_v
+ &\le C_\infty^{-1}\sum_{v=0}^{s-1}(v+1)^2(T_v-T_{v+1})\\
+ &=C_\infty^{-1}\left\{T_0+\sum_{v=1}^{s-1}(2v+1)T_v-s^2T_s\right\}\\
+ &\le C\left\{1+\sum_{v=1}^{s-1}\frac{2v+1}{v+1}\right\}
+ \le C(s+1).
+\end{aligned}
+\]
+This proves \eqref{eq:far} for $s\ge1$. The case $s=0$ is the initial-term estimate above.
 \end{proof}
 
 \section{Proof of Proposition~\ref{prop:smoothing}}\label{sec:smoothing}
-Proposition~\ref{prop:pointwise} gives the required pointwise bound. To control spatial differences, we compare the transport of the density with that of its quadratic convolution. We retain a free initial time in the resulting telescope so that the estimate also controls macroscopic increments.
+Proposition~\ref{prop:pointwise} gives the required pointwise bound.
+%
+To control spatial differences, we compare the recursions for $\rho_s$ and $\rho_s*\rho_s$.
+%
+We sum the resulting differences from a time $a$ that will be chosen according to the spatial increment $h$. This will give the bound in \eqref{eq:spmod} for every $1\le h\le n+1$.
 \subsection{Preliminaries}
-The weight $(1+j/L)^3$ is submultiplicative. Therefore \eqref{eq:weightedmass} and \eqref{eq:pointwise} imply, for every fixed positive integer $r$,
-\begin{equation}\label{eq:convnorms}
- \norm{\rho_s^{*r}}_{1,3,L_s}\le C_rL_s^{-r},\qquad
- \norm{\rho_s^{*r}}_{\infty,3,L_s}\le C_rL_s^{-r-1}.
-\end{equation}
-The operator $S$ is a contraction in both weighted norms. Each fixed $T^k$ has norm at most $(1+k)^3$. For $0\le s\le n-1$ and $d\ge0$ with $d\ge n-2-s$,
-\begin{equation}\label{eq:shiftgain}
- \norm{S^df}_{\infty,3,L_n}\le27\left(\frac{L_s}{L_n}\right)^3
- \norm f_{\infty,3,L_s}\qquad(n\ge2).
-\end{equation}
-Indeed the ratio of the weights is
-$[L_s(n+1+j)/(L_n(s+1+j+d))]^3$, and $s+1+d\ge n-1$.
 
-Put $d_s=d_{2,s}$, $\beta_s=\rho_s(0)$, and
+
+To prove \eqref{eq:spmod}, we iterate \eqref{eq:rhor}
+from time $a$ to time $n$. 
+% The contribution of $\rho_a$ can be bounded
+% using Proposition~\ref{prop:pointwise}. We will estimate the spatial
+% difference of the remaining contribution by comparing the quadratic
+% convolutions at successive times.
+
+Recall the coefficients $d_{r,s}$ from \eqref{eq:rhor}, and put
 \[
- B_s=\rho_s*\rho_s,\qquad E_s=\sum_{r=3}^m d_{r,s}T^{r-2}\rho_s^{*r}.
+ d_s=d_{2,s},\qquad B_s=\rho_s*\rho_s,\qquad
+ E_s=\sum_{r=3}^m d_{r,s}T^{r-2}\rho_s^{*r},
 \]
-The sum is empty when $m=2$. Then
+where $E_s=0$ if $m=2$. Then \eqref{eq:rhor} becomes
 \begin{equation}\label{eq:rhoshort}
  \rho_{s+1}=c_sS\rho_s+d_sB_s+E_s.
 \end{equation}
-The coefficient limits and variations are
-\begin{equation}\label{eq:coefficientbounds}
- d_s\longrightarrow\frac12,\quad |1-c_s|\le CL_s^{-2},\quad
- |d_s-d_{s-1}|\le CL_s^{-2}\quad(s\ge1).
-\end{equation}
-For the last inequality, $x_{s+1}=c_s(x_s+q_{s,1})$ and Proposition~\ref{prop:pointwise} give $|x_{s+1}-x_s|\le CL_s^{-2}$. The function defining $d_s$ is Lipschitz on the compact range $\inf_sx_s\le x\le1$.
-
-The two coefficientwise convolution identities
+For integers $n\ge4$ and $0\le a\le n-2$, define
+\begin{align*}
+ I_{a,n}&=\frac{C_n}{C_a}S^{n-a}\rho_a,\\
+ V_{a,n}&=\sum_{s=a}^{n-1}\frac{C_n}{C_{s+1}}
+                   S^{n-1-s}(d_sB_s+E_s).
+\end{align*}
+Since $C_{s+1}=c_sC_s$, equation~\eqref{eq:rhoshort} gives
 \[
- (S\rho)*(S\rho)=S^2(\rho*\rho)-2\rho(0)S^2\rho,
- \qquad (S\rho)*(\rho*\rho)=S(\rho^{*3})-\rho(0)S(\rho*\rho)
+ \frac{S^{n-1-s}\rho_{s+1}}{C_{s+1}}
+ -\frac{S^{n-s}\rho_s}{C_s}
+ =\frac{S^{n-1-s}(d_sB_s+E_s)}{C_{s+1}}.
 \]
-give
+Summing over $a\le s\le n-1$ and multiplying by $C_n$, we obtain
+\begin{equation}\label{eq:split}
+ \rho_n=I_{a,n}+V_{a,n}.
+\end{equation}
+We first bound $I_{a,n}$. By \eqref{eq:C} and \eqref{eq:pointwise}, 
+\[
+ \begin{aligned}
+ I_{a,n}(j)
+ &=\frac{C_n}{C_a}\rho_a(j+n-a)
+ \le C\frac{a+1}{(n+j+1)^3},\\
+ \left(1+\frac j{L_n}\right)^3 I_{a,n}(j)
+ &\le \frac{C(a+1)}{L_n^3}.
+ \end{aligned}
+\]
+Taking the supremum over $j\ge0$ gives
+\begin{equation}\label{eq:earlyI}
+ \norm{I_{a,n}}_{\infty,3,L_n}
+ \le\frac{C(a+1)}{L_n^3}.
+\end{equation}
+For $L\ge1$ and an integer $k\ge0$, the inequality
+$(1+j/L)^3\le(1+(j+k)/L)^3$ implies
+\[
+ \norm{S^kf}_{\infty,3,L}\le\norm f_{\infty,3,L}.
+\]
+Consequently, for every integer $h\ge1$,
+\[
+ \begin{aligned}
+ \norm{I_{a,n}-S^hI_{a,n}}_{\infty,3,L_n}
+ &\le2\norm{I_{a,n}}_{\infty,3,L_n},\\
+ \norm{V_{a,n}-S^hV_{a,n}}_{\infty,3,L_n}
+ &=\left\|\sum_{\ell=0}^{h-1}S^\ell\Delta V_{a,n}
+       \right\|_{\infty,3,L_n}
+ \le h\norm{\Delta V_{a,n}}_{\infty,3,L_n}.
+ \end{aligned}
+\]
+Combining these inequalities with \eqref{eq:split} and \eqref{eq:earlyI},
+we reduce the spatial estimate to a bound on $\Delta V_{a,n}$:
+\begin{equation}\label{eq:spatialreduction}
+ \norm{\rho_n-S^h\rho_n}_{\infty,3,L_n}
+ \le\frac{C(a+1)}{L_n^3}
+       +h\norm{\Delta V_{a,n}}_{\infty,3,L_n}.
+\end{equation}
+It remains to prove \eqref{eq:lateV}, namely
+\[
+ \norm{\Delta V_{a,n}}_{\infty,3,L_n}
+ \le \frac{C}{L_n^3}
+       \left(1+\log\frac{L_n}{a+1}\right).
+\]
+For $1\le h\le n/2$, this estimate and
+\eqref{eq:spatialreduction} give \eqref{eq:spmod} with $a=h$.
+For $n/2<h\le L_n$, \eqref{eq:spmod} follows directly
+from \eqref{eq:pointwise}.
+
+To prepare the estimate of $\Delta V_{a,n}$, we now bound $B_s$ and $E_s$
+and derive a recursion relating $B_{s+1}$ to $B_s$.
+The required bounds follow from two weighted convolution inequalities.
+Fix $L\ge1$.
+For every $i,j\in\Zp$,
+\begin{equation}\label{eqn:weight}
+ \left(1+\frac{i+j}{L}\right)^3
+ \le
+ \left(1+\frac iL\right)^3
+ \left(1+\frac jL\right)^3.
+\end{equation}
+Let $f,g$ be sequences on $\Zp$ with finite weighted sum norms.
+The triangle inequality and \eqref{eqn:weight} give
+\[
+ \begin{aligned}
+ \norm{f*g}_{1,3,L}
+ &\le
+ \sum_{k\ge0}\sum_{i=0}^{k}
+ \left(1+\frac kL\right)^3
+ |f(i)|\,|g(k-i)|\\
+ &\le
+ \sum_{i,j\ge0}
+ \left(1+\frac iL\right)^3|f(i)|
+ \left(1+\frac jL\right)^3|g(j)|\\
+ &=\norm f_{1,3,L}\norm g_{1,3,L}.
+ \end{aligned}
+\]
+Thus we have
+\begin{equation}\label{ineq:con_1}
+ \norm{f*g}_{1,3,L}
+ \le \norm f_{1,3,L}\norm g_{1,3,L}.
+\end{equation}
+For the supremum norm, fix $k\ge0$ and use \eqref{eqn:weight} to obtain
+\[
+ \begin{aligned}
+ \left(1+\frac kL\right)^3|(f*g)(k)|
+ &\le
+ \sum_{i=0}^{k}
+ \left(1+\frac iL\right)^3|f(i)|
+ \left(1+\frac{k-i}{L}\right)^3|g(k-i)|\\
+ &\le
+ \norm f_{\infty,3,L}
+ \sum_{j=0}^{k}\left(1+\frac jL\right)^3|g(j)|\\
+ &\le
+ \norm f_{\infty,3,L}\norm g_{1,3,L}.
+ \end{aligned}
+\]
+Taking the supremum over $k$ therefore gives
+\begin{equation}\label{ineq:con_inf}
+ \norm{f*g}_{\infty,3,L}
+ \le \norm f_{\infty,3,L}\norm g_{1,3,L}.
+\end{equation}
+
+Now fix $s\ge0$ and recall that $L_s=s+1$.
+Equation~\eqref{eq:weightedmass} gives
+\[
+ \norm{\rho_s}_{1,3,L_s}\le CL_s^{-1}.
+\]
+Moreover, \eqref{eq:pointwise} implies that, for every $j\ge0$,
+\[
+ \left(1+\frac j{L_s}\right)^3\rho_s(j)
+ \le
+ \frac{(L_s+j)^3}{L_s^3}
+ \frac{CL_s}{(L_s+j)^3}
+ =CL_s^{-2}.
+\]
+Hence $\norm{\rho_s}_{\infty,3,L_s}\le CL_s^{-2}$.
+Starting from these bounds for $r=1$ and applying
+\eqref{ineq:con_1} and \eqref{ineq:con_inf} inductively with $L=L_s$,
+we obtain, for every fixed positive integer $r$,
+\begin{equation}\label{eq:convnorms}
+ \begin{aligned}
+ \norm{\rho_s^{*r}}_{1,3,L_s}
+ &\le \norm{\rho_s}_{1,3,L_s}^{\,r}
+ \le C_rL_s^{-r},\\
+ \norm{\rho_s^{*r}}_{\infty,3,L_s}
+ &\le
+ \norm{\rho_s}_{\infty,3,L_s}
+ \norm{\rho_s}_{1,3,L_s}^{\,r-1}
+ \le C_rL_s^{-r-1}.
+ \end{aligned}
+\end{equation}
+Here $C_r$ is independent of $s$.
+
+In particular, taking $r=2$ in \eqref{eq:convnorms} gives
+\[
+ \norm{B_s}_{1,3,L_s}\le CL_s^{-2},\qquad
+ \norm{B_s}_{\infty,3,L_s}\le CL_s^{-3}.
+\]
+To estimate $E_s$, we also account for the right shifts in its definition.
+For $k,j\ge0$,
+\[
+ \left(1+\frac{j+k}{L}\right)^3
+ \le\left(1+\frac kL\right)^3\left(1+\frac jL\right)^3.
+\]
+By the definition of $T$, this gives, for $p\in\{1,\infty\}$,
+\[
+ \norm{T^kf}_{p,3,L}
+ \le\left(1+\frac kL\right)^3\norm f_{p,3,L}
+ \le(1+k)^3\norm f_{p,3,L}.
+\]
+The coefficients $d_{r,s}$ are uniformly bounded for $2\le r\le m$
+by \eqref{eq:rhor}. Hence \eqref{eq:convnorms} yields
+\[
+ \begin{aligned}
+ \norm{E_s}_{\infty,3,L_s}
+ &\le\sum_{r=3}^m d_{r,s}(r-1)^3
+                   \norm{\rho_s^{*r}}_{\infty,3,L_s}\\
+ &\le C\sum_{r=3}^m L_s^{-r-1}
+ \le CL_s^{-4},\\
+ \norm{E_s}_{1,3,L_s}
+ &\le\sum_{r=3}^m d_{r,s}(r-1)^3
+                   \norm{\rho_s^{*r}}_{1,3,L_s}\\
+ &\le C\sum_{r=3}^m L_s^{-r}
+ \le CL_s^{-3}.
+ \end{aligned}
+\]
+These bounds also hold when $m=2$, since then $E_s=0$.
+The next subsection will use the bound on $E_s$ to control its sum in
+$V_{a,n}$. For the quadratic terms, we will additionally use their
+relation at successive times.
+
+The linear term in \eqref{eq:rhoshort} shifts $\rho_s$ by one site.
+Convolving two such terms gives a shift of $B_s$ by two sites, with a
+correction at the boundary of $\Zp$. In the definition of $V_{a,n}$,
+the exponent $n-1-s$ decreases by one when $s$ increases by one.
+The two-site shift in the recursion for $B_s$ will therefore leave
+one spatial shift between the quadratic terms propagated to time $n$.
+This is what allows their spatial difference to be summed over $s$.
+To obtain the exact recursion, put $\beta_s=\rho_s(0)$.
+For every $j\ge0$,
+\[
+ \begin{aligned}
+ ((S\rho_s)*(S\rho_s))(j)
+ &=\sum_{i=0}^j\rho_s(i+1)\rho_s(j-i+1)\\
+ &=B_s(j+2)-2\beta_s\rho_s(j+2),\\
+ ((S\rho_s)*B_s)(j)
+ &=\sum_{i=0}^j\rho_s(i+1)B_s(j-i)\\
+ &=\rho_s^{*3}(j+1)-\beta_sB_s(j+1).
+ \end{aligned}
+\]
+Substituting \eqref{eq:rhoshort} into
+$B_{s+1}=\rho_{s+1}*\rho_{s+1}$ first gives
+\[
+ \begin{aligned}
+ B_{s+1}={}&c_s^2(S\rho_s)*(S\rho_s)
+       +2c_sd_s(S\rho_s)*B_s+d_s^2\rho_s^{*4}\\
+       &+2(c_sS\rho_s+d_sB_s)*E_s+E_s*E_s.
+ \end{aligned}
+\]
+Using the two identities above, we obtain
 \begin{equation}\label{eq:Bevolution}
  B_{s+1}=c_s^2S^2B_s+R_s,
 \end{equation}
-where the complete remainder is
-\begin{align}\label{eq:R}
+where
+\begin{align*}
  R_s={}&-2c_s^2\beta_sS^2\rho_s
- +2c_sd_sS(\rho_s^{*3})-2c_sd_s\beta_sSB_s+d_s^2\rho_s^{*4}\notag\\
- &+2(c_sS\rho_s+d_sB_s)*E_s+E_s*E_s.
-\end{align}
-From \eqref{eq:convnorms} and $\beta_s=O(L_s^{-2})$,
+       +2c_sd_sS(\rho_s^{*3})
+       -2c_sd_s\beta_sSB_s+d_s^2\rho_s^{*4}\\
+       &+2(c_sS\rho_s+d_sB_s)*E_s+E_s*E_s.
+\end{align*}
+We now bound the error $R_s$ in \eqref{eq:Bevolution}.
+
+By \eqref{eq:pointwise}, $\beta_s\le CL_s^{-2}$.
+Since $S$ contracts the weighted supremum norm,
+\eqref{eq:convnorms} gives
+\[
+ \begin{aligned}
+ \norm{\beta_sS^2\rho_s}_{\infty,3,L_s}
+ &\le\beta_s\norm{\rho_s}_{\infty,3,L_s}
+ \le CL_s^{-4},\\
+ \norm{S(\rho_s^{*3})}_{\infty,3,L_s}
+ &\le\norm{\rho_s^{*3}}_{\infty,3,L_s}
+ \le CL_s^{-4},\\
+ \norm{\beta_sSB_s}_{\infty,3,L_s}
+ +\norm{\rho_s^{*4}}_{\infty,3,L_s}
+ &\le CL_s^{-5}.
+ \end{aligned}
+\]
+For the terms containing $E_s$, apply \eqref{ineq:con_inf} and the bounds
+already proved for $\rho_s$, $B_s$, and $E_s$:
+\[
+ \begin{aligned}
+ \norm{(c_sS\rho_s+d_sB_s)*E_s}_{\infty,3,L_s}
+ &\le
+ \bigl(c_s\norm{\rho_s}_{\infty,3,L_s}
+       +d_s\norm{B_s}_{\infty,3,L_s}\bigr)
+       \norm{E_s}_{1,3,L_s}\\
+ &\le C(L_s^{-2}+L_s^{-3})L_s^{-3}
+ \le CL_s^{-5},\\
+ \norm{E_s*E_s}_{\infty,3,L_s}
+ &\le\norm{E_s}_{\infty,3,L_s}\norm{E_s}_{1,3,L_s}
+ \le CL_s^{-7}.
+ \end{aligned}
+\]
+Since $c_s$ and $d_s$ are bounded and $L_s\ge1$, these estimates imply
 \begin{equation}\label{eq:REbounds}
  \norm{R_s}_{\infty,3,L_s}\le CL_s^{-4},\qquad
  \norm{E_s}_{\infty,3,L_s}\le CL_s^{-4},\qquad
  \norm{E_s}_{1,3,L_s}\le CL_s^{-3}.
 \end{equation}
-For example, the first term in $R_s$ is $O(L_s^{-2}L_s^{-2})$ and the cubic term is $O(L_s^{-4})$. A term $(S\rho_s)*E_s$ is $O(L_s^{-2}L_s^{-3})$ in the weighted supremum norm; all other terms are no larger.
+We next apply \eqref{eq:Bevolution} to the quadratic terms in $V_{a,n}$
+and use \eqref{eq:REbounds} to prove \eqref{eq:lateV}.
 
-\subsection{A truncated telescope}
-Fix $n\ge4$ and $0\le a\le n-2$. For $a\le s\le n-1$ let
+\subsection{A bound on the spatial differences}
+
+We now prove \eqref{eq:lateV} for the sequence $V_{a,n}$ defined above.
+Fix integers $n\ge4$ and $0\le a\le n-2$.
+For $a\le s\le n-1$, put
 \[
- P_s=\prod_{i=s+1}^{n-1}c_i,\qquad w_s=P_sd_s,\qquad
- K_s=S^{n-1-s}B_s.
+ P_s=\frac{C_n}{C_{s+1}}=\prod_{i=s+1}^{n-1}c_i,\qquad
+ w_s=P_sd_s,\qquad K_s=S^{n-1-s}B_s.
 \]
-Split the exact Duhamel formula as
-\begin{align}\label{eq:split}
- \rho_n&=I_{a,n}+V_{a,n},\notag\\
- I_{a,n}&=\frac{C_n}{C_a}S^{n-a}\rho_a,\notag\\
- V_{a,n}&=Q_{a,n}+W_{a,n},\quad
- Q_{a,n}=\sum_{s=a}^{n-1}w_sK_s,\quad
+Separate the quadratic and higher-order terms in $V_{a,n}$ by writing
+\[
+ V_{a,n}=Q_{a,n}+W_{a,n},\qquad
+ Q_{a,n}=\sum_{s=a}^{n-1}w_sK_s,\qquad
  W_{a,n}=\sum_{s=a}^{n-1}P_sS^{n-1-s}E_s.
-\end{align}
-Here $I_{a,n}$, $Q_{a,n}$, and $W_{a,n}$ are nonnegative sequences. For $s\le n-2$, \eqref{eq:Bevolution} implies
-\[
- K_{s+1}=c_s^2SK_s+S^{n-2-s}R_s,
- \quad \Delta K_s=K_s-c_s^{-2}K_{s+1}+c_s^{-2}S^{n-2-s}R_s.
 \]
-Consequently the exact truncated identity is
-\begin{align}\label{eq:telescope}
- \Delta Q_{a,n}={}&w_aK_a-w_{n-2}c_{n-2}^{-2}B_{n-1}
-   +w_{n-1}\Delta B_{n-1}\notag\\
- &+\sum_{s=a+1}^{n-2}(w_s-w_{s-1}c_{s-1}^{-2})K_s\notag\\
- &+\sum_{s=a}^{n-2}w_sc_s^{-2}S^{n-2-s}R_s.
-\end{align}
-There are no negative shifts in this identity. Since $P_{s-1}=c_sP_s$,
+All three sequences $I_{a,n}$, $Q_{a,n}$, and $W_{a,n}$ are nonnegative.
+
+To use the bounds at time $s$ in the weighted norm at time $n$, we need
+an estimate for the shifts $S^{n-1-s}$ and $S^{n-2-s}$.
+For $0\le s\le n-1$ and an integer $d\ge0$ satisfying $d\ge n-2-s$,
+\begin{equation}\label{eq:shiftgain}
+ \norm{S^df}_{\infty,3,L_n}
+ \le27\left(\frac{L_s}{L_n}\right)^3
+       \norm f_{\infty,3,L_s}.
+\end{equation}
+Indeed, $s+1+d\ge n-1$, and hence
+\[
+ \frac{(1+j/L_n)^3}{(1+(j+d)/L_s)^3}
+ =\left(\frac{L_s}{L_n}\right)^3
+  \left(\frac{n+1+j}{s+1+j+d}\right)^3
+ \le27\left(\frac{L_s}{L_n}\right)^3.
+\]
+Multiplying by $(1+(j+d)/L_s)^3|f(j+d)|$ and taking the supremum
+proves \eqref{eq:shiftgain}. For $a\le s\le n-2$, \eqref{eq:Bevolution} gives
+\[
+ K_{s+1}=c_s^2SK_s+S^{n-2-s}R_s.
+\]
+We rewrite this identity as
+\[
+ \Delta K_s
+ =K_s-c_s^{-2}K_{s+1}
+  +c_s^{-2}S^{n-2-s}R_s.
+\]
+We multiply by $w_s$ and sum over $a\le s\le n-2$.
+Using $K_{n-1}=B_{n-1}$, we obtain
+\begin{align*}
+ \Delta Q_{a,n}
+ &=\sum_{s=a}^{n-2}w_s\Delta K_s
+   +w_{n-1}\Delta B_{n-1}\\
+ &=w_aK_a-w_{n-2}c_{n-2}^{-2}B_{n-1}
+   +w_{n-1}\Delta B_{n-1}\\
+ &\quad
+   +\sum_{s=a+1}^{n-2}
+       \bigl(w_s-w_{s-1}c_{s-1}^{-2}\bigr)K_s\\
+ &\quad
+   +\sum_{s=a}^{n-2}
+       w_sc_s^{-2}S^{n-2-s}R_s.
+\end{align*}
+The differences of the coefficients $w_s$ are controlled as follows.
+By \eqref{eq:rhor},
+\[
+ d_s=\frac{m x_s^{m-2}}{2\{1+(m-1)x_s^m\}}.
+\]
+The function of $x_s$ on the right has bounded derivative on $[0,1]$.
+The recursion for $x_s=q_{s,0}$ in Section~\ref{subsec:transport},
+\eqref{eq:C}, and the bound
+$q_{s,1}=\rho_s(0)/(m-1)\le CL_s^{-2}$ from
+\eqref{eq:pointwise} give
+\[
+ \begin{aligned}
+ |x_{s+1}-x_s|
+ &\le(1-c_s)x_s+c_sq_{s,1}
+ \le CL_s^{-2},\\
+ |d_s-d_{s-1}|
+ &\le C|x_s-x_{s-1}|
+ \le CL_{s-1}^{-2}
+ \le CL_s^{-2}\qquad(s\ge1),
+ \end{aligned}
+\]
+where $L_s/L_{s-1}\le2$ for $s\ge1$.
+Also, \eqref{eq:C} gives $|1-c_s|\le CL_s^{-2}$ and
+$\inf_s c_s>0$.
+Since $P_{s-1}=c_sP_s$,
 \[
  |w_s-w_{s-1}c_{s-1}^{-2}|
  =P_s|d_s-c_sc_{s-1}^{-2}d_{s-1}|\le CL_s^{-2}.
 \]
-The two endpoint bounds follow from \eqref{eq:convnorms} and \eqref{eq:shiftgain}. The coefficient-variation sum is bounded by $CL_n^{-3}\sum_{s\ge a+1}L_s^{-2}$. The last sum is bounded by $CL_n^{-3}\sum_{s=a}^{n-2}L_s^{-1}$. Thus
-\begin{equation}\label{eq:lateQ}
+We estimate the three types of terms in this telescoping sum separately. By
+\eqref{eq:convnorms} and \eqref{eq:shiftgain}, for $a\le s\le n-1$,
+\[
+ \norm{K_s}_{\infty,3,L_n}
+ \le27\left(\frac{L_s}{L_n}\right)^3
+       \norm{B_s}_{\infty,3,L_s}
+ \le \frac C{L_n^3}.
+\]
+The coefficients $w_s$ and $c_s^{-1}$ are uniformly bounded. Since
+$K_{n-1}=B_{n-1}$ and $S$ contracts the weighted norm, the three boundary
+terms therefore satisfy
+\[
+ \begin{aligned}
+ &\norm{w_aK_a}_{\infty,3,L_n}
+ +\norm{w_{n-2}c_{n-2}^{-2}B_{n-1}}_{\infty,3,L_n}\\
+ &\qquad+\norm{w_{n-1}\Delta B_{n-1}}_{\infty,3,L_n}
+ \le \frac C{L_n^3}.
+ \end{aligned}
+\]
+For the sum containing $w_s-w_{s-1}c_{s-1}^{-2}$, the preceding bound on $K_s$ gives
+\[
+ \begin{aligned}
+ &\left\|\sum_{s=a+1}^{n-2}
+   (w_s-w_{s-1}c_{s-1}^{-2})K_s\right\|_{\infty,3,L_n}\\
+ &\qquad\le\frac C{L_n^3}\sum_{s=a+1}^{n-2}L_s^{-2}
+ \le\frac C{L_n^3}.
+ \end{aligned}
+\]
+For the remainder sum, \eqref{eq:REbounds} and \eqref{eq:shiftgain} yield
+\[
+ \begin{aligned}
+ &\left\|\sum_{s=a}^{n-2}
+    w_sc_s^{-2}S^{n-2-s}R_s\right\|_{\infty,3,L_n}\\
+ &\qquad\le C\sum_{s=a}^{n-2}
+    \left(\frac{L_s}{L_n}\right)^3 L_s^{-4}
+ =\frac C{L_n^3}\sum_{s=a}^{n-2}\frac1{L_s}.
+ \end{aligned}
+\]
+The harmonic sum in the remainder supplies the logarithm. The integral comparison
+\[
+ \sum_{s=a}^{n-1}\frac1{L_s}
+ \le\frac1{a+1}+\int_{a+1}^{n}\frac{\dd t}{t}
+ \le1+\log\frac{L_n}{a+1}
+\]
+then gives
+\begin{equation*}
  \norm{\Delta Q_{a,n}}_{\infty,3,L_n}
  \le \frac C{L_n^3}\left(1+\log\frac{L_n}{a+1}\right).
-\end{equation}
-Similarly, \eqref{eq:REbounds} and \eqref{eq:shiftgain} give
+\end{equation*}
+For the terms involving convolutions of order at least three, use $0<P_s\le1$ together with
+\eqref{eq:REbounds} and \eqref{eq:shiftgain}:
 \[
+ \begin{aligned}
  \norm{W_{a,n}}_{\infty,3,L_n}
- \le \frac C{L_n^3}\sum_{s=a}^{n-1}\frac1{L_s}.
+ &\le\sum_{s=a}^{n-1}P_s
+       \norm{S^{n-1-s}E_s}_{\infty,3,L_n}\\
+ &\le C\sum_{s=a}^{n-1}
+       \left(\frac{L_s}{L_n}\right)^3 L_s^{-4}
+ =\frac C{L_n^3}\sum_{s=a}^{n-1}\frac1{L_s}\\
+ &\le\frac C{L_n^3}\left(1+\log\frac{L_n}{a+1}\right).
+ \end{aligned}
 \]
-Since $\norm{\Delta f}_{\infty,3,L}\le2\norm f_{\infty,3,L}$, we conclude that
+Since $V_{a,n}=Q_{a,n}+W_{a,n}$ and
+$\norm{\Delta f}_{\infty,3,L}\le2\norm f_{\infty,3,L}$, the triangle
+inequality gives
+\[
+ \norm{\Delta V_{a,n}}_{\infty,3,L_n}
+ \le\norm{\Delta Q_{a,n}}_{\infty,3,L_n}
+    +2\norm{W_{a,n}}_{\infty,3,L_n}.
+\]
+Combining the two estimates proves
 \begin{equation}\label{eq:lateV}
  \norm{\Delta V_{a,n}}_{\infty,3,L_n}
  \le \frac C{L_n^3}\left(1+\log\frac{L_n}{a+1}\right).
 \end{equation}
-The logarithm comes from the sum of $L_s^{-1}$ in the remainder. Keeping its dependence on $a$ will be necessary for the spatial modulus.
+The logarithm comes from the sum of $L_s^{-1}$ in the remainder. We will use its dependence on $a$ to prove \eqref{eq:spmod} by choosing $a$ according to the spatial increment $h$.
 
 \subsection{Proof of Proposition~\ref{prop:smoothing}}
 By Proposition~\ref{prop:pointwise} and $C_n/C_a\le1$, for $0\le a\le n$,
@@ -684,81 +1756,114 @@ By Proposition~\ref{prop:pointwise} and $C_n/C_a\le1$, for $0\le a\le n$,
  \le C\frac{a+1}{(n+j+1)^3}.
 \]
 Hence, in particular for $0\le a\le n/2$,
-\begin{equation}\label{eq:earlyI}
+\begin{equation}\label{eq:earlyIspatial}
  \norm{I_{a,n}}_{\infty,3,L_n}\le C\frac{a+1}{L_n^3}.
 \end{equation}
-For every integer $h\ge1$, $I-S^h=\sum_{j=0}^{h-1}S^j\Delta$, and $S$ contracts the weighted norm. Equations \eqref{eq:split}, \eqref{eq:lateV}, and \eqref{eq:earlyI} therefore yield
-\begin{equation}\label{eq:twoparameter}
+For every integer $h\ge1$, $I-S^h=\sum_{j=0}^{h-1}S^j\Delta$, and $S$ contracts the weighted norm. Equations \eqref{eq:split}, \eqref{eq:lateV}, and \eqref{eq:earlyIspatial} therefore yield
+\begin{equation*}
  \norm{\rho_n-S^h\rho_n}_{\infty,3,L_n}
  \le \frac C{L_n^3}\left\{a+1+h\left(1+\log\frac{L_n}{a+1}\right)\right\}
-\end{equation}
+\end{equation*}
 for $0\le a\le n/2$. For $1\le h\le n/2$, choose $a=h$. For $n/2<h\le L_n$, the crude bound $2\norm{\rho_n}_{\infty,3,L_n}\le CL_n^{-2}$ implies the same conclusion. The finitely many small $n$ are absorbed into the constant. This proves \eqref{eq:spmod}; setting $h=1$ proves \eqref{eq:gradient}.
 
 For the temporal bound, iterate \eqref{eq:rhor} from $n$ to $n+h$, with $1\le h\le L_n$. By \eqref{eq:C},
 \[
  \left|1-\prod_{s=n}^{n+h-1}c_s\right|\le C\frac h{L_n^2}.
 \]
-The supremum of each full source in this block is $O(L_n^{-3})$ by \eqref{eq:convnorms}. Consequently,
+For $n\le s<n+h$, the supremum norm of $d_sB_s+E_s$ is $O(L_n^{-3})$ by \eqref{eq:convnorms}. Consequently,
 \[
  \norm{\rho_{n+h}-S^h\rho_n}_\infty\le C\frac h{L_n^3}.
 \]
 Combine this with \eqref{eq:spmod}. This proves \eqref{eq:timemod} and hence Proposition~\ref{prop:smoothing}.
 
 \section{Moment bounds and equations for subsequential limits}\label{sec:limits}
-We now prepare the proof of Proposition~\ref{prop:identification}. The smoothing estimates give local compactness but do not control the third-moment tail. A Markov chain obtained by cubic weighting supplies this missing estimate. We then pass the discrete recursion and its moments to the limit.
+We now prepare the proof of Proposition~\ref{prop:identification}.
+%
+The bounds and continuity estimates of Proposition \ref{prop:smoothing}, proved in Sections \ref{sec:pointwise} and \ref{sec:smoothing}, give local compactness of the rescaled functions $u_N$, but do not control the third-moment tail.
+%
+The Markov chain constructed below supplies this missing estimate.
+%
+We then pass the discrete recursion and its moments to the limit.
 
-\subsection{A cubic-weighted chain and its tail bound}
-Recall that $h_m$ is the nonnegative cubic polynomial in \eqref{eq:cubic}, and $J_n=\E_{q_n}h_m(K)$ grows at most quadratically. The next construction realizes the probability laws proportional to $h_mq_n$ on a common Markov chain. It is defined only where $h_m$ is positive.
+\subsection{A Markov chain and its tail bound}
+Recall that $h_m$ is the nonnegative cubic polynomial in \eqref{eq:cubic}, and $J_n=\E_{q_n}h_m(K)$ grows at most quadratically, where $K$ is a random variable with law $q_n$. The next construction realizes the probability laws proportional to $h_mq_n$ on a common Markov chain. It is defined only where $h_m$ is positive.
 
 \begin{lemma}\label{lem:spine}
 There is a Markov chain $K_n^\sharp$ with marginals
-\[
- q_n^\sharp(k)=\frac{h_m(k)q_{n,k}}{J_n}
-\]
+\begin{equation} \label{eq:Markov_marginals}
+ \Pp(K^{\sharp}_n = k) = q_n^\sharp(k) := \frac{h_m(k)q_{n,k}}{J_n}
+\end{equation}
 such that
 \begin{equation}\label{eq:increment}
  \E[(K_{n+1}^\sharp-K_n^\sharp)_+]\le4\qquad(n\ge0).
 \end{equation}
 In particular, for $R>0$,
 \begin{equation}\label{eq:sharptail}
- q_n^\sharp(K>R)\le q_0^\sharp(K>R/2)+\frac{8n}{R}.
+ \Pp(K^{\sharp}_n > R) \leq \Pp(K^{\sharp}_0 > R/2) + \frac{8n}{R}.
+ % q_n^\sharp(K>R)\le q_0^\sharp(K>R/2)+\frac{8n}{R}.
 \end{equation}
 \end{lemma}
-\begin{proof}
-For $k\in\supp q_n^\sharp$ and $y=(y_1,\ldots,y_{m-1})$, define
-\begin{align}\label{eq:allocation}
- A_m(k;y)={}&(k)_3+(k)_2\left(3\sum_i y_i+\chi_m\right)\notag\\
- &+k\left(2\sum_{i<j}y_iy_j+\chi_m\sum_i y_i\right).
-\end{align}
-All terms are nonnegative. Choose the companions by weighting the product law $q_n^{\otimes(m-1)}$ with the density
-\[
- \frac{A_m(k;y)}{h_m(k)}.
-\]
-This density integrates to one: each companion has mean $1/(m-1)$, so integration of \eqref{eq:allocation} gives $h_m(k)$. Set
-\[
- K_{n+1}^\sharp=k+y_1+\cdots+y_{m-1}-1.
-\]
-The factorial expansion gives, for $V=k_1+\cdots+k_m$,
-\[
- \sum_{i=1}^m A_m(k_i;(k_j)_{j\ne i})=h_m((V-1)_+).
-\]
-Averaging the distinguished carrier contributes $1/m$. Thus the mass at an output $\ell\ge1$ is
-$h_m(\ell)\Pp_{q_n}(V-1=\ell)/(mJ_n)=q_{n+1}^\sharp(\ell)$ by \eqref{eq:J}. At any output with $h_m(\ell)=0$, the sum of the nonnegative allocations is zero, so no mass is lost. In particular the binary support stays above one, as required for the transition density to be defined.
 
-For completeness, put $b=\E_{q_n}(K)_2$, $g=\E_{q_n}(K)_3$, $x=x_n$, and $\chi=\chi_m$. Integrating the positive increment with the allocation density gives the exact expression
+\begin{proof}
+We construct a time-inhomogeneous Markov chain with the marginal distributions \eqref{eq:Markov_marginals} using auxiliary random variables. For $k\in\supp q_n^\sharp$ (so $k>0$), let $Y=(Y_1,\ldots,Y_{m-1})$ be a vector of nonnegative integer-valued random variables and define
+\begin{align*}
+ A_m(k;y)={}&(k)_3+(k)_2\left(3\sum_i y_i+\chi_m\right)\\
+ &+k\left(2\sum_{i<j}y_iy_j+\chi_m\sum_i y_i\right).
+\end{align*}
+All terms are nonnegative. We then define the law of $Y$ by weighting the product law $q_n^{\otimes(m-1)}$ with the density $A_m(k;y)/h_m(k)$, so that
+\[ 
+ \Pp(Y = (y_1, \dotsc, y_{m - 1}) \mid K^{\sharp}_n = k) = \frac{A_m(k;y)}{h_m(k)} \prod^{m - 1}_{i = 1} q_{n, y_{i}}.
+ \]
+The restriction $h_m(k)>0$ applies only to the current state $k$; the auxiliary coordinates $y_i$ range over all nonnegative integers, including zero.
+Indeed, independence under $q_n^{\otimes(m-1)}$ and \eqref{eq:qmean} give
+\[
+ \E_{q_n^{\otimes(m-1)}} A_m(k;Y)
+ =(k)_3+(3+\chi_m)(k)_2+2\chi_m k=h_m(k),
+\]
+where $2\binom{m-1}{2}/(m-1)^2=\chi_m$. Thus the density integrates to one. We define the transition probabilities for $k\in\supp q_n^\sharp$ by
+\begin{equation} \label{eq:transition_prob_mult}
+ \Pp(K^{\sharp}_{n+1} = \ell \mid K^{\sharp}_n = k) = \Pp(k+Y_1+\cdots+Y_{m-1}-1=\ell).
+\end{equation}
+For an integer $V\ge0$, the polynomial in \eqref{eq:cubic} satisfies
+\begin{equation}\label{eq:h_m(V)_in(V)_k}
+ h_m((V-1)_+)=(V)_3+\chi_m(V)_2.
+\end{equation}
+Now we verify that the transition probabilities are consistent with the marginal distributions \eqref{eq:Markov_marginals}. For $\ell = 0$, it is straightforward to check that \eqref{eq:transition_prob_mult} implies $\Pp(K^{\sharp}_{n + 1} = \ell) = 0$, consistent with \eqref{eq:Markov_marginals}. Below we verify the case $\ell\ge1$. Put $A_m^{(i)}(k_1,\ldots,k_m):=A_m(k_i;(k_j)_{j\ne i})$. For $V=k_1+\cdots+k_m$, \eqref{eq:h_m(V)_in(V)_k} gives
+\begin{equation} \label{eq:defn_A^(i)_m}
+ \sum_{i=1}^m A^{(i)}_m(k_1, \dotsc, k_m) = (V)_3 + \chi_m (V)_2 = h_m((V-1)_+).
+\end{equation}
+Hence, from \eqref{eq:transition_prob_mult} and \eqref{eq:defn_A^(i)_m},
+\begin{equation*}
+\begin{split}
+    \Pp(K^{\sharp}_{n + 1} = \ell) = {}& \frac{1}{mJ_n} \sum_{\substack{k_1, \dotsc, k_m \geq 0 \\ k_1 + \dotsb + k_m = \ell + 1}} \left( \sum^m_{i = 1} A^{(i)}_m(k_1, \dotsc, k_m) \right) \prod^m_{j = 1} q_{n, k_j} \\
+    = {}& \frac{h_m(\ell)}{mJ_n} \sum_{\substack{k_1, \dotsc, k_m \geq 0 \\ k_1 + \dotsb + k_m = \ell + 1}} \prod^m_{j = 1} q_{n, k_j}.
+\end{split} 
+\end{equation*}
+Since $\ell\ge1$, taking the coefficient of $z^\ell$ in \eqref{eq:tilt} gives
+\begin{equation*}
+    \sum_{\substack{k_1, \dotsc, k_m \geq 0 \\ k_1 + \dotsb + k_m = \ell + 1}} \prod^m_{j = 1} q_{n, k_j} = D_n q_{n + 1, \ell},
+\end{equation*}
+and \eqref{eq:J} then yields $\Pp(K^{\sharp}_{n + 1} = \ell) = q^{\sharp}_{n + 1}(\ell)$, as required by \eqref{eq:Markov_marginals}. In particular, when $m=2$, the chain remains in $\{2,3,\ldots\}$.
+
+To prove \eqref{eq:increment}, we put $b= \sum^{\infty}_{k = 0} (k)_2 q_{n, k}$, $g= \sum^{\infty}_{k = 0} (k)_3 q_{n, k}$, $x=x_n = q_{n, 0}$, and $\chi=\chi_m = 1 - 1/(m - 1)$. Computing the expected positive increment using the conditional distribution defined above gives
 \begin{equation}\label{eq:incformula}
  \E[(K_{n+1}^\sharp-K_n^\sharp)_+]
  =\frac{x^{m-1}(g+\chi b)+3(m-1)b^2+6\chi b+3\chi^2/(m-1)}
  {g+(3+\chi)b+2\chi/(m-1)}.
 \end{equation}
-Here is a direct calculation. For independent companions, let $U=\sum_iY_i$ and $V=\sum_{i<j}Y_iY_j$. Then
+Here is a direct calculation. We let $K, X_1, \dotsc, X_{m - 1}$ be independent random variables with law $q_n$, and let $U=\sum^{m - 1}_{i = 1} X_i$ and $V=\sum_{1 \leq i<j \leq m - 1}X_iX_j$. Then
+\begin{equation*}
+  \E[(K_{n+1}^\sharp-K_n^\sharp)_+] = \frac{1}{J_n} \E[A_m(K; (X_1, \dotsc, X_{m - 1})) (U - 1)_+],
+\end{equation*}
+and 
+\begin{equation*}
+    A_m(K; (X_1, \dotsc, X_{m - 1})) = (K)_3 + \chi(K)_2 + 3(K)_2 U + 2KV + \chi KU.
+\end{equation*}
+Using
 \[
- \E(U-1)_+=x^{m-1},\quad \E[U(U-1)]=(m-1)b+\chi,
+ \E(U-1)_+=x^{m-1},\quad \E[U(U-1)]=(m-1)b+\chi, \quad  \E[V(U-1)]=(m-2)b+\chi^2,
 \]
-\[
- \E[V(U-1)]=(m-2)b+\chi^2.
-\]
-Multiplying these identities by the integrated carrier factors $g$, $b$, and $1/(m-1)$ in \eqref{eq:allocation} gives \eqref{eq:incformula}.
+and $J_n = g+(3+\chi)b+2\chi/(m-1)$, we obtain \eqref{eq:incformula}.
 
 Cauchy--Schwarz for the size-biased law gives
 $b^2\le(g+b)/(m-1)$. Since $0\le\chi<1$ and $x\le1$, the numerator in \eqref{eq:incformula} is at most
@@ -766,17 +1871,17 @@ $b^2\le(g+b)/(m-1)$. Since $0\le\chi<1$ and $x\le1$, the numerator in \eqref{eq:
  4g+(3+7\chi)b+\frac{3\chi^2}{m-1}
  \le4\left\{g+(3+\chi)b+\frac{2\chi}{m-1}\right\}.
 \]
-This proves \eqref{eq:increment}, including $m=2$ where $\chi=0$.
+This proves \eqref{eq:increment}, including the case $m=2$, where $\chi=0$.
 
 Pathwise, $K_n^\sharp\le K_0^\sharp+\sum_{s<n}(K_{s+1}^\sharp-K_s^\sharp)_+$. A union bound and Markov's inequality yield \eqref{eq:sharptail}. The estimate only uses the tail of $K_0^\sharp$; its first moment need not be finite.
 \end{proof}
 
-The weighted-chain estimate converts the cubic moment bound into uniform integrability on the scaling used in \eqref{eq:rescaled}.
+Combining Lemma~\ref{lem:spine} with the cubic moment bound gives uniform integrability under the scaling used in \eqref{eq:rescaled}.
 \begin{corollary}\label{cor:thirdtail}
 For $R\ge2$,
 \begin{equation}\label{eq:thirdtail}
  \sum_{k>R}k^3q_{n,k}
- \le C(n+1)^2\left\{q_0^\sharp(K>R/2)+\frac nR\right\}.
+ \le C(n+1)^2\left\{ \Pp(K^\sharp_0>R/2)+\frac nR\right\}.
 \end{equation}
 For every $0<\eta<T<\infty$,
 \begin{equation}\label{eq:UI}
@@ -785,11 +1890,16 @@ For every $0<\eta<T<\infty$,
 \end{equation}
 \end{corollary}
 \begin{proof}
-For $k>R\ge2$, $k^3\le C_mh_m(k)$ for every fixed $m\ge2$. Multiply \eqref{eq:sharptail} by $C_mJ_n$ and use \eqref{eq:J}. For \eqref{eq:UI}, divide by $N^2$, take the supremum, first let $N\to\infty$ to remove the tail of the single fixed probability law $q_0^\sharp$, and then let $A\to\infty$. The order of limits is essential.
+For integers $k>R\ge2$, we have $k\ge3$ and
+\[
+ h_m(k)\ge k^3-k\ge\frac89k^3,
+ \qquad k^3\le\frac98h_m(k)\qquad(m\ge2).
+\]
+Multiply \eqref{eq:sharptail} by $(9/8)J_n$ and use \eqref{eq:J}. For \eqref{eq:UI}, divide by $N^2$, take the supremum, first let $N\to\infty$ to remove the tail of the single fixed probability law $q_0^\sharp$, and then let $A\to\infty$. The order of limits is essential.
 \end{proof}
 
-\subsection{Proof of Proposition~\ref{prop:limit}}
-Let $u$ be a locally uniform subsequential limit of the interpolated densities in \eqref{eq:rescaled}. Such limits exist by Proposition~\ref{prop:smoothing}, as shown at the start of the proof of Theorem~\ref{thm:profile}. We work along the corresponding subsequence throughout this section.
+\subsection{Proof of Proposition~\ref{prop:limit}} \label{subsec:prop:limit_proof}
+Let $u$ be a locally uniform subsequential limit of the interpolated functions in \eqref{eq:rescaled}. Such limits exist by Proposition~\ref{prop:smoothing}, as shown at the start of the proof of Theorem~\ref{thm:profile}. We work along the corresponding subsequence throughout this section.
 
 \begin{proposition}\label{prop:limit}
 The limit $u$ has moments
@@ -804,46 +1914,46 @@ The third moment also satisfies the small-time tail estimate
 \begin{equation}\label{eq:limitthirdtail}
  \int_{x>\delta}x^3u(t,x)\dd x\le C\frac{t^3}{\delta}\qquad(t,\delta>0).
 \end{equation}
-The mild equation is
+The function $u$ satisfies the following integral equation, which is the mild formulation of $\partial_t u = \partial_x u + \frac{1}{2} u*u$:
 \begin{equation}\label{eq:mild}
  u(t,x)=u(t_0,x+t-t_0)+\frac12\int_{t_0}^t(u(s,\cdot)*u(s,\cdot))(x+t-s)\dd s
 \end{equation}
 for every $0<t_0<t$ and $x\ge0$.
 \end{proposition}
 \begin{proof}
-For a grid time with $n/N\to t>0$, consider the measure
+Let $\{ N_a \}$ be a subsequence of natural numbers such that $u_{N_a}$ converges locally uniformly. For a grid time with $n/N_a \to t>0$, consider the measure
 \[
- \mu_{N,t}=N\sum_{j\ge0}\rho_n(j)\delta_{j/N}.
+ \mu_{N_a,t}=N_a \sum_{j\ge0}\rho_n(j)\delta_{j/N_a}.
 \]
-Its local limit is $u(t,x)\dd x$, by locally uniform convergence and the Riemann-sum normalization. Its $r$th moment is $N^{1-r}\sum_jj^r\rho_n(j)$. The coarse bounds and Corollary~\ref{cor:thirdtail} give uniform integrability through order three on every time annulus. Hence moments pass to the limit:
-\begin{equation}\label{eq:momentpass}
- A_r(t)=\lim_{N\to\infty}N^{1-r}\sum_{j\ge0}j^r\rho_n(j),\quad0\le r\le3.
-\end{equation}
-For $r=0$ the summand has mass weight one. At a non-grid time one may use either adjacent grid time: both approach the same positive time, and their locally uniform limits agree. Equivalently, temporal interpolation gives a convex combination of these discrete measures. Spatial interpolation does not change the limit, by the compact Riemann-sum estimate and the same tail control. The bounds in \eqref{eq:Amoment} follow from \eqref{eq:weightedmass} and \eqref{eq:lowmoments}; the first-moment identity is
+Its local limit is $u(t,x)\dd x$, by locally uniform convergence and the Riemann-sum normalization. Its $r$th moment is $N_a^{1-r}\sum_jj^r\rho_n(j)$. The coarse bounds and Corollary~\ref{cor:thirdtail} give uniform integrability through order three on every compact time interval contained in $(0, +\infty)$. Hence moments pass to the limit:
+\begin{equation*}
+ A_r(t)=\lim_{N_a \to\infty}N^{1-r}_a \sum_{j\ge0}j^r\rho_n(j),\quad0\le r\le3.
+\end{equation*}
+At a non-grid time one may use either adjacent grid time: both approach the same positive time, and their locally uniform limits agree. Equivalently, temporal interpolation gives a convex combination of these discrete measures. Spatial interpolation does not change the limit, by the compact Riemann-sum estimate and the same tail control. The bounds in \eqref{eq:Amoment} follow from \eqref{eq:weightedmass} and \eqref{eq:lowmoments}; the first-moment identity is
 \[
  \sum_jj\rho_n(j)=1-\sum_j\rho_n(j)=1-(m-1)\theta_n\longrightarrow1.
 \]
 
 For the more precise tail, \eqref{eq:thirdtail} gives, before taking limits,
 \[
- N^{-2}\sum_{j>\delta N}j^3\rho_n(j)
- \le C\left(\frac{n+1}{N}\right)^2
- \left\{q_0^\sharp(K>\delta N/2)+\frac n{\delta N}\right\}.
+ N^{-2}_a \sum_{j>\delta N_a}j^3\rho_n(j)
+ \le C\left(\frac{n+1}{N_a}\right)^2
+ \left\{\Pp(K^{\sharp}_0 > \delta N_a/2)+\frac n{\delta N_a}\right\}.
 \]
-Portmanteau with bounded lower-semicontinuous truncations, followed by monotone convergence, proves \eqref{eq:limitthirdtail}. The initial tail disappears only as $N\to\infty$. For $t$ in a fixed time annulus, the right side is uniformly $O(1/\delta)$.
+Portmanteau with bounded lower-semicontinuous truncations, followed by monotone convergence, proves \eqref{eq:limitthirdtail}. The initial tail disappears only as $N_a \to\infty$. For $t$ in a fixed compact interval, the right side is uniformly $O(1/\delta)$.
 
-Now iterate \eqref{eq:rhor} between $\ell=\floor{Nt_0}$ and $n=\floor{Nt}$. The product of unary coefficients tends uniformly to one because $\sum_{s=\ell}^{n-1}(1-c_s)=O(N^{-1})$. The quadratic coefficient tends to $1/2$. On compact space-time sets with positive lower time endpoint,
+Now iterate \eqref{eq:rhor} between $\ell=\floor{N_a t_0}$ and $n=\floor{N_a t}$. The product of linear coefficients tends uniformly to one because $\sum_{s=\ell}^{n-1}(1-c_s)=O(N^{-1}_a)$. The quadratic coefficient tends to $1/2$. On compact space-time sets with positive lower time endpoint,
 \[
- N^3(\rho_s*\rho_s)(k)
- =\frac1N\sum_{i=0}^k[N^2\rho_s(i)][N^2\rho_s(k-i)]
+ N^3_a (\rho_s*\rho_s)(k)
+ =\frac{1}{N_a} \sum_{i=0}^k[N^2_a \rho_s(i)][N^2_a \rho_s(k-i)]
 \]
-converges locally uniformly to the corresponding continuum convolution. For $r\ge3$, \eqref{eq:convnorms} gives a total contribution after time summation and multiplication by $N^2$ bounded by $CN^{2-r}$; each such contribution tends to zero. Fixed right shifts $T^{r-2}$ do not alter that bound. The quadratic space and time Riemann sums therefore give \eqref{eq:mild}. Establishing it first on a countable dense set and using continuity yields every $t_0,t,x$ as stated.
+converges locally uniformly to the corresponding continuum convolution. For $r\ge3$, \eqref{eq:convnorms} gives a total contribution after time summation and multiplication by $N^2_a$ bounded by $CN^{2-r}_a$; each such contribution tends to zero. Fixed right shifts $T^{r-2}$ do not alter that bound. The quadratic space and time Riemann sums therefore give \eqref{eq:mild}. Establishing it first on a countable dense set and using continuity yields every $t_0,t,x$ as stated.
 \end{proof}
 
-The pointwise bound also passes to the limit as $u(t,x)\le Ct(t+x)^{-3}$. This bound alone would not control the third-moment tail, so the weighted-chain estimate is needed for the moment passage.
+The pointwise bound also passes to the limit as $u(t,x)\le Ct(t+x)^{-3}$. This bound alone would not control the third-moment tail, so Lemma~\ref{lem:spine} is needed to pass the third moments to the limit.
 
-\subsection{Proof of Lemma~\ref{lem:momentODE}}
-The mild equation gives the time regularity needed to construct the string of entrance type. We derive the moment equations in weak form, using the continuous boundary trace and the tail estimate from Proposition~\ref{prop:limit}.
+\subsection{Proof of Lemma~\ref{lem:momentODE}} \label{subsec:prop:momentODE_proof}
+Equation \eqref{eq:mild} gives the time regularity and moment identities needed in Section \ref{sec:rigidity}. We derive the moment equations in weak form, using the continuous boundary trace and the tail estimate from Proposition~\ref{prop:limit}.
 
 \begin{lemma}\label{lem:momentODE}
 The functions $A_0,A_2,A_3$ and, for each $p\ge0$,
@@ -852,27 +1962,69 @@ The functions $A_0,A_2,A_3$ and, for each $p\ge0$,
 \]
 are locally absolutely continuous. With $\beta(t)=u(t,0)$,
 \begin{align}
- A_0'&=-\beta+\tfrac12 A_0^2,&
- A_2'&=A_0A_2-1,& A_3'&=A_0A_3,\label{eq:momentODE}\\
- \partial_tU(t,p)&=pU(t,p)+\tfrac12U(t,p)^2-\beta(t).\label{eq:laplaceODE}
+ & A_0'=-\beta+\tfrac12 A_0^2, \quad
+ A_2'=A_0A_2-1, \quad A_3'=A_0A_3,\label{eq:momentODE}\\
+ & \partial_tU(t,p)=pU(t,p)+\tfrac12U(t,p)^2-\beta(t).\label{eq:laplaceODE}
 \end{align}
 \end{lemma}
 \begin{proof}
-The mild equation implies $u_t=u_x+\tfrac12u*u$ in distributions. More explicitly, for $\varphi\in C_c^1([0,\infty))$, translating in \eqref{eq:mild} and integrating gives the time-distribution identity
-\begin{align*}
+The mild equation implies $u_t=u_x+\tfrac12u*u$ in distributions. More explicitly, for $\varphi\in C_c^1([0,\infty))$, translating in \eqref{eq:mild} and integrating gives the following identity in the sense of distributions in time:
+\begin{multline} \label{eq:weak_identity}
  \frac{\mathrm d}{\mathrm dt}\int\varphi(x)u(t,x)\dd x
- ={}&-\varphi(0)u(t,0)-\int\varphi'(x)u(t,x)\dd x\\
- &+\frac12\iint\varphi(x+y)u(t,x)u(t,y)\dd x\dd y.
-\end{align*}
+ = I_1 + I_2, \quad \text{where} \\
+ I_1 = -\varphi(0)u(t,0)-\int\varphi'(x)u(t,x)\dd x, \quad I_2 =
+ +\frac12\iint\varphi(x+y)u(t,x)u(t,y)\dd x\dd y.
+\end{multline}
 Continuity of $u$ up to zero identifies the boundary term. All terms are locally integrable in time by \eqref{eq:Amoment}.
 
-Take smooth cutoffs of $1,x^2,x^3$ and $e^{-px}$. For polynomial degree $r\le3$, choose them with derivative bounded by $C_rx^{r-1}$ away from the mass case, uniformly in the cutoff radius. The transport terms are dominated by moments of order at most two. The source terms are dominated by $C_r(x^r+y^r)$ and are integrable by \eqref{eq:Amoment}. The left sides converge uniformly on time annuli by \eqref{eq:limitthirdtail}. Removing the cutoffs proves absolute continuity and the stated differential identities. In the convolution moments, $A_1=1$ cancels the $A_2$ term in the third equation and gives $A_2'=A_0A_2-1$. Local continuity of the moments follows from continuity of $u$ and the uniform tail bound on time annuli. The right sides of these equations are therefore continuous, so the absolutely continuous functions are in fact continuously differentiable. No differentiability of $u$ in space is required.
+To use $1,x^2,x^3$ and $e^{-px}$ as test functions in \eqref{eq:weak_identity}, we approximate them by smooth, compactly supported functions. Let $\psi$ be a smooth function on $[0,\infty)$ such that $\psi(x)=1$ for $x\le1$, $\psi(x)=0$ for $x>2$, and $\psi$ is decreasing on $[1,2]$. For $R>0$, put $\psi_R(x)=\psi(x/R)$ and replace each test function $f$ by $f\psi_R$. We prove \eqref{eq:momentODE} below; the proof of \eqref{eq:laplaceODE} is similar. For $f(x)=x^r$ with $r=1,2,3$, the derivatives of $f\psi_R$ are bounded by $C_r x^{r-1}$, uniformly in $R$. For $f(x)=1$, they are bounded by $C/R$ and supported in $[R,2R]$. In all cases, the term $I_1$ is controlled by moments of order at most two, while the integrand in $I_2$ is bounded by $C_r(x^r+y^r)$ and is integrable by \eqref{eq:Amoment}. The left-hand sides converge uniformly on every compact time interval contained in $(0,\infty)$ by \eqref{eq:limitthirdtail}. Taking $R\to\infty$ proves absolute continuity and the stated differential identities. In the convolution moments, $A_1=1$ cancels the $A_2$ term in the third equation and gives $A_2'=A_0A_2-1$. Local continuity of the moments follows from continuity of $u$ and the uniform tail bound on such intervals. The right-hand sides of these equations are therefore continuous, so the absolutely continuous functions are in fact continuously differentiable. No differentiability of $u$ in space is required.
 \end{proof}
 
 \section{Proof of Proposition~\ref{prop:identification}}\label{sec:rigidity}
-Fix a subsequential limit $u$. Recall that its first moment is one, its third moment is $O(t^2)$, and its third-moment tail satisfies \eqref{eq:limitthirdtail}. We use these facts to determine a singular characteristic from the moment and Laplace-transform equations. The construction below verifies the endpoint conditions and the canonical normalization required for inverse uniqueness.
+Recall the functions $A_1$, $A_2$, $A_3$ and $U(t,p)$ defined in Sections~\ref{subsec:prop:limit_proof} and~\ref{subsec:prop:momentODE_proof}. Fix a subsequential limit $u$. Recall that its first moment is one, its third moment is $O(t^2)$, and its third-moment tail satisfies \eqref{eq:limitthirdtail}. Using these estimates, we show that \eqref{eq:momentODE} and \eqref{eq:laplaceODE} uniquely determine $u(t,x)$ as the function in \eqref{eq:identifiedprofile}. Our technical tools are from \cite{Kotani}.
 
-\subsection{Proof of Lemma~\ref{lem:remainder}}
+\subsection{Construction of the string of entrance type}
+Fix a normalization constant $\kappa>0$ and put
+\begin{equation*}
+ Y(t)=\frac{\kappa}{A_3(t)}.
+\end{equation*}
+Then $Y'=-A_0Y$, $Y(t)\asymp t^{-2}$, and $(A_2Y)'=-Y$. Since $A_2(t)Y(t)=O(t^{-1})\to0$ as $t\to\infty$,
+\[
+ A_2(t)Y(t)=\int_t^\infty Y(s)\dd s.
+\]
+Define the increasing map $\xi:(0,\infty)\to(-\infty,0)$ and the map $\mathfrak m:(-\infty,0)\to(0,\infty)$ by
+\begin{equation*}
+ \xi(t)=-\int_t^\infty Y(s)\dd s=-A_2(t)Y(t),\qquad
+ \mathfrak m(\xi(t))=\int_0^tY(s)^{-1}\dd s.
+\end{equation*}
+We have
+\begin{equation*}
+ \xi'(t)=Y(t),\qquad \mathfrak m'(\xi(t))=Y(t)^{-2}.
+\end{equation*}
+Extend $\mathfrak m(\xi)=\infty$ for $\xi\ge0$. The estimates above give
+\[
+ -\xi(t)\asymp t^{-1},\qquad \mathfrak m(\xi(t))\asymp t^3,
+ \qquad \mathfrak m'(\xi)\asymp|\xi|^{-4}\quad(\xi\to-\infty).
+\]
+Consequently $\mathfrak m(-\infty)=0$, the support is nonempty, the finite right endpoint is zero, and for every $b<0$,
+\begin{equation}\label{eq:stringintegrability}
+ \int_{-\infty}^b|\xi|\dd\mathfrak m(\xi)<\infty,
+ \qquad \int_{-\infty}^b\xi^2\dd\mathfrak m(\xi)<\infty.
+\end{equation}
+The first condition in \eqref{eq:stringintegrability} is Kotani's entrance condition \cite[Condition~(2.1)]{Kotani}; thus $\mathfrak m$ is a \emph{string of entrance type} in his terminology. The second is the stronger condition used below to define the characteristic function $h(\lambda)$ associated with the string. Also $\mathfrak m(0-)=\int_0^\infty Y^{-1}\dd t=\infty$, so the spectral measure $\sigma$ of the string $\mathfrak{m}$ is unique by \cite[equation (2.3)]{Kotani}.
+
+In the following, we use the arguments and results of \cite{Kotani}. For nondecreasing strings of entrance type satisfying the first condition in \eqref{eq:stringintegrability}, equality of spectral measures implies equality of the strings up to translation \cite[Theorem 1]{Kotani}. Under the stronger second condition, we follow \cite[Section~1]{Kotani} and define the characteristic function $h$ associated with the singular string $\mathfrak m$ by
+\begin{equation}\label{eq:characteristic}
+ h(\lambda)=\lim_{\xi\to-\infty}\left\{\xi+\varphi_\lambda(\xi)
+ \int_\xi^0\varphi_\lambda(v)^{-2}\dd v\right\} = a + \int^{\infty}_0 \left( \frac{1}{\xi - \lambda} - \frac{\xi}{\xi^2 + 1} \right) \dd \sigma(\xi),\qquad\lambda<0,
+\end{equation}
+where $\sigma$ is the spectral measure and $\varphi_\lambda$ is the unique solution of 
+\begin{equation} \label{eq:entrance_solution}
+    \varphi(\xi) = 1 - \lambda \int^{\xi}_{-\infty} (\xi - v) \varphi(v) \dd \mathfrak{m}(v),
+\end{equation}
+with $\varphi_\lambda(-\infty)=1$. Therefore equality of these characteristic functions for every negative parameter implies equality of the spectral measures. Next, fixing the right endpoint of $\mathfrak{m}(\xi)$ at zero removes the translation freedom. We finally determine $u(t, x)$ uniquely from $\mathfrak{m}(\xi)$.
+
+\subsection{Notation and estimates}
 By H\"older and Cauchy--Schwarz,
 \begin{equation}\label{eq:A3lower}
  1=A_1^3\le A_0^2A_3,\qquad A_2^2\le A_1A_3=A_3.
@@ -888,10 +2040,10 @@ Then $Z>0$, $Z\le p^2A_2/2=O_p(t)$, and cancellation of the boundary term in \eq
 
 \begin{lemma}\label{lem:remainder}
 For each fixed $p>0$,
-\begin{equation}\label{eq:taylorthird}
+\begin{equation*}
  Z(t,p)=\frac{p^2}{2}A_2(t)-\frac{p^3}{6}A_3(t)+o(A_3(t))\qquad(t\downarrow0).
-\end{equation}
-In fact the remainder divided by $A_3(t)$ is $O_p(\sqrt t)$ for $0<t\le1$.
+\end{equation*}
+In fact, the remainder divided by $A_3(t)$ is $O_p(\sqrt t)$ for $0<t\le1$.
 \end{lemma}
 \begin{proof}
 The nonnegative remainder
@@ -907,49 +2059,12 @@ Split its integral at a number $\delta>0$. By \eqref{eq:limitthirdtail} and \eqr
 Taking $\delta=\sqrt t$ proves the assertion. The quantitative tail in \eqref{eq:limitthirdtail} is the input that makes the normalized remainder vanish.
 \end{proof}
 
-\subsection{Construction of the string of entrance type}
-Fix a normalization constant $\kappa>0$ and put
-\begin{equation}\label{eq:Y}
- Y(t)=\frac{\kappa}{A_3(t)}.
-\end{equation}
-Then $Y'=-A_0Y$, $Y(t)\asymp t^{-2}$, and $(A_2Y)'=-Y$. Since $A_2(t)Y(t)=O(t^{-1})\to0$ as $t\to\infty$,
-\[
- A_2(t)Y(t)=\int_t^\infty Y(s)\dd s.
-\]
-Define
-\begin{equation}\label{eq:stringcoordinates}
- \xi(t)=-\int_t^\infty Y(s)\dd s=-A_2(t)Y(t),\qquad
- \mathfrak m(\xi(t))=\int_0^tY(s)^{-1}\dd s.
-\end{equation}
-The map $t\mapsto\xi(t)$ is increasing from $(0,\infty)$ onto $(-\infty,0)$, and
-\begin{equation}\label{eq:stringdensity}
- \xi'(t)=Y(t),\qquad \mathfrak m'(\xi(t))=Y(t)^{-2}.
-\end{equation}
-Extend $\mathfrak m(\xi)=\infty$ for $\xi\ge0$. The estimates above give
-\[
- -\xi(t)\asymp t^{-1},\qquad \mathfrak m(\xi(t))\asymp t^3,
- \qquad \mathfrak m'(\xi)\asymp|\xi|^{-4}\quad(\xi\to-\infty).
-\]
-Consequently $\mathfrak m(-\infty)=0$, the support is nonempty, the finite right endpoint is zero, and for every $b<0$,
-\begin{equation}\label{eq:stringintegrability}
- \int_{-\infty}^b|\xi|\dd\mathfrak m(\xi)<\infty,
- \qquad \int_{-\infty}^b\xi^2\dd\mathfrak m(\xi)<\infty.
-\end{equation}
-The first condition in \eqref{eq:stringintegrability} is Kotani's entrance condition \cite[condition~(2.1)]{Kotani}; thus $\mathfrak m$ is a \emph{string of entrance type} in his terminology. The second is the stronger condition used to define the singular characteristic below.
-Also $\mathfrak m(0-)=\int_0^\infty Y^{-1}\dd t=\infty$. Thus the right-boundary nonuniqueness alternative in Kotani's equation (2.3) does not occur.
-
-We use the following precise published input. For nondecreasing strings of entrance type satisfying the first condition in \eqref{eq:stringintegrability}, equality of canonical spectral measures implies equality up to translation \cite[Theorem 1, arXiv p.~4]{Kotani}. Under the stronger second condition, the singular characteristic is
-\begin{equation}\label{eq:characteristic}
- h(\lambda)=\lim_{\xi\to-\infty}\left\{\xi+\varphi_\lambda(\xi)
- \int_\xi^0\varphi_\lambda(v)^{-2}\dd v\right\},\qquad\lambda<0,
-\end{equation}
-where $\varphi_\lambda$ is the solution normalized by $\varphi_\lambda(-\infty)=1$. Its Herglotz representation on arXiv p.~2 identifies its spectral measure. Therefore equality of these characteristics for every negative parameter implies equality of the spectral measures. Fixing the right endpoint at zero removes the translation freedom.
 
 For $p>0$ put
-\begin{equation}\label{eq:Phi}
+\begin{equation*}
  \Phi(t,p)=\exp\left\{-\frac12\int_0^tZ(s,p)\dd s\right\},\qquad
  f_p(\xi(t))=\frac2{p^2}Y(t)Z(t,p)\Phi(t,p).
-\end{equation}
+\end{equation*}
 The bounds on $Z$ imply $0<\Phi\le1$ and $\Phi=1+O_p(t^2)$ near zero. Direct differentiation using \eqref{eq:ZODE} gives
 \begin{equation}\label{eq:fODE}
  \frac{\mathrm d}{\mathrm dt}f_p(\xi(t))=-Y(t)\Phi(t,p),\qquad
@@ -966,50 +2081,45 @@ Lemma~\ref{lem:remainder}, together with $YA_3=\kappa$, gives
    +\frac2{p^2}Y\Phi\int R_p(x)u(t,x)\dd x\notag\\
  &=-\frac{\kappa p}{3}+O_p(\sqrt t).
 \end{align}
-Furthermore $f'_p(\xi)\to-1$ as $\xi\to-\infty$.
+Furthermore, $f'_p(\xi)\to-1$ as $\xi\to-\infty$.
 
-\subsection{Canonical normalization and inverse uniqueness}
-Let $q=p^2/4$ and let $\varphi=\varphi_{-q}$ be the solution normalized at $-\infty$. Its Volterra equation is
-\[
- \varphi(\xi)=1+q\int_{-\infty}^\xi(\xi-v)\varphi(v)\mathfrak m'(v)\dd v.
-\]
-Thus $\varphi\ge1$ and $\varphi'\ge0$. Since
+\subsection{Computation of \texorpdfstring{$\mathfrak{m}$}{m} and \texorpdfstring{$u(t, x)$}{u(t, x)}}
+Let $\lambda = -p^2/4$ and let $\varphi_{\lambda}$ be defined as the solution of \eqref{eq:entrance_solution}. Thus $\varphi_{\lambda} \ge1$ and $\varphi'_{\lambda} \ge0$. Since
 $B(\xi)=\int_{-\infty}^\xi(\xi-v)\mathfrak m'(v)\dd v=O(|\xi|^{-2})$, monotonicity gives
-$\varphi(\xi)\le1+qB(\xi)\varphi(\xi)$. For sufficiently negative $\xi$,
+$\varphi_{\lambda}(\xi)\le1 - \lambda B(\xi)\varphi_{\lambda}(\xi)$. For sufficiently large negative $\xi$,
 \[
- \varphi(\xi)=1+O_q(|\xi|^{-2}),\qquad
- \varphi'(\xi)=O_q(|\xi|^{-3}).
+ \varphi_{\lambda} (\xi)=1+O_{\lambda} (|\xi|^{-2}),\qquad
+ \varphi'_{\lambda} (\xi)=O_{\lambda} (|\xi|^{-3}).
 \]
 Equations \eqref{eq:fODE} and \eqref{eq:fpentrance} then imply that the constant Wronskian is
 \[
- f_p\varphi'-f'_p\varphi=1.
+ f_p\varphi_{\lambda} '-f'_p\varphi_{\lambda} = 1.
 \]
-Since $f_p/\varphi\to0$ at $0-$, integration of $(f_p/\varphi)'=-\varphi^{-2}$ proves
+Since $f_p/\varphi_{\lambda} \to0$ at $0-$, integration of $(f_p/\varphi_{\lambda})'=-\varphi^{-2}_{\lambda}$ proves
 \[
- f_p(\xi)=\varphi(\xi)\int_\xi^0\varphi(v)^{-2}\dd v.
+ f_p(\xi)=\varphi_{\lambda} (\xi)\int_\xi^0\varphi(v)^{-2}_{\lambda} \dd v.
 \]
-This identifies $f_p$ with the canonical solution in \eqref{eq:characteristic}. From \eqref{eq:fpentrance},
-\begin{equation}\label{eq:h}
- h(-q)=-\frac{2\kappa}{3}\sqrt q\qquad(q>0).
-\end{equation}
+Substituting this identity into \eqref{eq:characteristic} expresses $h(\lambda)$ as the limit of $f_p(\xi)+\xi$ as $\xi\to-\infty$. Hence \eqref{eq:fpentrance} gives
+\begin{equation*}
+ h(\lambda)=-\frac{\kappa p}{3} = -\frac{2\kappa}{3} \sqrt{-\lambda}.
+\end{equation*}
 This is an identity on the whole negative axis.
 
-Put $d=2\kappa/3$ and consider the explicit string
-\begin{equation}\label{eq:modelstring}
+On the other hand, put $d=2\kappa/3$ and consider the explicit string
+\begin{equation*}
  \mathfrak m_*(\xi)=\frac{d^2}{3(-\xi)^3}\quad(\xi<0),\qquad
  \mathfrak m_*(\xi)=\infty\quad(\xi\ge0).
-\end{equation}
-Its decreasing normalized solution is
-\[
- f_{*,p}(\xi)=(-\xi)\exp\left\{\frac{dp}{2\xi}\right\}.
-\]
-A direct derivative calculation gives $f''_{*,p}=(p^2/4)\mathfrak m_*'f_{*,p}$, $f_{*,p}(0-)=0$, $f'_{*,p}(-\infty)=-1$, and
-\[
- \lim_{\xi\to-\infty}\{f_{*,p}(\xi)+\xi\}=-dp/2=-\kappa p/3.
-\]
-The same Wronskian normalization applies, so its characteristic is exactly \eqref{eq:h}. Both strings meet \eqref{eq:stringintegrability}. Inverse uniqueness and their common finite right endpoint give $\mathfrak m=\mathfrak m_*$.
+\end{equation*}
+A direct computation gives the solution of \eqref{eq:entrance_solution} with $\mathfrak m$ replaced by $\mathfrak m_*$ and the corresponding characteristic function: for every $\lambda<0$,
+\begin{equation*}
+    \varphi_{*, \lambda} = \frac{\sinh(d\sqrt{-\lambda}/(-\xi))}{d\sqrt{-\lambda}/(-\xi)}, \qquad h_*(\lambda) = -d\sqrt{-\lambda}.
+\end{equation*}
+Since $h_*(\lambda) = h(\lambda)$, we have that $\mathfrak{m}_*$ and $\mathfrak{m}$ differ only by a translation. Kotani's uniqueness theorem and their common finite right endpoint give $\mathfrak m=\mathfrak m_*$. Moreover, we also find that
+\begin{equation*}
+    f_p(\xi) = (-\xi) \exp \left( \frac{dp}{2\xi} \right).
+\end{equation*}
 
-To recover physical time rather than just a reparametrized string, compare their densities:
+To compute $u(t,x)$, we compare the densities of $\mathfrak m$ and $\mathfrak m_*$:
 \[
  Y(t)^{-2}=d^2\xi(t)^{-4},\qquad \xi'(t)=Y(t).
 \]
@@ -1017,28 +2127,135 @@ Thus $\xi'=\xi^2/d$. The condition $\xi(t)\to-\infty$ as $t\downarrow0$ fixes th
 \[
  \xi(t)=-d/t,\qquad Y(t)=d/t^2,\qquad A_0(t)=-Y'(t)/Y(t)=2/t.
 \]
-Uniqueness of the normalized decreasing solution yields $f_p=f_{*,p}$. From $f'_p(\xi(t))=-\Phi(t,p)$ one obtains
+From $f'_p(\xi(t))=-\Phi(t,p)$ we obtain
 \[
  \Phi(t,p)=(1+pt/2)e^{-pt/2},\qquad
  Z(t,p)=-2\partial_t\log\Phi(t,p)=\frac{tp^2}{tp+2}.
 \]
 Therefore
-\begin{equation}\label{eq:rigidprofile}
+\begin{equation*}
  U(t,p)=A_0(t)-p+Z(t,p)=\frac4{t(tp+2)},\qquad
  u(t,x)=\frac4{t^2}e^{-2x/t}.
-\end{equation}
+\end{equation*}
 Uniqueness of Laplace transforms proves the last equality. The time variable is the original scaling $t=n/N$. This proves Proposition~\ref{prop:identification}.
 
-\section{Proof of Theorem~\ref{thm:sharpness}}\label{sec:sharpness}
-We construct a critical law with a polynomial tilted tail and apply the stable-product theorem of Chen and Shi~\cite[Theorem~1.1]{CS}. The resulting product exponent is incompatible with the limit for $n(G_n-1)$ in Theorem~\ref{thm:profile}.
+\appendix
+\section{Sharpness of the moment assumption for the survival asymptotic}\label{sec:sharpness}
+In this appendix, we show that, for any fixed $r\in[0,3)$, the assumption $\E[X_0^rm^{X_0}]<\infty$ does not, in general, guarantee the survival asymptotic $n^2p_n\to4/(m-1)^2$.
 
+\begin{theorem}\label{thm:sharpness}
+For every fixed $m\ge2$ and every $r\in[0,3)$, there exists a nondegenerate critical initial law with $\E[X_0^rm^{X_0}]<\infty$ but $\E[X_0^3m^{X_0}]=\infty$ for which $n^2p_n$ does not converge to $4/(m-1)^2$.
+\end{theorem}
+
+The proof constructs a critical law for which $\Pp(X_0=k)$ is proportional to $m^{-k}k^{-\alpha}$ for $k\ge2$, where $\alpha\in(\max\{3,r+1\},4)$. The choice $\alpha>r+1$ ensures that $\E[X_0^rm^{X_0}]<\infty$. The product estimate of Chen and Shi~\cite[Theorem~1.1]{CS} gives
+\[
+ \prod_{j=0}^{n-1}G_j^{m-1}\asymp n^{\alpha-2}.
+\]
+The following lemma shows that, for a critical initial law, the survival asymptotic $n^2p_n\to4/(m-1)^2$ implies $\prod_{j=0}^{n-1}G_j^{m-1}=n^{2+o(1)}$, without assuming $\E[X_0^3m^{X_0}]<\infty$. This contradicts the preceding estimate since $\alpha-2<2$.
+
+\begin{lemma}\label{lem:productasymptotic}
+Fix $m\ge2$ and a nonnegative integer-valued initial law satisfying
+\[
+ (m-1)\E[X_0m^{X_0}]=\E[m^{X_0}]<\infty.
+\]
+Let $(X_n)$ evolve according to \eqref{eq:model}, with $p_n$ and $G_n$
+defined by \eqref{eq:notation}.
+Suppose that
+\begin{equation}\label{eq:survivalassumption}
+ n^2p_n\longrightarrow\frac4{(m-1)^2}.
+\end{equation}
+Then
+\begin{equation}\label{eq:productasymptotic}
+ \prod_{j=0}^{n-1}G_j^{m-1}=n^{2+o(1)}.
+\end{equation}
+\end{lemma}
 \begin{proof}
+We first show that
+\begin{equation}\label{eq:productlimitassumption}
+ n(G_n-1)\longrightarrow\frac2{m-1},
+\end{equation}
+and then use this limit to prove \eqref{eq:productasymptotic}.
+
+\textbf{Proof of \eqref{eq:productlimitassumption}.}
+Put $\varepsilon_n=G_n-1$. The recursion \eqref{eq:pgf} preserves
+criticality, so the tilted law $q_n$ has mean $1/(m-1)$.
+Since $G_n\ge1$, for every integer $K\ge1$,
+\[
+ \theta_n=\sum_{k\ge1}q_{n,k}
+ \le m^Kp_n+\frac1{K+1}\sum_{k>K}kq_{n,k}
+ \le m^Kp_n+\frac1{(m-1)(K+1)}.
+\]
+By \eqref{eq:survivalassumption}, $p_n\to0$. Letting first $n\to\infty$
+and then $K\to\infty$ gives $\theta_n\to0$. Hence
+\[
+ G_n=\frac{1-p_n}{1-\theta_n}\longrightarrow1,
+\]
+so $\varepsilon_n\to0$.
+
+Evaluating \eqref{eq:pgf} at $m$ gives
+\[
+ \varepsilon_{n+1}=F_n(\varepsilon_n),\qquad
+ F_n(x)=\frac{(1+x)^m+(m-1)(1-p_n)^m}{m}-1.
+\]
+We now compare $\varepsilon_n$ with $b/n$. For each fixed $b>0$,
+\eqref{eq:survivalassumption} and a Taylor expansion give
+\begin{equation}\label{eq:survivalbarrier}
+ F_n(b/n)-\frac b{n+1}
+ =\frac1{n^2}\left(\frac{m-1}{2}b^2+b-\frac4{m-1}+o(1)\right).
+\end{equation}
+The polynomial in parentheses has the unique positive root
+$b_*=2/(m-1)$, and $F_n'(x)=(1+x)^{m-1}\ge1$ for $x\ge0$.
+If $b>b_*$, the left-hand side of \eqref{eq:survivalbarrier} is positive
+for all $n\ge N_b$, where $N_b\ge1$. Suppose that
+$\varepsilon_{n_0}\ge b/n_0$ for an index $n_0\ge N_b$.
+Whenever $n\ge n_0$ and $\varepsilon_n\ge b/n$, the derivative bound gives
+\[
+\begin{aligned}
+ \varepsilon_{n+1}-\frac b{n+1}
+ &=F_n(\varepsilon_n)-F_n(b/n)
+   +F_n(b/n)-\frac b{n+1}\\
+ &>\varepsilon_n-\frac bn\ge0.
+\end{aligned}
+\]
+By induction, the difference is strictly positive from $n_0+1$ onward
+and remains nondecreasing. This contradicts
+$\varepsilon_n-b/n\to0$. Thus $\varepsilon_n<b/n$ eventually.
+
+If $0<b<b_*$, choose $N_b$ so that the left-hand side of
+\eqref{eq:survivalbarrier} is negative for all $n\ge N_b$.
+Suppose that $\varepsilon_{n_0}\le b/n_0$ for some $n_0\ge N_b$.
+Whenever $n\ge n_0$ and $0\le\varepsilon_n\le b/n$, we have
+\[
+\begin{aligned}
+ \frac b{n+1}-\varepsilon_{n+1}
+ &=F_n(b/n)-F_n(\varepsilon_n)
+   +\frac b{n+1}-F_n(b/n)\\
+ &>\frac bn-\varepsilon_n\ge0.
+\end{aligned}
+\]
+Induction again gives a difference that is strictly positive from
+$n_0+1$ onward and nondecreasing. But this difference is at most $b/n$
+because $\varepsilon_n\ge0$, a contradiction as $n\to\infty$.
+Thus $\varepsilon_n>b/n$ eventually.
+Letting $b\downarrow b_*$ and $b\uparrow b_*$ in these two bounds proves
+\eqref{eq:productlimitassumption}.
+
+\textbf{Proof of \eqref{eq:productasymptotic}.}
+By \eqref{eq:productlimitassumption}, $G_j-1=O(j^{-1})$, so
+$\sum_{j\ge0}(G_j-1)^2<\infty$. Expanding $\log G_j$ at one, we obtain
+\[
+ \log\left(\prod_{j=0}^{n-1}G_j^{m-1}\right)
+ =(m-1)\sum_{j=0}^{n-1}(G_j-1)+O(1)
+ =2\log n+o(\log n).
+\]
+Exponentiating proves the claim.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:sharpness}]
 Fix $m\ge2$ and $r\in[0,3)$. Choose $\alpha\in(\max\{3,r+1\},4)$ and $c>0$ sufficiently small. Define a tilted probability law by
 \[
  q_{0,k}=ck^{-\alpha}\ (k\ge2),\quad
- q_{0,1}=\frac1{m-1}-c\sum_{k\ge2}k^{1-\alpha},
-\]
-\[
+ q_{0,1}=\frac1{m-1}-c\sum_{k\ge2}k^{1-\alpha},\quad
  q_{0,0}=1-\frac1{m-1}+c\sum_{k\ge2}(k-1)k^{-\alpha}.
 \]
 All masses are nonnegative, $q_{0,0}>0$, the total mass is one, and the mean is $1/(m-1)$. Put
@@ -1046,18 +2263,19 @@ All masses are nonnegative, $q_{0,0}>0$, the total mass is one, and the mean is 
  G_0=\left(\sum_{k\ge0}m^{-k}q_{0,k}\right)^{-1},\qquad
  \Pp(X_0=k)=G_0m^{-k}q_{0,k}.
 \]
-The original law is exactly critical, nondegenerate, and has positive mass above one. Its tilted moment of positive order $s$ is finite exactly when $s<\alpha-1$; its zeroth tilted moment is finite as well. Hence the stated $r$th moment is finite and the third is infinite.
+The original law is exactly critical, nondegenerate, and has positive mass above one. For $s>0$, $\E[X_0^sm^{X_0}]<\infty$ if and only if $s<\alpha-1$; moreover, $\E[m^{X_0}]<\infty$. Hence $\E[X_0^rm^{X_0}]<\infty$ and $\E[X_0^3m^{X_0}]=\infty$.
 
-The stable-product theorem applies because the original tail is exactly $G_0c\,m^{-k}k^{-\alpha}$ for $k\ge2$. It gives
+The product estimate of Chen and Shi~\cite[Theorem~1.1]{CS} applies because $\Pp(X_0=k)=G_0c\,m^{-k}k^{-\alpha}$ for $k\ge2$. It gives
 \[
  \prod_{j=0}^{n-1}G_j^{m-1}\asymp n^{\alpha-2}.
 \]
-If $n(G_n-1)\to2/(m-1)$, then $\sum_j(G_j-1)^2<\infty$ and
-\[
- (m-1)\sum_{j<n}\log G_j=2\log n+o(\log n),
-\]
-contradicting the product exponent $\alpha-2<2$. This proves the theorem.
+Since $\alpha-2<2$, this is incompatible with the conclusion of
+Lemma~\ref{lem:productasymptotic}. Hence $n^2p_n$ cannot converge to
+$4/(m-1)^2$, proving the theorem.
 \end{proof}
+\section*{Funding}
+YZ is supported by the Fundamental Research Funds for the Central Universities.
+
 % Candidate funding acknowledgment, pending confirmation that these grants
 % apply to the present work. Source: the Acknowledgements in
 % https://arxiv.org/html/2307.03720v5 (23 October 2025).
@@ -1103,6 +2321,7 @@ Krein's strings whose spectral functions are of polynomial growth.
 The Derrida--Retaux conjecture on recursive models.
 \emph{Ann. Probab.} \textbf{49}, 637--670.
 \href{https://doi.org/10.1214/20-AOP1457}{doi:10.1214/20-AOP1457}.
+\href{https://arxiv.org/abs/1907.01601v3}{arXiv:1907.01601v3}.
 
 \bibitem{CDDS} X. Chen, V. Dagard, B. Derrida and Z. Shi (2020).
 The critical behaviors and the scaling functions of a coalescence equation.
@@ -1123,5 +2342,46 @@ Asymptotic behavior of the generalized Derrida--Retaux recursive model.
 The Derrida--Retaux model on a geometric Galton--Watson tree.
 Preprint.
 \href{https://arxiv.org/abs/2502.02991}{arXiv:2502.02991}.
+
+\bibitem{DS} B. Derrida and Z. Shi (2020).
+Results and conjectures on a toy model of depinning.
+\emph{Moscow Math. J.} \textbf{20}, 695--709.
+\href{https://arxiv.org/abs/2005.10208}{arXiv:2005.10208}.
+
+\bibitem{HS} Y. Hu and Z. Shi (2018).
+The free energy in the Derrida--Retaux recursive model.
+\emph{J. Stat. Phys.} \textbf{172}, 718--741.
+\href{https://doi.org/10.1007/s10955-018-2066-1}{doi:10.1007/s10955-018-2066-1}.
+
+\bibitem{CHSdual} X. Chen, Y. Hu and Z. Shi (2024).
+The dual Derrida--Retaux conjecture.
+\emph{Stochastic Process. Appl.} \textbf{171}, article 104332.
+\href{https://arxiv.org/abs/2306.12717}{arXiv:2306.12717}.
+
+\bibitem{ChenSmooth} X. Chen (2026).
+Infinite differentiability of the free energy for a Derrida--Retaux system.
+\emph{Acta Math. Sin. (Engl. Ser.)} \textbf{42}, 1457--1480.
+\href{https://doi.org/10.1007/s10114-026-4249-z}{doi:10.1007/s10114-026-4249-z}.
+
+\bibitem{LZscale} Z. Li and R. Zhang (2024).
+Derrida--Retaux type models and related scaling limit theorems.
+Preprint.
+\href{https://arxiv.org/abs/2411.12189v2}{arXiv:2411.12189v2}.
+
+\bibitem{DDS} B. Derrida, T. Duquesne and Z. Shi (2024).
+The critical tree of a renormalization model as a growth-fragmentation process.
+\emph{Ann. Inst. H. Poincar\'e Probab. Statist.} \textbf{60}, 1985--2024.
+\href{https://doi.org/10.1214/23-AIHP1390}{doi:10.1214/23-AIHP1390}.
+
+\bibitem{DuS} T. Duquesne and Z. Shi (2026).
+The continuous Derrida--Retaux branching process in the Brownian CRT.
+Preprint.
+\href{https://arxiv.org/abs/2609.11435v1}{arXiv:2609.11435v1}.
+
+\bibitem{Yaglom} A. M. Yaglom (1947).
+Certain limit theorems of the theory of branching random processes.
+\emph{Doklady Akad. Nauk SSSR (N.S.)} \textbf{56}, 795--798.
+MR22045.
+
 \end{thebibliography}
 \end{document}

@@ -8,3 +8,8 @@
 *.log text eol=lf
 *.ps1 text eol=lf
 .gitignore text eol=lf
+
+# Preserve exact bytes used by the verification hash records.
+/STATEMENT_LEDGER.csv -text
+/EQUATION_LEDGER.csv -text
+/UNNUMBERED_LEDGER.csv -text
